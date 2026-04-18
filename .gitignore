@@ -1,0 +1,41 @@
+#Version minimale du gitignore
+
+# Environnement Python
+venv/
+env/
+.venv
+*.pyc
+__pycache__/
+*.egg-info/
+dist/
+build/
+
+# Variables d'environnement
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Streamlit
+.streamlit/
+.streamlit/secrets.toml
+
+# Bases de données locales
+chroma_db/
+neo4j_data/
+
+# Logs et cache
+*.log
+.cache/
+
+# Fichiers temporaires
+*.tmp
+.pytest_cache/
+.coverage
