@@ -1,0 +1,149 @@
+# 12.3 Virtual Economies
+
+What happens when we add money, or things that work like money, to a gamified
+system? Then we're in the realm of virtual
+economics. And it's possible to get there in a number
+of different ways. Many gamified systems have rewards, things
+that the players get and they're often virtual rewards,
+things like badges. Well, if those rewards are persistent, if
+they're things that endure throughout
+participating in the activity, especially if the player goes away and comes back, then they can start to function as virtual
+goods. If the system is designed in a way that
+gives them some scarcity value, some of them are
+harder to get than others. Some of them are less widely available
+than others. Then those virtual goods can appear to
+have value to the players, just like a real world
+physical good does. The second way to bring in virtual
+economics, is to have point systems that involve points
+that are tradeable or redeemable. I.e.you can get the points and use them to buy a variety of different things in the
+gamified system, which themselves are virtual goods
+then, or you can redeem the points for things in the
+physical world. For a coupon or even for money in the
+physical world. In that case, we're starting to deal with
+a virtual currency. The points now operate like real money. They're a currency. They're a medium of exchange. What is a dollar or a Euro, or a Reminbi? It's not a thing in and of itself. It's just an accounting mechanism that's
+tradeable for other real world things, that we want, because people in that society, with the
+backing of governments, are willing to make that
+exchange. And say, if you give me a certain amount
+of money, I will recognize it and give you some
+other kinds of goods. So, the same thing can be true of point
+systems in gamified systems. If they are exchangeable for other things
+that people value, then they can operate like a
+currency. And finally, if the system allows
+transactions, if participants in the virtual system can
+trade with each other, directly or through some
+marketplace, then potentially we're in the realm of a full blown virtual
+economy. And we've seen this in a variety of
+massively multiplayer online games. Things like EVE Online as well as some
+virtual worlds like Second Light that are designed to
+have functioning virtual economies. And all of these can exist to a greater or
+lesser extent in gamified systems. So a couple of examples, virtual goods are a widespread phenomenon in many social
+games today. So games like Farmville. One of the ways that they were so
+successful as businesses, was they recognized that virtual goods could be
+unlocked as a way to monetize the game. Doesn't cost anything to play, but in
+order to achieve certain things easily in the
+game, or to get certain rare goods in the game,
+you've got to start to spend real money. So people think of those virtual goods as being really worth something, either
+because they had to pay for them, or because they had
+to work very hard to get them. This has been so successful that overall
+the virtual goods market is estimated at $7 billion worldwide in 2010,
+growing to 13 billion by 2016. But it's not just games. Gamified systems can have aspects of
+virtual goods and virtual currencies, and potentially even
+virtual economies as well. Think in particular about the gamified systems that are derived from loyalty
+programs. So here is an example that I picked out,
+almost at random, from NesCafe Australia
+something called Cup of Rewards. Typical loyalty type program. You get points for going to the site and putting in a code, because you bought your
+NesCafe products. And you accumulate the points, and then
+you can exchange them for discounts and for coupons to use on
+various other sorts of products. That's a virtual currency. It's making those points tradeable and
+redeemable for real world benefits. And therefore, it works like a virtual
+good or like a currency in any other case. The issue with a lot of these virtual
+currencies though, as with many other examples of
+gamification, and many other examples of loyalty programs,
+is that they're typically not built today with a focus on
+fun. With a focus on the design aspects of
+effective gamification. They assume that just the fact that you can just redeem these points for tangible
+goods, will be enough to motivate you to come back and participate and buy the desired
+products. But as we've seen throughout this class,
+tangible rewards have serious limitations. And to the extent that a virtual currency
+is just a way to harness a gamified system to tangible extrinsic
+rewards, it has all the limitations that I've already
+talked about. But it doesn't have to be that way. These systems can be designed in ways that focus on fun and that systematically, are
+designed to unlock intrinsic motivation, and that
+can also feed into the virtual economic aspects of
+the system. If designed well, these systems can have the attributes of both gamification and
+economics. So what does it take to design a
+successful virtual economy? The key skill is balance. I've talked about balance as one of the
+attributes of game design. It's ensuring the game is not too hard,
+too easy, too fast, too slow. One side doesn't always win, but balance
+is also critical in economics, because economics
+is about, not necessarily money. It's about scarcity. Anytime there is scarcity, when people
+make choices under those conditions of scarcity, they will tend to
+exhibit economic behavior. And scarcity is a variable in a gamified
+system that's defined, at least at some level, by
+the designer. And in any system where people have the
+ability to use virtual goods or virtual currencies, it's important to ensure that
+there's the right level of scarcity. The designer has to constantly balance, to
+ensure that there's not too much money, which
+leads to inflation and effectively devalues the
+currency, or too little, in which case, it's too hard to
+get. This is a process that can be called using
+faucets and drains. Faucets are things that put money into the
+economy. And drains are things that take it out of
+the economy. I guess if it's a drain then I should
+probably draw it this way, as you're going down the
+drain. But there are ways of balancing how much
+money there is in the economy. They could also be be called and sometimes
+are, sources and sinks. The design technique is to ensure that the
+balance is right. If you've got too much money in the system
+it won't be good or too little. Recall when I talked about the game
+Monopoly that when you pass go you get $200. That's putting money into the system, when you want to buy houses and hotels which
+are very valuable things, you have to pay
+money and that takes money out of the system. And this is something that effective game
+designers, building games around virtual economies,
+have learned to do. For example in World of Warcraft, way back
+at the beginning of the class, I showed you a
+little snippet of my character, and at the end of that clip, he turned into a dragon and
+flew away. Well that dragon is something called the Sandstone Drake is something that's pretty
+hard to get in World of Warcraft, or at least it
+was when it first came out. But that's also, once you have the ability
+to make it, really expensive to make. And the reason is that the designers of
+the game were trying to balance, with this and other things, the
+level of money in the world. And by creating something that's really
+desirable, because it's rare and hard to get, and therefore,
+high level players, ones who typically have a
+lot of money are going to try to get it. And by making that thing really expensive,
+they create a way of taking money out of the economy. And therefore ensuring that people don't
+just get richer and richer, to the point where the system goes
+out of balance. So building a gamified system is about
+ensuring that level of balance, wanting people to
+be incentivized to take money out of the
+economy in the right times and the right amounts. And also putting enough money into the
+economy so things don't get too expensive and too
+hard to purchase. The final point I'll make is that there's
+some real dangers in building these virtual economies, even
+though they have lots of potential benefits. We're talking about systems that may
+involve real money, or real tangible goods as rewards, and
+those are costly. And so, organizations setting up gamified
+systems that have these attributes need to make sure that they understand what
+kinds of obligations they're taking on. Secondly, they tend to be tangible
+extrinsic rewards. So all the concepts that I talked about
+earlier about the hedonic treadmill effect, where rewards start to
+become less and less desirable, and the crowding out effect, where people
+actually become less motivated for the activity itself, because they think it's
+so tied up in the reward. All of that's very relevant and an
+important caution to think about when building systems that
+have virtual economics in them. You don't want to build a system that
+falls into the trap of these tangible extrinsic rewards demotivating the
+enjoyable behavior. In order to ensure that the intrinsic
+motivation is still there, it's important to think about the scarcity and rarity and
+surprise value of the virtual goods. If something feels cool, not necessarily
+because it's valuable in a tangible sense, but because its something that's
+difficult to achieve, like that dragon in World of Warcraft, or it's really
+interesting and looks great within the gamified system, that might be something
+that still feels valuable to the players. Even though or basically independent of
+the tangible value associated with it. So there's much more that I could say
+about designing virtual economies. I wanted to put this unit in though just to ensure that you think about the
+potential of this as one technique to employ in gamified systems or other kinds of game
+like systems. But always be sure to do it in a way
+that's cognizant of all of the points that I've made
+elsewhere in the course.

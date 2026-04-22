@@ -1,0 +1,93 @@
+# 8.4 Designing for Happiness
+
+How can gamification be applied in a way that makes people happy, fulfilled,
+flourishing individuals? To answer that question, we need to look
+to the discipline of positive psychology. Positive psychology was developed most
+notably by Marty Seligman, who's at the University of Pennsylvania and also by
+Mihaly Csikszentmihalyi and I put his name up there on the slide because
+that's the only way that you're going to be able to
+spell it. And the idea of positive psychology is that psychology generally is about
+pathology, is about what happens when something goes wrong,
+someone has some abnormal mental situation that
+doesn't allow them to think straight, or they are depressed, or they are psychotic in some
+way, and the question that Seligman started
+asking was, well, why don't we look at the opposite? Why don't we look at what makes people
+happy and fulfilled? Why don't we look at what things it takes to make people feel better about
+themselves, and to feel like they have authentically happy,
+flourishing lives, as opposed to just, what happens when
+something goes wrong? And so that's what the discipline of
+positive psychology looks at, and it's the basis of large volumes of
+research into many different areas. It turns out that much of this is very
+relevant to understanding the implication of games, and thus by
+extension certain kinds of gamification. Jane McGonigal in her book, Reality is
+Broken, points to Seligman's work, and in some of her later presentations
+points to how games directly can address all of the elements of his
+framework for human flourishing, which she calls, PERMA, which stands for positive emotions, engagement,
+relationships, meaning, and achievement. And I won't go through each of them in
+detail, but it should be obvious how each of these
+elements, which Seligman says are the five core aspects of being a fulfilled,
+flourishing individual, not just happy in a kind of light, short term sense, but
+truly successful as an individual. It turns out that all five of these
+elements clearly tie into things that we've
+discussed as core elements of games, most of which
+gamification, if it's done right and thoughtfully, has some
+opportunity to tap into. So that's the high level way that
+gamification and games can actually promote human flourishing, but I want to specifically talk about the concept of
+flow, which is one of Csikszentmihalyi's major contributions, because that ties in even
+more directly to some of the game design concepts that I've discussed around
+gamification. The idea of flow is that there is a state
+that we sometimes get into, where we are so engaged in what we're doing that
+time seems to lose its meaning. We lose ourself in the activity. We are fully and completely engaged to the
+fullest our, of our abilities. It's a state that is wonderful, and it's a
+state, interestingly enough, that occurs at least as often in work activities as it
+does in entertainment or play activities. And Csikszentmihalyi started, many years
+ago, to investigate this kind of flow staye in all sorts of
+situations. In musicians, and rock climbers, and
+financial analysts, lots of people who had this same characteristic
+kind of experience, and he developed a set of theories around what it
+takes to get into the flow state. Now, it's not something that you can do
+automatically and directly. You can't say, alright, I'm going to go
+into flow now. It's something that happens organically
+when an activity has certain characteristics that are at a sufficient
+level for that individual. But we can think about what the
+characteristics are of allowing flow to occur in a way that's useful for
+games and gamification. So, Csikszentmihalyi presents a chart that
+looks at, over time, what is the difficulty level of a
+certain activity. How challenging is it? And the idea here is that if the activity is too difficult, up here, it
+creates anxiety. It's too tough. We can't succeed at it. It scares us off. We get anxious about the activity. On the other hand, if it's too easy, we
+get bored. Something that is way below our activities
+is a sure recipe for boredom. In the middle is what Csikszentmihalyi
+talks about as the flow channel. So if we stay between these two
+boundaries, and have an activity that over time is constantly
+not too easy, not too hard, that's where we have the
+opportunity for flow, especially if our movement through this
+channel is variable. If it's an interesting activity that
+maintains its challenge, it's not something that we just get on auto
+pilot and do. The challenge ramps up as we move along,
+but the system is designed to keep adapting, so we never go either
+too hard or too easy. So that's a key to achieving this notion
+of flow, and therefore, in game design, game designers think a lot
+about tuning the system so that four players, it's neither too
+hard nor too easy, and yet it keeps int it remains interesting
+and variable throughout the process. To get to a few more aspects of flow that
+Csikszentmihalyi talks about that are relevant for games and gamification,
+he says flow occurs when there are clear
+goals, and we've talked about this in terms of the fundamental definition of games,
+and we've talked about it in terms of the first design criteria for designing a
+gamified system. He second, he says there needs to be a balance between perceived challenges
+and skills. That's the essence of the chart I just
+gave you, but the important thing here is to remember that these are
+perceived challenges and perceived skills. The game feels like it's just hard enough. Whether it is in some objective way,
+there's really no way to tell. The question is, how do you feel about the
+experience? And is it tuned in a way you feel like it
+remains sufficiently interesting? And third, I've talked about this a lot,
+feedback. Clear and immediate feedback. And this is not feedback in the pure
+behaviorist sense, of you're just learning from the experience and moving
+along and creating an association, creating some
+reinforcement. This is feedback allowing you to get to
+the point where you feel totally immersed in the experience, and have that wonderful experience of
+flow. So if you can design gamified systems to
+push more in this direction, to activate the five areas of flourishing
+that Seligman talks about, and to maintain the requirements for flow that Csikszentmihalyi talks about, you will
+create a system that is deeper and more rewarding
+than any kind of extrinsic external motivator can ever be.

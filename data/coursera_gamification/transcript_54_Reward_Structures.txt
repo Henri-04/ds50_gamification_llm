@@ -1,0 +1,124 @@
+# 5.4 Reward Structures
+
+Gamification at least in it's more
+behavioral manifestations tends to be very heavily about rewards. But there are lots
+of different ways to do rewards. First of all, many different things can be
+rewarded. So Four Square with its famous badges has rewards for all sorts of
+things. Rewards for the first time that you check in, rewards for checking in ten,
+25, 50 times. Rewards for checking in every day, rewards for showing up at a bar
+a certain number of times. Rewards for being part of a swarm or a flash mob where
+lots of people are checking in, in the same place and so on and so forth. So, the
+first point is that creative and effective gamification designs will think pretty
+expansively about what can be rewarded. What kinds of behavior does the designer
+want to incentivize and what are different options. Again, the goal is to give users,
+a.k.a. Players, a set of meaningful choices and a set of options that make the
+game feel more engaging. The second aspect of rewards is that there are different
+categories of rewards. And one typology of different kinds of rewards, not at all
+limited to gamification, is what's called Cognitive Evaluation Theory. And this
+comes from Richard Ryan and Ed Deci who we're going to meet in the next segment
+when we start to talk about self determination theory. But one of the
+things that they developed was a typology of different kinds of rewards that can be
+used to motivate behavior. So the first category, the first distinction that they
+highlight is between tangible rewards and intangible rewards. Physical things versus
+things that are not real in any physical, tangible sense. So a badge is an
+intangible reward. It's not something you can take with you. It's not something you
+can hold in your hands. On the other hand, money is a tangible reward. But not all
+tangible rewards are money. A Boy Scout badge, the sown on patch that goes on a
+Boy Scout uniform, tangible reward. Lots and lots of kinds of rewards may not be
+directly for money value. They may be of sentimental value or a sta tus value or
+something to the person that receives them. That's still a tangible reward if
+what they get is some physical thing. If what they get is, Good Job, that's a
+verbal reward, that's intangible, and if they get something digital, that's also an
+intangible reward. Second set of distinction for rewards, is between
+expected rewards and unexpected rewards. Sometimes, we know the reward is coming,
+if we do certain things. Sometimes the reward just happens. It's a surprise. And
+our brains love surprises. We're going to talk about this more but we are hardwired
+to seek out surprises, to find them interesting that dopamine, pleasure system
+of the brain loves surprises. So, that means that an expected reward isn't, quite
+so cool to the brain. But, most of the rewards that we tend to think about
+specially in areas like gamification where the idea is designing for certain
+behaviors, tend to be expected. They say, if you visit the site a certain number of
+times and if you make x number of blog posts you will get this reward. And so you
+as the player see that, and to the extent that the reward motivates you you're
+responding to the expectation of getting the reward. So, distinction between those
+kinds of rewards and ones that just come up by surprise. Even though they may be on
+some defined schedule or algorithm by the designer, but to the player they are not
+expected. Third, set of distinctions has to do with what the rewards are contingent
+on. What is it that the player or other participant has to do to get their reward?
+And here there are several different kinds of subcategories. The first subcategory is
+if the reward is non-contingent, i.e., you get the reward no matter what. You don't
+have to do anything, you just get the reward. That's the reward not being
+contingent upon a task. Not something that we see too commonly in gamification and
+not something that we see too commonly in general because then, what's the point if
+you get the reward automatically? Second category is if the reward is contingent
+upon en gagement. And engagement here means starting the task. So, if we want
+someone to paint our house, we will give them the reward when they start painting
+the house. Or if we want someone to do something on our website or check out our
+product reviews, just starting it is what gives them the reward, whether it's a
+badge or some amount of points, or even some money. Third category is completion
+consistent, contingent. So, here it's not just starting it, it's actually finishing
+it. You'll have to go all the way through and finish the task in order to get the
+reward. Remember the mlb.com badges that popped up when you watched videos and
+certain things happened, those were completion contingent. Remember that one
+of the people who was talking about them on the blog site complained that his
+coworker shut down the computer, and therefore he didn't get the rewards
+because the rewards system was designed that you had to watch the entire video of
+the game in order to be eligible for the badge. So that's an example of being
+completion consistent, contingent instead of engagement contingent. And finally,
+performance contingent. Both of these two, the engagement and the completion one,
+require someone to do a task. But they make no assessment about how well the task
+is done. Either you start it or you finish it, and that's enough. Performance
+contingent says you have to do well somehow on the task in order to get the
+reward. We are rewarding you for not just what you did, but for how you did it. So,
+those are a spectrum of different kinds of rewards that can be offered. And for now,
+let's just bracket the question of how effective those different kinds of rewards
+are. But they're different kinds of rewards, all of which can be applied in
+gamification. So let's look at a few different examples and see which category
+they fit into. The, first couple come from the Samsung Nation site, that I've already
+introduced you to. Here's a badge that you get, it's called the Cruise Badge, that
+you get for ha nging out on the site. Certain amount of time you spend on the
+site but basically, you show up to the site and as far as you're concerned you
+just are there and this badge pops up after a certain amount of time. What kind
+of reward is that? The Samsung Nation Cruise Badge is intangible, right? Just a
+badge. Most of the examples we're going to see in gamification tend to be intangible
+rewards, but not all as we'll get to. It's unexpected. It's something that just pops
+up when you spend a little time on the site, presumably this is something that
+Samsung puts in to give you a little surprise reward and get you engaged in the
+whole badge structure that they are trying to use to drive behavior. And it's
+engagement contingent. Now, at some level you might think this is completion
+contingent because it requires you to spend certain amount of time, I'm guessing
+it's ten minute based on the design of the badge. But from the user's perspective,
+this is the badge you get just for hanging out there. It's basically a badge that you
+get once you spend enough time to really be thought of as engaging and visiting the
+site, and not just popping on there and popping off instantaneously. So I would
+consider this an engagement-contingent reward. Something that you get
+unexpectedly just for starting to spend time on the site. Here's another badge on
+the same Samsung Nation website. This one is for hanging out a lot and it's
+basically I think for 30 minutes of time on the site but this one is a quest. So,
+this one's a little different. It's still intangible, but it's an expected reward.
+You get this badge for doing something on a quest which defines a set of rules. The
+quest says, if you spend 30 minutes you'll get this other badge. The notion of
+course, being this other badge is cooler or there more badges than just spending
+ten minutes on the site. But the fact that you know that you're going on a quest
+turns it into an expected award. And it also makes it completion contingent. Now
+that you know you'll have to spend 30 mi nutes to get the reward, you gotta spend
+30 minutes to get the reward. It's not just something you get for embarking on
+the quest. Now, many examples of rewards in gamification and otherwise are hybrids
+of more than one of these categories. Here is one example from World of Warcraft.
+This is an achievement that you get for various fishing prowess in the game. Yes,
+if you haven't played W.O.W., fishing is actually a skill in the game. The reward
+here you get is just a title. So, intangible reward. Just a, something that
+goes in front of your character name. And there's all these sub components. And some
+of them are things like, catch a 1,000 fish. That's completion contingent, pretty
+clear. You catch one fish you don't get it. You catch 100 fish you don't get it.
+You catch a 1,000 fish you get it. But some of them are different, some of them
+are performance based and competitive. So, this one here, Master Angler, you only get
+if you win a weekly fishing contest get the most fish or get certain special
+reward fish in a defined contest. So, that one actually is not just completion
+contingent, it's performance contingent, and so on and so forth. There's a mix of
+different rewards here that are built in and, the point I just want to make here
+is, there's a lot of complexity that can go into reward design. And in designing
+gamification, the key is to think about the different possibilities, and come up
+with the rewards that are most effective in motivating users but as we'll get to in
+the subsequent unit, also ensuring that there is a truly meaningful and rewarding
+and valuable experience for those players.

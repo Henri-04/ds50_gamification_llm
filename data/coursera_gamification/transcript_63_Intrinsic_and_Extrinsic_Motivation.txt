@@ -1,0 +1,96 @@
+# 6.3 Intrinsic and Extrinsic Motivation
+
+The alternative to a behaviorist approach
+to psychology is Cognitivism. And cognitivism focuses on opening up the
+black box, figuring out what actually is going on in there that motivates people to
+behave in certain ways. Now, as with everything I talk about here is
+psychology, I'm over simplifying and just taking certain aspects from very rich,
+sophisticated, complex and longstanding debates. But for our purpose is, the
+important thing to focus on is that if we start to think in a cognitivist way, start
+to think about what's actually going on in motivation, we need to start
+distinguishing between different kinds of motivation and different kinds of rewards.
+And in particular, think about two broad categories which can be called Intrinsic
+and Extrinsic Motivation. Intrinsic rewards means that you do the thing for
+it's own sake. You do it not because of any external stimuli whatsoever, you do it
+because you want to, because you find the thing rewarding, engaging, enjoyable, fun,
+exciting, just for doing the thing. So, this is what we mean when you hear people
+saying, I love my job so much I'd do it for free. And it's what we think about
+when I say something like, I love just sitting on a beach taking it all in. I'm
+not focused on the tan I'll get nor am I even focused on, I'll relax, and that'll
+recharge me for work, and I'll do better. I'm focusing on, I want to do this thing
+for this thing. And there are lots and lots of things that can produce intrinsic
+motivation. It varies for every person, and every person is different at different
+points in time. Some of us might find our families to be wonderfully, intrinsically
+motivating. Mm? Some of us, at least sometimes, not so much. But the point is
+we can understand what it means to say about something, I'm doing it because I
+want to do it, I want the thing, I'm not focused on the consequences, the other
+kinds of benefits that I might get. And the second category, naturally, is
+extrinsic rewards. And extrinsic rewards means that you're doing something for some
+reas on other than the thing itself. Might be, money. Might be, fame and fortune.
+Might be, someone asked you to do it and you value that person. Maybe it's a family
+member. Maybe it's your boss. The point is, whatever the reason is you're doing
+the thing, it's about the reward not about the thing itself. Gabe Zichermann who is a
+gamification consultant and conference organizer talks about four different
+categories of rewards, which are predominantly different kinds of extrinsic
+reward motivators in gamification. And he talks about them as what he calls the SAPS
+framework which stands for Status, Access, Power and Stuff. And this is a useful way
+to think about the different kinds of extrinsic rewards. That are frequently
+employed in gamified systems. The first one is status. We do it because we think
+that it will make us cool, that other people will value and respect the fact
+that we're doing this. And so if you're at the top of the leader board, then you
+improve status. If you have the American Express over Black Card, you have status.
+Lots of things give people status and gamification, especially when it involves
+things like leader boards and so forth, tends to often have a status component.
+The second one is access. And here the notion is by doing the thing you get some
+access to something that other people don't have. So, for example, if you answer
+lots of people's questions on a discussion board, you get access to an additional
+part of the discussion board. You get access to a special room or channel just
+for moderators. And maybe that's status, maybe that's a social network that you
+want. There's some reason why you feel like you're getting access to something
+new. Content unlocking in games also has some of this aspect. You're trying to get
+to the certain achievement in the game because then it gives you access to new
+content that only you get for that reason, that's about access. The second, the third
+one, excuse me, is power, and this means that you are enabled to do certain things
+as a result of your activities. So again, think about the moderator example on the
+bulletin board, or the question and answer site. The fact that you have enough points
+may give you the ability to edit certain posts. If you don't have enough points,
+you can't or you have to submit your answer to be reviewed by a moderator. But
+if you're high enough in the totem pole, or on the totem pole, then you get that
+ability to directly modify posts or maybe to create new topics, you get the ability
+to do other things that other people can't do. And finally, stuff. Tangible rewards.
+Things that you actually get in response to your actions that's the final thing in
+Zichermann structure. And he makes two claims about this structure both of which
+are based on the notion that it's a hierarchy. The first claim is that, it's
+more advantageous for companies to do the things higher up, like the status because
+they're cheaper. Here you've gotta actually give people the stuff and come up
+with things that may cost you money. Here people just feel the status and you don't
+necessarily have to give them anything of real value. And so these are rank ordered
+in terms of preferences for the companies designing the systems in terms of being
+efficient and not giving up anything they want. The second claim he makes which I
+think is more questionable, is that this is also rank ordered in terms of how
+powerful these motivators are. That status is the most significant and most powerful
+thing that motivates people. I think that some of the time that certainly true but
+as we talked about in the previous video there is a danger in assuming that status
+is the primary thing that motivates you. It gets you potentially in a gamified
+system the people who care the most about status. But that might not be the majority
+of the people in the pool and it might not be the people that you most want in the
+pool. Maybe you don't want the status clubbers as your primary customers, maybe
+you want the people who care about things for other reasons. Those who actually
+going to be your best customers. So may be your focus in status is problematic in
+that way. But this way helps us see some of the different kinds of extrinsic
+motivators and different ways they can function in gamefied systems. The
+fundamental question that we are going to have to ask them is with any form of
+gamefication, any example like the infamous Foursquare badges which I have
+referred to several times, where do they fit? Are these intrinsic or extrinsic
+motivators? And the short answer is they're both. They can be one, they can be
+the other. It depends on the context. It depends on the system overall and what
+specifically is being rewarded, and how it's placed within the system. Whether it
+is something about status or about getting people some stuff or something else. Or
+whether it's an intrinsic motivator. Maybe I get this badge here, I don't even know
+what this Mr. Bill is here but it looks kind of fun, maybe I get that just because
+it's fun. Because I enjoy the thought of having a Mr. Bill logo on my profile page
+on Foursquare not because of anything I get in any tangible or intangible way for
+it, I just like it. That's intrinsic motivation and that can be the result of
+something like badges just as much as the extrinsic motivators. But as I talked
+about, the behaviorist path towards gamification tends to miss that. It tends
+to focus more on the other kinds of motivators.
