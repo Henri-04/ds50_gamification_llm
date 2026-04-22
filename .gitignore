@@ -39,3 +39,5 @@ neo4j_data/
 *.tmp
 .pytest_cache/
 .coverage
+
+chroma_db/
