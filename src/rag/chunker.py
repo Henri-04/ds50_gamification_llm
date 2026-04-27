@@ -32,11 +32,25 @@ def chunk_documents(documents, chunk_size=CHUNK_SIZE, chunk_overlap=CHUNK_OVERLA
     raw_chunks = splitter.split_documents(documents)
 
     # Filtrer les chunks trop courts (titres, en-tetes isolees)
-    chunks = [c for c in raw_chunks if len(c.page_content.strip()) >= MIN_CHUNK_SIZE]
+    sized = [c for c in raw_chunks if len(c.page_content.strip()) >= MIN_CHUNK_SIZE]
 
-    filtered = len(raw_chunks) - len(chunks)
+    # Dedupliquer les chunks au contenu identique (PDF qui repetent en-tetes,
+    # overlap qui produit des doublons, etc.)
+    seen = set()
+    chunks = []
+    for c in sized:
+        key = " ".join(c.page_content.split())
+        if key in seen:
+            continue
+        seen.add(key)
+        chunks.append(c)
+
+    filtered = len(raw_chunks) - len(sized)
+    deduped = len(sized) - len(chunks)
     if filtered > 0:
         print(f"  ({filtered} micro-chunks filtres, < {MIN_CHUNK_SIZE} chars)")
+    if deduped > 0:
+        print(f"  ({deduped} chunks dupliques supprimes)")
 
     return chunks
 

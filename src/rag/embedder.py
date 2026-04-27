@@ -47,7 +47,8 @@ def embed_and_store(chunks, reset=True):
         documents=chunks,
         embedding=embedding_fn,
         persist_directory=CHROMA_DIR,
-        collection_name=COLLECTION_NAME
+        collection_name=COLLECTION_NAME,
+        collection_metadata={"hnsw:space": "cosine"}
     )
 
     count = vectorstore._collection.count()
