@@ -37,11 +37,11 @@ Ce plugin permet d'importer des données RDF/OWL et de transformer les triplets 
 
 ### 2) Activer les procédures n10s
 
-Dans la configuration Neo4j (`DB -> ... -> Open -> neo4j.conf`), ajouter à la fin du fichier:
+Dans la configuration Neo4j (`DB -> ... -> Open -> neo4j.conf`), ajouter `n10s.*` aux lignes existantes:
 
 ```properties
-dbms.security.procedures.unrestricted=n10s.*
-dbms.security.procedures.allowlist=n10s.*
+dbms.security.procedures.unrestricted=apoc.*,gds.*,n10s.*
+dbms.security.procedures.allowlist=apoc.*,gds.*,n10s.*
 ```
 
 Sauvegarder le fichier et redémarrer ensuite la base.
