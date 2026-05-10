@@ -15,6 +15,7 @@ This document tracks the SWRL (Semantic Web Rule Language) rules added to `TGC_w
 
 1. [Rule 1 — InferLessonTopicFromReusedResource](#rule-1--inferlessontopicfromreusedresource)
 2. [Rule 2 — InferCourseTopicFromLesson](#rule-2--infercoursetopicfromlesson)
+3. [Rule 3 — InferClassroomObjectiveBehaviouralObjective](#rule-3--inferclassroomobjectivebehaviouralobjective)
 
 ---
 
@@ -93,7 +94,7 @@ TCO:Course(?c)
 ^ TCO:consists_of(?c, ?l)
 ^ TGC:CoversTopic(?l, ?et)
 -> TGC:hasEducationalTopic(?c, ?et)
-````
+```
 
 ## Purpose
 
@@ -139,4 +140,72 @@ CourseX TGC:hasEducationalTopic TopicZ
 ```
 
 ---
+
+# Rule 3 — InferClassroomObjectiveBehaviouralObjective
+
+## Description
+
+If a classroom objective concerns a course, and a lesson of that course reuses a gamified resource designed with a behavioural objective, then the classroom objective concerns that behavioural objective.
+
+## SWRL Rule
+
+```swrl
+TGC:ClassroomObjective(?co)
+^ TCO:Course(?c)
+^ TCO:Lesson(?l)
+^ TGC:GamifiedResource(?r)
+^ TGC:BehaviouralObjective(?o)
+^ TGC:concernsACourse(?co, ?c)
+^ TCO:consists_of(?c, ?l)
+^ TCO:reuseResource(?l, ?r)
+^ TGC:designedWithObjective(?r, ?o)
+-> TGC:concernsObjective(?co, ?o)
+```
+
+## Purpose
+
+This rule propagates behavioural objectives from gamified resources to the classroom objective associated with the course.
+
+It allows the ontology to infer which behavioural objectives are involved in a classroom objective based on the gamified resources reused in the course lessons.
+
+## Semantic Context
+
+**Dependencies:**
+
+* Requires `TGC:ClassroomObjective` class
+* Requires `TCO:Course` class
+* Requires `TCO:Lesson` class
+* Requires `TGC:GamifiedResource` class
+* Requires `TGC:BehaviouralObjective` class
+* Requires `TGC:concernsACourse` object property
+* Requires `TCO:consists_of` object property
+* Requires `TCO:reuseResource` object property
+* Requires `TGC:designedWithObjective` object property
+
+**Output property:**
+
+* `TGC:concernsObjective` — inferred property linking a classroom objective to a behavioural objective
+
+**Semantic note:**
+
+* `TGC:concernsObjective` has `TGC:Objective` as range.
+* This rule uses `TGC:BehaviouralObjective` as the inferred target because `TGC:BehaviouralObjective` is a subclass of `TGC:Objective`.
+* Therefore, the rule is compatible with the ontology domain and range constraints.
+
+## Expected Inference
+
+### Before reasoning
+
+```text
+ClassroomObjectiveX TGC:concernsACourse CourseY
+CourseY TCO:consists_of LessonZ
+LessonZ TCO:reuseResource GamifiedResourceA
+GamifiedResourceA TGC:designedWithObjective BehaviouralObjectiveB
+```
+
+### After reasoning
+
+```text
+ClassroomObjectiveX TGC:concernsObjective BehaviouralObjectiveB
+```
 

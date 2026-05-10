@@ -6558,6 +6558,69 @@
         </Annotation>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>If a classroom objective concerns a course, and a lesson of that course reuses a gamified resource designed with a behavioural objective, then the classroom objective concerns that behavioural objective.</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>InferClassroomObjectiveBehaviouralObjective</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#ClassroomObjective"/>
+                <Variable IRI="#co"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class abbreviatedIRI="TCO:Course"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class abbreviatedIRI="TCO:Lesson"/>
+                <Variable IRI="#l"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#GamifiedResource"/>
+                <Variable IRI="#r"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#BehaviouralObjective"/>
+                <Variable IRI="#o"/>
+            </ClassAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#concernsACourse"/>
+                <Variable IRI="#co"/>
+                <Variable IRI="#c"/>
+            </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty abbreviatedIRI="TCO:consists_of"/>
+                <Variable IRI="#c"/>
+                <Variable IRI="#l"/>
+            </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty abbreviatedIRI="TCO:reuseResource"/>
+                <Variable IRI="#l"/>
+                <Variable IRI="#r"/>
+            </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#designedWithObjective"/>
+                <Variable IRI="#r"/>
+                <Variable IRI="#o"/>
+            </ObjectPropertyAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#concernsObjective"/>
+                <Variable IRI="#co"/>
+                <Variable IRI="#o"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
             <Literal>If a course consists of a lesson, and that lesson covers an educational topic, then the course also has that educational topic.</Literal>
         </Annotation>
         <Annotation>
