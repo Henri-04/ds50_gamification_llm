@@ -6558,6 +6558,51 @@
         </Annotation>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>If a course consists of a lesson, and that lesson covers an educational topic, then the course also has that educational topic.</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>InferCourseTopicFromLesson</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class abbreviatedIRI="TCO:Course"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class abbreviatedIRI="TCO:Lesson"/>
+                <Variable IRI="#l"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#EducationalTopic"/>
+                <Variable IRI="#et"/>
+            </ClassAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty abbreviatedIRI="TCO:consists_of"/>
+                <Variable IRI="#c"/>
+                <Variable IRI="#l"/>
+            </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#CoversTopic"/>
+                <Variable IRI="#l"/>
+                <Variable IRI="#et"/>
+            </ObjectPropertyAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasEducationalTopic"/>
+                <Variable IRI="#c"/>
+                <Variable IRI="#et"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
             <Literal>If a lesson reuses a gamified resource, and that resource has an educational topic, then the lesson covers that educational topic.</Literal>
         </Annotation>
         <Annotation>

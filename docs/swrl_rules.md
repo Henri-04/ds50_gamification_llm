@@ -14,6 +14,7 @@ This document tracks the SWRL (Semantic Web Rule Language) rules added to `TGC_w
 ## Table of Contents
 
 1. [Rule 1 — InferLessonTopicFromReusedResource](#rule-1--inferlessontopicfromreusedresource)
+2. [Rule 2 — InferCourseTopicFromLesson](#rule-2--infercoursetopicfromlesson)
 
 ---
 
@@ -74,3 +75,68 @@ ResourceY TGC:hasEducationalTopic TopicZ
 ```text
 LessonX TGC:CoversTopic TopicZ
 ```
+
+---
+
+# Rule 2 — InferCourseTopicFromLesson
+
+## Description
+
+If a course consists of a lesson, and that lesson covers an educational topic, then the course also has that educational topic.
+
+## SWRL Rule
+
+```swrl
+TCO:Course(?c)
+^ TCO:Lesson(?l)
+^ TGC:EducationalTopic(?et)
+^ TCO:consists_of(?c, ?l)
+^ TGC:CoversTopic(?l, ?et)
+-> TGC:hasEducationalTopic(?c, ?et)
+````
+
+## Purpose
+
+This rule propagates educational topics from lessons to the course that contains them.
+
+It extends the semantic propagation chain introduced by Rule 1:
+
+```text
+GamifiedResource
+→ Lesson
+→ Course
+```
+
+Together with Rule 1, it allows the ontology to infer the educational topics of a course from the gamified resources reused by its lessons.
+
+## Semantic Context
+
+**Dependencies:**
+
+* Requires `TCO:Course` class
+* Requires `TCO:Lesson` class
+* Requires `TGC:EducationalTopic` class
+* Requires `TCO:consists_of` object property
+* Requires `TGC:CoversTopic` object property
+
+**Output property:**
+
+* `TGC:hasEducationalTopic` — inferred property linking courses to educational topics
+
+## Expected Inference
+
+### Before reasoning
+
+```text
+CourseX TCO:consists_of LessonY
+LessonY TGC:CoversTopic TopicZ
+```
+
+### After reasoning
+
+```text
+CourseX TGC:hasEducationalTopic TopicZ
+```
+
+---
+
