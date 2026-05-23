@@ -1,76 +1,115 @@
-# Projet DS50 : IA Générative et Gamification
+# Projet DS50 : IA Generative et Gamification
 
 ## Description
 
-Ce projet vise à concevoir un modèle d'intelligence artificielle générative fournissant des recommandations de gamification personnalisées pour les enseignants. Le système s'appuie sur un module conversationnel, un système de génération augmentée par la recherche (RAG) et un graphe de connaissances (ontologie) pour contextualiser les propositions selon les objectifs pédagogiques, la discipline et le profil des apprenants.
+Systeme d'intelligence artificielle generative fournissant des recommandations de gamification personnalisees pour les enseignants. Le systeme s'appuie sur un module conversationnel, un pipeline RAG (Retrieval-Augmented Generation) et un graphe de connaissances (ontologie) pour contextualiser les propositions selon les objectifs pedagogiques, la discipline et le profil des apprenants.
 
 ## Stack Technique
 
 - **Interface utilisateur** : Streamlit
 - **Orchestration IA** : LangChain / LangGraph
-- **Modèles LLM** : API (Groq, Gemini, OpenAI) ou modèles locaux
-- **Embeddings** : Hugging Face (local) ou via API
-- **Bases de données** : Neo4j (Graphe / GraphRAG) et ChromaDB (Vecteurs)
-- **Modélisation sémantique** : Protégé (OWL/RDF)
+- **Modeles LLM** : API (Groq, Gemini, OpenAI) ou modeles locaux
+- **Embeddings** : Sentence-Transformers (paraphrase-multilingual-MiniLM-L12-v2)
+- **Base vectorielle** : ChromaDB (locale, sans serveur)
+- **Base de graphe** : Neo4j (ontologie, regles SWRL)
+- **Modelisation semantique** : Protege (OWL/RDF)
 
-## Structure du répertoire
+## Structure du repertoire
 
 ```
 ds50_gamification_llm/
-├── /ontologies          # Fichiers .owl ou .rdf de l'ontologie
-├── /src                 # Code source Python (agents, graphe, utilitaires)
-├── /data                # Documents d'entrée (cours au format texte/PDF)
-├── app.py               # Point d'entrée de l'interface Streamlit
-├── requirements.txt     # Liste des dépendances Python
-└── README.md            # Documentation du projet
+├── app.py                    # Point d'entree Streamlit 
+├── requirements.txt          # Dependances Python
+├── README.md
+├── .env                      # Cles API (non versionne)
+├── /data                     # Donnees de cours
+│   ├── /coursera_gamification  # Contenu extrait via API Coursera
+│   │   ├── transcript_*.txt    # Transcriptions des videos
+│   │   └── supplement_*.txt    # Contenu des lectures
+│   └── /cours_DS52             # PDF de cours supplementaires
+├── /src                      # Code source
+│   └── /rag                  # Pipeline RAG 
+│       ├── __init__.py
+│       ├── collect_coursera.py  # Collecte automatique via API Coursera
+│       ├── loader.py            # Chargement des documents (TXT + PDF)
+│       ├── chunker.py           # Decoupage en chunks (500 chars, overlap 50)
+│       ├── embedder.py          # Vectorisation + stockage ChromaDB
+│       └── retriever.py         # Recherche semantique (fonction retrieve())
+├── /ontologies               # Fichiers .owl ou .rdf 
+└── /chroma_db                # Base vectorielle generee (non versionnee)
 ```
 
-## Installation et démarrage
+## Installation et demarrage
 
-### 1. Prérequis
+### 1. Prerequis
 
-- Python 3.10 ou supérieur
-- Neo4j Desktop (installé localement pour la base graphe)
-- Une clé API valide pour le LLM choisi
+- Python 3.10 ou superieur
+- Neo4j Desktop (pour la base graphe)
+- Une cle API valide pour le LLM choisi (Groq, OpenAI, etc.)
 
-### 2. Installation
+### 2. Cloner et installer
 
 ```bash
-# Cloner le dépôt
 git clone https://github.com/Henri-04/ds50_gamification_llm.git
 cd ds50_gamification_llm
 
-# Créer et activer un environnement virtuel
+# Creer et activer un environnement virtuel
 python -m venv venv
 
-# Sur Windows :
+# Windows :
 venv\Scripts\activate
 
-# Sur macOS/Linux :
+# macOS/Linux :
 source venv/bin/activate
 
-# Installer les dépendances
+# Installer les dependances
 pip install -r requirements.txt
 ```
 
 ### 3. Configuration
 
-Avant de lancer l'application, configurez vos clés API :
+Creer un fichier `.env` a la racine :
 
-1. Créez un fichier `.env` à la racine du projet
-2. Ajoutez vos variables d'environnement :
-   ```
-   GROQ_API_KEY=votre_clé_ici
-   NEO4J_URI=bolt://localhost:7687
-   NEO4J_USERNAME=neo4j
-   NEO4J_PASSWORD=votre_mot_de_passe
-   ```
+```
+GROQ_API_KEY=votre_cle_ici
+NEO4J_URI=bolt://localhost:7687
+NEO4J_USERNAME=neo4j
+NEO4J_PASSWORD=votre_mot_de_passe
+```
 
-### 4. Lancement
+### 4. Pipeline RAG : collecte et indexation
+
+Ces commandes collectent les donnees de cours et construisent la base vectorielle.
+A executer une seule fois (ou quand les donnees changent).
 
 ```bash
-# Démarrer l'application Streamlit
+# Collecter le contenu du cours Coursera (transcriptions + supplements)
+python src/rag/collect_coursera.py
+
+# Construire la base vectorielle (charge, decoupe, vectorise, stocke)
+python src/rag/embedder.py
+```
+
+Verifier que tout fonctionne :
+
+```bash
+# Tester la recherche semantique
+python src/rag/retriever.py
+```
+
+### 5. Lancement de l'application
+
+```bash
 streamlit run app.py
 ```
 
-L'application sera accessible à `http://localhost:8501`
+L'application sera accessible a `http://localhost:8501`
+
+## Utilisation du RAG depuis un autre module
+
+```python
+from src.rag.retriever import retrieve
+
+# Recherche semantique (fonctionne en francais et en anglais)
+passages = retrieve("Comment motiver les eleves ?", top_k=3)
+```

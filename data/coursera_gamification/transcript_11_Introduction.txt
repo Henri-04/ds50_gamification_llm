@@ -1,0 +1,47 @@
+# 1.1 Introduction
+
+[BLANK_AUDIO] Hi there, I'll be your professor in this
+course. Now, don't worry, I'm not actually going
+to teach the class from inside a video game. But I am going to show you how some of the
+techniques that designers use in games like this one can be applied to problems in business, education, health,
+and other fields. That's a technique that we call
+gamifcation. Hang on a second, I'll get out of here. [BLANK_AUDIO] Much better. Hi there. I'm Kevin Werbach, a professor at the Wharton School of the University of
+Pennsylvania. And I'm thrilled that so many of you have
+signed up for this online course of the emerging
+field of gamification. In the next six weeks, I'm going to teach
+you about what gamification means, and how you can apply
+it to solve real world problems. Some of you may not be familiar with the
+concept of gamification, so let me give a brief
+introduction here. I'll give you a much more concrete and
+detailed definition later on. Gamification is about learning from games. So, what can we learn from Angry Birds? Well, we can learn that there's something
+really popular there. Angry Birds and its various incarnations has been downloaded over one billion
+times. Can one billion people be wrong? But there's more to it than that. Gamification is about learning from games,
+not just in the sense of learning about the games themselves, but understanding what makes the games
+successful. Understanding what makes the games
+engaging. Understanding what games can do, why games
+have power. And then taking some of those techniques,
+and thoughtfully applying them to other situations which
+are not themselves games. So, for example, let me show you a service
+called Samsung Nation. Again, we'll talk about this in more
+detail later on. Samsung Nation is something that Samsung
+has on its corporate website, and it's a system using what we call game elements or game mechanics to solve Samsung's
+business problem. Which is they want more people to come to
+their site, and they want people to do things on
+their site to interact with their products, to write
+product reviews, to watch videos, to find out more, to register
+products they've already bought. So what Samsung has done here is to build a site using simple elements that they've
+developed from games. Things like leaderboards. Things like, badges to reward
+achievements. Things like point systems. And they've taken these and applied them
+to a situation that isn't a game. The situation is Samsung wants you to
+spend time and do stuff on their website, so that you will
+eventually buy more products. That's an example of gamification. It's not by any means the only kind of
+example of gamification. As we'll see, gamification is by no means
+limited to these kinds of contexts that you see
+here. But it's a good example as a starting
+point of what we're talking about. So in the next series of lectures, I'll
+start to unpack what exactly gamification means
+which will then allow us to start to understand how to do it
+effectively, and what are some of the challenges in
+applying these techniques. And if you're curious about what the
+things are on the bookcases behind me, well, you'll just have to watch the rest
+of the videos to find out.

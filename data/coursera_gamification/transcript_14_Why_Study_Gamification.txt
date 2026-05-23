@@ -1,0 +1,93 @@
+# 1.4 Why Study Gamification
+
+So, why should we study gamification? Maybe I should ask you that, after all of
+you signed up for this course, but it's worth pausing
+for a minute and asking the question of why this is worth the kind of
+extended analysis that we're going to do in this class, because
+its, its just games, right? Well, there are four reasons I think the systematic study of gamification is
+fruitful. And we're going to see more and more
+gamification being a regular subject that's taught about, both in, training context and in, university
+educational context. The first of these is that gamification is
+a significant emerging business practice. We're seeing lots and lots of examples
+come up from many different kinds of companies as well as in non-business context where gamification is
+being applied. So here's just a couple examples from, the
+recent press. An article from Fortune magazine from
+October 2011. Talking about gamification as the hot new
+business concept, and while I certainly wouldn't say just follow
+something because it's a hyped trend the important thing is many of
+them world's most admired companies are starting to get
+on board with this. It's not just something that's happening
+among kooky startups. It's something that's being adopted by
+very large, established companies. The second article here from the Wall
+Street Journal talking about how a growing number of firms are incorporating
+elements of video games into the work place. So video games, as I'll talk about in more detail, have become a huge and
+influential industry. But what we're starting to see is more and more examples of video games being the
+foundation, not just for selling games, but for the foundation of doing things at and around
+the workplace. So gamification is something that is
+happening, and as I said, it's happening very widely. So here is a list of a few of the companies that are applying
+gamification in substantial ways. And as you'll see, they range from small
+very technology focused startups, to big very consumer products focused, established, bricks and mortar
+companies. And some of these are companies that went
+out consciously and tried to implement gamification around one of their
+business practices, and some of them are companies that just developed something,
+that in hindsight was game like, and they just, thought it was a good way to attack
+a particular problem they had. But in both cases when we look at what's happening out there, there's a
+growing recognition that this set of techniques has value, and it
+has value in a, a very broad set of
+circumstances. The second reason to think that
+gamification is worth, greater scrutiny is that games are
+powerful things. We've probably all had the experience of
+saying wow, I was really addicted to that game or, you
+know, time just seemed to fly by. And maybe it's a video game, maybe you had that experience with a, a board or a card
+game. Maybe you had that experience playing
+sports. But games have a real pull on us. There's something that is extremely
+powerful when we think about it, given that we think of them as experiences that
+are done just for enjoyment. So what is it that makes games engaging? What is it that allows games to support sophisticated kinds of thinking and
+learning, as we'll see? What is it about games, that makes them so
+engaging? That's an important question to ask. And it's a question that gets asked about, among the community of people who study
+games in their own right, but it's a question that becomes relevant when the games are
+being used, or at least the game elements and design principles are being used in these
+non-game contexts, it's worth starting to dig down and say just what is it about games that's so
+significant? The third reason to study gamification is
+because it teaches us things about other areas of
+knowledge as well. So, as we'll see when we get into gamification, we're going to very quickly
+get into psychology. Games have been around throughout all of
+human history because they link to some very basic aspects of the way
+our minds work. And so to understand how to design things
+that are effectively gamified, we need to
+understand about, for example, motivation. What is it that makes someone want to do
+something? What are different kinds of motivation? And what are different techniques that can be used to help people achieve their
+goals? So we'll learn about psychology. We'll also learn about design. As I've already talked about, gamification
+is a design practice. So understanding how to do it necessarily
+gets us into thinking about the very sophisticated
+complex world of design. strategy, I teach it at business school. And understanding gamification in the
+organization ties into lots of things that people here talk about in
+understanding how to do business, understanding what it means
+to lead in the workplace, understanding what it means to
+design an effective marketing campaign. These are all areas of knowledge that
+we're going to bring to bear in understanding what
+makes gamification work. And finally technology. games, as I've said, have been around
+forever, and many games don't involve any specificated technology, but
+the ability of today's network information
+technology to create rich immersive personalized
+experiences and to track interactions in real time, and aggregate and analyze them, and make use
+of them is incredibly powerful when applied to gamification. So, most of the examples that we're going
+to see are going to be examples in the world of online activities, whether online services or technology start-ups
+the gamification is applied in a digital, internet-based
+context, and so understanding what it is about that
+environment that makes gamification successful will
+provide a window into understanding aspects of
+technology as well. And the final reason that we should study
+gamification is that it's not that easy. It's not that obvious. Once you understand what gamification is,
+you may think great, so I see that Nike plus uses challenges and awards
+and trophies to get people to do stuff, well I'll just put
+some challenges and trophies in my business practice, and
+people will flock to it. Turns out, it's not that easy. Turns out that doing gamification well, doing gamification ethically, doing
+gamification in a way that fits in with your ultimate long
+term business objectives is not trivial. It requires thought, it requires recourse
+through those various different areas of knowledge
+that I talked about, and so this is something
+that we can't just give you a cookbook. I can't just say, here's the list of game
+elements, have at them. You need to understand them within a
+broader context and that's exactly what this course is
+intended to provide.

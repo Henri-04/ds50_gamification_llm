@@ -1,0 +1,124 @@
+# 9.6 Ethan Mollick on Games at Work
+
+Hi, I'm Ethan Mollick, Professor here at Wharton, Studies of Management, Entrepreneurship, Innovation and
+Gamification. So what I wanted to talk to you bit about today, was the use of games for motivating
+people at work. So this is one of the big issues in
+gamification. Is how to use things like leader boards. And points and badges and more advanced gamification techniques, to
+actually encourage people to enjoy their work more.
+Find it more satisfying, work harder. Improve performance, feel better about
+their job and so on. And I want to talk to about some results
+that we have from some studies that we've been
+doing on this topic. I've been working along with Nancy Rothbard, who's another professor here at
+Wharton. Who is a, a, social psychologist, who's
+looking at these issues with me. So first, by way of introduction, I should
+mention that the idea of using games at work isn't
+new. In fact, archaeological evidence from as far back
+as the pyramids. Show that within the pyramids, there is
+graffiti. That actually indicated that different
+teams were competing together to build the
+pyramids. So, there's graffiti from teams like the Drunkards of Encari, or the Friends of
+Khufu. All of which were competing to build the
+pyramid faster than each other. Indicating that games at work are not a
+new thing. And this isn't a surprise to scholars.
+So studies dating back to the end of the 19th century, of sociologists going in and looking at work
+environments. Have found that games are almost
+ubiquitous at work. Especially in environments that are like
+factory floors, where the work can often be tedious, or difficult
+and not very satisfying. Workers tend to create games in order to
+find work make work more meaningful. To get a sense of accomplishment, to feel
+a sense of control. Originally both bosses and sociologists studying it, thought of this kind of work
+as negative, right? Games were shirking off. Instead of actually doing real work, you
+were playing games instead. This perspective changed in the 1970s with
+a scholar named Michael Burawoy from the
+University of Chicago. Because he realized that games actually
+served an additional purpose, beyond just people
+blowing off steam. Because people created games based on the
+work task they were doing. By playing games, they were actually accomplishing the goals that their
+managers wanted them to. Because the games involved, doing the kind
+of work that they were expected to do anyway. So thus, rather than workers conflicting
+with their bosses. And disagreeing with them, and fighting
+them over how boring and annoying. And unsatisfying their work was. Instead they were in conflict with their
+fellow workers. Who are all trying to work together to, to
+win these games instead. So this concept actually became very important. And, Michael Burawoy came up with the idea of describing through something
+called consent. Consent is the idea that you're buying in
+to work. And, we've taken this concept and applied
+it more to buy-in towards gamification. And this is something that people have
+tended to take for granted. Because many of these guessful
+gamification examples are voluntary. For example, if I gamify my website for
+McDonalds, right? The people who are playing that aren't,
+the people who are interested in playing a game on McDonalds website. And if you're not interested, you just
+won't come to the website. Who cares? Right? But when you're making games a requirement
+of work. You're engaging something we call
+mandatory fun. You're forcing people to do something that
+you think is going to be an entertaining. The fact is though not everyone feels the
+same way about it. In order for people to buy in to the game. To be, to reengage in gamification, and to
+get positive benefits from it. They need to consent to the game. And there are three factors that lead
+someone to consent to a game. The first of those, is understanding the
+rules. If someone doesn't understand the rules of
+the game, is not clear how it's played. They haven't paid attention, they lose
+interest. All of that will undermine gamification. The second is fairness. People need to feel the game is fair, that
+they have a chance of winning it. Otherwise, you won't get consent. And finally, there is the fact that people
+need to pay attention to the game. If they're not interested in games, if they're turned off by the
+theme. If they're uninterested in the concept. Then you won't get consent. So, those three elements, understanding
+the rules, think a game is fair, and paying
+attention. Are actually critical to any internal
+gamification effort. We've actually tested this with a
+experiment at a fast growing start up company. We took the company and went to their
+sales force. Which is quite large, and divided it into
+three groups. One group kept doing sales as usual. Getting extreme compensation for
+successful sales events. And for being the best person in their
+class. There were all sorts of sales contests and
+other competitions going on. Another group got the same kind of compensation, but were given a leader
+board. Which I think you've learned about in
+class so far. So, nice ESPN style you know, sports based
+scoring. Where people saw how well they were doing
+relative to each other. And the third group was, again, kept the
+same compensation scheme. But was given a game on top of work. So we turned their work into a game, in
+this case, a basketball themed game. When, whenever they were successful in
+contacting clients, getting sales. They'd see their name in lights, and a
+ball would be slammed through a basket. Then they'd get points for their team. It was an ongoing competition in order to
+see which team succeeded. We found is, initially, the gamification
+didn't actually seem to have much of an effect on
+performance. But we realized the reason why it weren't
+seem much of an effect was, we weren't taking into
+account consent. And consent turned out to be the most
+important thing, in determining whether or not games were
+positive, or negative for employees. So, as you could see, we've actually
+monitored the effect of consent. Which is the x axis here, on affect, which
+is positive feelings toward work. So, this is positive affect. The is the contagious energy and
+enthusiasm that you really want to see at a company. And escpecially in creative and sales roles. It's very important to successful
+productivity. And what you can see is, if people didn't consent to the game, they didn't think it
+was fair. They didn't understand the rules, they
+didn't pay attention to it, it actually had a negative impact on their
+affect towards work. Quite a large one, relative to the mean. On the other hand, if they consented to
+the game, they thought it was fair, and they
+understood the rules. And they paid attention to it, there was actually a positive impact on their
+affect. So games are a double edged sword. If people accept them and think that
+they're useful and consent to them, then you actually have a
+positive impact. Otherwise you've a negative one. What turned out to be the biggest driver
+of affect in this case, and therefore by,
+through consent. Was whether or not people were familiar
+with games outside of work. The more hours they played of games
+outside of work, the more accepting they were of games
+inside of work. And the more likely they were to consent to gamification and to have a positive
+affect, impact. So there's a couple of things I'd like you
+to take away from this. The first of them is that, games are not
+always positive. Not everyone likes games, not everyone
+likes the same kinds of games. If you force people to play a game, you
+engage in mandatory fun. Some people are going to find that exciting, and have a positive impact on
+that. Some people are going to find that
+demotivating. And it's actually going to decrease their performance and their feelings towards
+work. This is something people don't tend to pay a lot of attention to when games are
+voluntary. But even in those cases, you should pay
+attention to consent. So, in my hypothetical McDonald's example. If I've turned McDonald's into a fun web page and I find engagement has gone way
+up. Among the various people playing the
+games. I should also be aware there's probably a
+group of people, who've been turned off entirely from
+interacting with the McDonald's site. Because they're less interested in
+gamification. So be sure to be aware of both the
+positives and negatives. And second of all, you should realize that
+we actually are starting to gather data on some of these things. So this is one study of a number of people
+looking at gamification. And I'll include a link here to the study,
+Mandatory Fun. Which you can read and get more detail on
+the study. And some of the other work going on in
+gamification.

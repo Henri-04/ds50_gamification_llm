@@ -1,0 +1,117 @@
+# 6.4 How Rewards Can Demotivate
+
+The biggest danger of rewards in
+gamification, is that the rewards will actually demotivate. In other words,
+someone's already motivated to do something. And the reward makes them, less
+likely to do it. How could that be? The basic reason is that rewards, acting as
+extrinsic motivators can crowd out, the intrinsic motivation that was already
+there. You start to focus so much on chasing the reward that you think the
+reward is the reason to do the activity and you no longer have the intrinsic
+motivation to do it that was there before. So the ultimate result is you are less
+motivated than when you started. This is sometimes also called the over
+justification effect and it's a danger in any kind of system that uses rewards,
+including systems involving gamefication, this substitution effect that the
+intrinsic motivation goes away and is replaced by the less effective and
+problematic extrinsic motivation of the rewards. Now, this may sound
+counter-intuitive, but it's been confirmed by study after study in a wide range of
+areas. So here's some examples of some of the studies that have shown this
+demotivating effect. The first one or set of studies involves creative activities
+like drawing. And the experimenters would give a group of kids some paper and
+pencils and crayons and say go draw. And some of the kids were more into drawing
+than others, but some of the kids really loved drawing. They just sat and did it.
+They drew great pictures and they did it because they loved doing it, intrinsic
+motivation. Then the experimenter gave the kids rewards, said alright. We're going to
+give you something for the drawing and there are a variety of different rewards
+used. Maybe we'll give you an actual tangible prize for the best drawing, maybe
+we'll just give you a gold star, good job. Maybe we'll just give you a verbal
+compliment, well done, that's it. But in each case the idea was not just draw for
+it's own sake, but draw for some reward. And then, after doing that for a while,
+the experimenter took the reward away. Now, kid s we're back to where we started,
+just go and draw for fun. What happened? Low and behold, the kids who had been
+intrinsically motivated, they were going to draw just for the fun of it. Once the
+reward was added and then taken away we're no longer as motivated to draw and the
+drawings that came up with just weren't as good. Because they have substituted that
+extrinsic motivation of the reward for their intrinsic desire to draw. So, this
+has been replicated across many different kinds of creative or artistic kinds of
+pursuits and you can think about this in examples of gamefication that involves
+something creative. This is probably more likely to be in an internal or enterprise
+case of gamefication than on some of the external marketing ones, but. It's a real
+concern in those areas where the goal is to motivate people to innovate and be
+creative, in business context and the reward, the gamified system may actually
+push away from that. Second study came from Israel, and it has to do with of all
+things, daycare pick-up. And in this case, the researchers looked at a daycare centre
+where parents had to pick up their kids at a certain time after work. And some of the
+parents were late. And the daycare center didn't like that, it wasn't fair to them,
+they had to stick around more, and they thought, well, how do we motivate the
+parents to come on time? And they thought, alright, we'll use a punishment. Again,
+punishment is just a flip side of a reward. It should work the same way in the
+opposite direction. We'll charge parents, I don't remember what the number was but
+let's say $ten, anytime they are more than five minutes late picking up their kids.
+And they thought this would incentivize the parents to come on time. What
+happened? Parents came even later. Why? Well, we can think about it if we look at
+what's going on in those parent's minds subconsciously before what was getting
+them to pick up their kids on time. Social pressure, desire to not inconvenience the
+workers at the daycare center and so forth. Now all o f a sudden this is an
+economic exchange. It's worth $ten to pick up my kids late. If the thing I've got
+going on at work, or whatever else is happening, seems like it's worth more to
+me than $ten, I'll just pay the $ten and all of those intrinsic motivations caring
+about the people at the daycare center, caring about their kids getting picked up
+on time. Caring about other parents and so forth, go out the window, it gets replaced
+by the extrinsic reward. And the effect, in that case, is people come even later.
+Similarly studies of blood donation have found that when encouraging people to
+donate blood, primarily based on civic duty, and helping other people, and
+dealing with disasters and so forth. Is replaced by primarily paying people to
+give blood, people are less likely to give blood, it crowds out that intrinsic
+motivation. Final set of studies, and these are somewhat controversial, suggest
+that teacher merit pay, paying teacher is based on the results of the kids in their
+classes don't actually produce better results. For the same reason, they tend to
+crowd out the intrinsic reasons for teaching well and turn it into purely a
+calculus about how to get the desired results for the reward. So, all of these
+kinds of studies suggests that there's a danger in rewards that will actually make
+people less motivated to do the task, and thus produce worse results than intended.
+A couple other aspects to these findings that are worth highlighting. The first is,
+they, generally, these studies are generally limited to what are called
+interesting tasks, i.e. Tasks that require some creativity, that people have some
+reason to want to do. No task is inherently interesting. And no task is
+inherently boring. So, I might not really want to stamp out things on an assembly
+line all day long, but someone else might find that challenging, to get it right
+every single time. That being said, there are certainly tasks that are more
+interesting, generally speaking, for most people than others. Tasks that require
+some creativity t hat require some thought or problem solving or some ability. Those
+tend to be tasks that most people think of as interesting. And so the study's about
+over-justification focus on tasks that start off with some level of intrinsic
+motivation. Their tasks, that were interesting to begin with at least at some
+level and reward seem to make them less interesting. Second thing here is that the
+types of rewards do matter. So, I described a number of different categories
+of rewards, and the over-justification effect, the demotivating effect, is more
+true with some rewards than others. So for example, tangible rewards tend to be where
+the largest demotivating effects happen. Because those are things that are purely
+substituting something extrinsic. Something external to the activity for the
+intrinsic motivation that's there. Tangible rewards are the ones that you
+might think are the best possible rewards, right? We'll give you a bonus or some
+thing of value in return for this activity. Those are the greatest risk of
+substituting for the intrinsic motivation. Conversely, if the reward is unexpected,
+if it's that surprise reward, hey guess what, we just decided to give you a bonus
+for your good performance, that doesn't have as much of an effect on intrinsic
+motivation because it didn't crowd out. When the person was doing the thing, they
+were doing it for the intrinsic reason and they were surprised by the reward. So
+random, or chance rewards that come about without expectation don't tend to have as
+much of this kind of problem. And finally, the other one that's interesting to talk
+about, performance contingent rewards. So remember, these are the rewards that are
+based on achievement, actually doing something effectively in the task, can go
+both ways. If the reward is simply saying, the whole point is the end point, the goal
+as opposed to doing well, and the person tends to take away from that, that this is
+really not about me and my accomplishment but this is about some external thing, the
+performance leve l, then they're demotivating. On the other hand, if the
+reward is seen as purely informational. It's say, "You did a good job." This is
+recognizing the fact that you achieve something. Your performance was great.
+It's all about your performance. The reward is just a marker. Of what you did.
+Then, we don't see the same effect. Then, there's not the demotivation. And this
+comes from a variety of papers by Ed Desi and Rich Ryan and they're co-authors that
+who we're going to meet in more detail in the next segment on self determination
+theory. This is one in which they did a meta-analysis of over a hundred different
+papers on effects of rewards. And these were some of the effects that they found
+on different categories of rewards. So, to dig into more of why this happens and to
+cut it back to gamification, we need to focus on the underlying theory that
+explains why certain kinds of intrinsic motivators work and explains what kinds of
+things actually lead to intrinsic motivation.

@@ -1,0 +1,173 @@
+# 8.5 Amy Jo Kim Interview
+
+For this final segment on design, I wanted
+you to hear from someone who actually works in the
+field of game design professionally. Amy Jo Kim is an expert in the development
+of social architectures. In addition to her game design work, she's
+also an author, and the organizer of workshops on applied
+game design and gamification. As you'll see from my interview with her
+many, of her ideas track the concepts that I've been
+discussing in the course so far. Amy Jo thanks so much for joining us. >> My pleasure. >> You're one of the first people that I came across talking about using game
+design in other contexts. Way before anyone was using the term
+gamification. So, I'm curious what you make of the
+current gamification phenomenon. Both, both how people are describing it
+and what people are actually doing. >> That's a great question. So to me it's a great wave of interest in gaming that I think is happening
+because of all the same reasons we see. You know, how many people grew up with
+games, how much the mechanics are now easier to
+use. Some of them are getting standardized into
+EPI's and tool kits. So I see that there's tremendous interest. And I love that interest. I think the word gamification will end up
+going away, and that this will be part of the tool kit of many
+different types of design. In the similar way that AI went away. We don't think of Amazon as an AI system,
+although it does have what used to be called artificial intelligence
+in it, with its collaborative filtering
+mechanisms, right? >> Mm-hm. >> That evolution I think will also happen
+with gamification. I think what we see right now is the
+awakening, of what will be a much bigger and longer
+trend. And I don't think it will be called gamification because I don't think it'll
+be one thing. I think it will be many different
+techniques that are inspired by games, that get embedded in
+different ways in software. So short answer is, I think the word will
+go away but the wave will only grow bigger and will become an
+integral part of most software. >> Well, so let me ask you about something
+specific that we hear a lot about in gamification circles, which is Richard
+Bartle's notion of player types. That you know, pretty much every
+presentation that I've heard on gamification that gpes into
+detail says that the core issue is these, these
+different kinds of players and we can design for
+them. You actually I think have a have a
+slightly different perspective on that. >> I have a, game designer's perspective. I know Richard Bartle. I know where those come from. And I also can you know, repeat some of
+what he said publicly which is, taking his structures and applying it to
+all gamification is silly. And the reason is, that's a model of a certain kind of emergent human behavior
+that he saw as a pattern in the number of MUDs,
+multi-user dimensions, which are the text precursors
+to games like WOW. So that is very true. And when I worked on designing MMOs, I
+worked on [UNKNOWN] Online, I worked on Earth and Beyond, I've
+done Sims online. Those were particularly useful player
+types. There are many systems. There's the, you know, Meyers-Briggs
+system. That's another system for, there's all
+kinds of systems that say here's how people are. Systems are for utility. But they never describe the be all and end
+all of all human behavior. So if you're building an MMO or something
+that has those dynamics, those four player
+types are extremely useful. And I think appropriate to use as a model. If you're working on something else, which
+is what most of gamification is, then, they
+actually don't work. And the reason I know this is because I
+have a consulting business. And I've had, you know, used player types with what, maybe 20, maybe 30 different
+clients? And what I've learned is that they only
+work for a small segment of games, and
+game-like structures. I've developed a different take on player
+types that's much more about what I see in social media, and social
+gaming, very similar to Bartle. Inspired by Bartle. I always start by saying here's Bartle's
+player types. Here's why they don't work for what we're
+doing. Here's how to tweak them to make them work
+for what you're doing. So here's Bartle's player types. And what I found, and what he said publicly is that, points, badges,
+levels, and leaderboards, which are the tropes of
+gamification, fundamentally appeal to achievers, which is a small
+segment. And here's my take on Bartle's, which I call, which I structure around social
+engagement verbs. Because it's actually easier to apply. Very similar there's competing,
+collaborating, exploring and expressing. Explore is right out of Bartle. So that one is similar. Competing is similar to the achievers, but
+more specific. Collaborating is very much what he calls socializers, but with a very game
+perspective. And the reason is that if you're trying to
+choose which game mechanics and which strategy to adopt for your gamification, understanding this is
+extremely useful. And then what Bartle didn't talk about at
+all, that is a huge driver in social media and social
+gaming is self-expression. That one was missing. And the drive towards self-expression. Well for many people that's a primary
+player type. That there's people that will just play
+with their avatars and their Miis on the Wii. And that's a very, very much a part of how
+social games in particular monetize. So these are the four words that I find
+particularly useful. And then here's very specific words built
+around those. And one of the exercises that I do with my
+clients, is to map out the core actions in their product against this
+chart and see where they fall. And then map that against who they're who
+they're trying to reach. For example, if you're trying to reach
+females, you always ask at the beginning, who's
+participating in this? And how is it they like to engage? If you're doing, if it's an all-male
+situation, and let's say it's a bunch of sales guys, they're going to be really
+compet really comfortable with friendly competition in a
+competitive trope. If it's females, predictably say
+middle-aged moms, or young moms, in general they're going to respond much
+better to collaborative mechanics and social
+mechanics. And things like a leaderboard would be not
+the first thing to do for that kind of
+community. What I encourage all my clients to do and
+my students to do, is to take this and don't be afraid to
+tweak it. Take it as a starting point. Take Bartle as a starting point, and then
+say okay, in the world I'm living in with my product, what,
+you know, what describes [UNKNOWN]? There might actually be something that's
+much more specific to what you're doing that is more useful
+to you. So the, don't hold the sacred cow so
+sacred, would be my summary statement. >> It's always, always good advice. so, let me ask you to say a little bit
+more about, collaborative gaming. Because people often tend to assume that
+competition is just inherently something that'sat the
+part of game. So, what's the opportunity space around
+those more collaborative and self-expression
+types of games? >> Here's a particular definition that's
+taken from one of the earliest books on game design. A game is a system where players engage in
+an artificial conflict, defined by rules,
+resulting in a quantifiable outcome. So that defines a whole host of games. But not all games, and increasingly not
+the games that in fact are being some of the biggest hits in
+the gaming world. So what that does define very well are
+zero-sum games. And in game theory, zero-sum games are
+simply games where we're opponents, or we're competing
+for scarce resources. If I win, you lose. Can, but you can, you can layer a team
+dynamic onto that, but that's fundamentally what a
+zero-sum game is. So the dynamics of head-to-head battles,
+any kind of battle, any war simulation, go, chess,
+polo. Anything like that. Any rank order competition, the Olympics. These are all zero-sum games. Most gambling games are also zero-sum
+games. But you're usually playing against the
+house. But again, it's a, finite pie, that needs
+to be divided up among winners and losers. So what I found, and some of the games I
+worked on that I loved the most, I found that there,
+that definition wasn't working. I worked on The Sims, and then The Sims
+Online. I worked on Ultima Online, I worked on Rock Band, probably one of my favorite
+all-time experiences. Those games, you can't, they don't have The Sims doesn't have a quantifiable
+outcome. You just keep playing. Neither does Ultima online. So I define those games as a structured experience with rules and goals that's fun
+to play. Which to me is a good working definition
+of a gamifiied system. Rules and goals are pretty critical. Fun to play is pretty critical or at least pleasant, engaging, and not a
+completely unstructured experience. But I realized, as I dug into game theory, that actually, was defining, sorry
+non-zero-sum games. In non-zero-sum games we are not
+opponents. We're partners. And it's a win-win or possibly lose-lose
+situation. Trading is a non-zero-sum game. Draw Something, is a perfect example, of a
+non-zero-sum game, because you either both lose or both
+win. so, other examples would be mini
+playground games, party games. I just mentioned Draw Something, which is
+Pictionary, in a mobile device. Martial arts are about personal
+advancement and achievement, but with a very supportive, you're winning doesn't
+make somebody else lose. Unless it's a head to head competition. The general martial arts is very
+non-zero-sum. And one of the best examples is a charity
+walk, where the more people you can get to join up, the
+more money you raise. We're all winning together. How many people can we bring in here to
+win together? That's really what non-zero-sum gaming is
+about. And to me, that's the heart of
+collaborative gaming. >> Since you have experience both on the
+website and in the games world, I'm curious if you feel like
+there is a particular mistake that people make when they come
+out of web design and social media, and those kinds of worlds,
+and try to engage in gamification. >> That's a great question. The thing I see the most, and I just saw this last week when I did an audit for a
+startup. I see it all the time. People in the web world are very good at understanding funnels and
+engagement loops. That's very natural, that's. Familiar to a lot of what they do. They also are often familiar with loyalty
+and basic concepts of loyalty. What they're not familiar with is the fact that a gaming experience changes over
+time. And that there are key stages of a
+player's life cycle. What we call the player journey. That require actually different set of
+features and a different set of powers to give the
+person. So the idea that you're creating an experience that unfolds over time and
+changes over time in response to someones increasing
+committment and skill is fundamental to a good game. Especially good computer game. And that's the mistake I see people
+seeing. They say look we've got the funnel, and
+we've got this habit loop built. And now we will drive habits. Well, you will for a little while And
+guess what? if you throw a bunch of points at people
+you'll get a short term life. I have no doubt and you'll see some nice
+metrics. But it's not sustainable. The thing that makes is sustainable is for
+the experience itself to evolve over time. So I used the three stages of newbie regular and expert as an analytic tool, to
+help you really think about, you know the first day or week, all which is a newbie
+experience. Not just that very first visit. And then the two month in, when someone
+has actually become a regular. And then the expert, what we in gaming
+called the elder game. What is it that the most dedicated and
+skillful of 2 to 5% of your players can do that
+everybody else can't do? What is it that keeps them hooked? It's the same thing as in earlier stage. So, I'm really thinking about that life
+cycle. And thinking about your engagement with
+that each stage of your life cycle, not just at that very first stage, will
+dramatically impact your ability to drive retention in the
+[UNKNOWN]. >> Now, that's very good advice. And of course, I think what we're all
+looking for is ways to make this sustainable and
+engaging. So, very much appreciate you sharing your
+insights with the class. Thanks for joining us. >> Thanks for having me.

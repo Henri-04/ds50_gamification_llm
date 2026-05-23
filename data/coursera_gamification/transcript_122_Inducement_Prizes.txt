@@ -1,0 +1,166 @@
+# 12.2 Inducement Prizes
+
+Inducement prizes are a motivational
+technique that's got a great deal of attention in recent years, but which actually has a fairly well established
+history. In the pictures here, you can see 2
+people. The one on the left is Charles Lindbergh,
+the famous aviator. The one on the right is not so familiar. He's Raymond Ortieg, a New York City hotel
+owner. So, why are they in the picture together? Well in 1919, Orteig promised a prize of
+$25,000 which was a lot of money at the time to the first person or team to successful
+fly nonstop across the Atlantic Ocean from New
+York to Paris. Lindbergh was competing successfully as it
+turned out to win the Orteig prize. So, prizes are a way to either reward
+certain behavior. We give out prizes like the Nobel Prize
+based on something that people have done in the
+past, but they can also be a way to induce behavior, to encourage people to do
+something in the future. In this sense an inducement prize is a way of motivating certain activity to gain a
+result which hasn't been achieved before, which is an
+alternative to other kinds of methods like giving a grant
+out. You can hire a person or a company to do
+something or you can put up prize of the same amount of money and give it to whoever successfully reaches
+the achievement. So what's the benefit of doing it through
+an inducement prize? Well, there are a few fairly substantial
+ones. One of them is efficiency. So Orteig's prize again was $25,000. It's estimated that Lindbergh and all the
+others chasing the prize spent a total of $400,000 in the money of
+the time, chasing the prize. So Orteig by putting up 25,000
+incentivized far more investment to try to reach the
+accomplishment. The second major reason why inducement
+prizes are valuable is that they can encourage interest, creative out
+of the box kinds of solutions. So here's an example. When the Exxon Valdez oil tanker ran
+aground in Alaska, the Oil Spill Recovery Institute created a prize for
+someone who could come up with a way to pump oil that had become viscous to
+solid in the frigid waters off of Alaska, where
+the tanker had run aground. Under current techniques, it was too cold
+to pump the oil easily out of the water. The winner was an Illinois chemist, and
+the technique that he submitted which turned
+out to be very successful, he developed because a
+few years earlier, he had been helping a friend lay some
+concrete. And he developed a technique using
+vibration to keep the concrete from getting to hard as it
+was being poured and it turned out, the same
+technique worked extremely well for oil in the cold waters off of
+Alaska. Had the Oil Spill Recovery Institute or
+anyone gone out and looked to hire someone to develop a technique, it's pretty
+certain they would not have gone to this Illinois chemist or looked at a technique
+that came from pouring concrete and trying to apply it oil in the water, but it
+turned out to work very well. The contest by not specifying the means,
+just specifying the end, specifying the objective was able to sweep in that great
+out of the box solution. So what do inducement prizes then have to
+do with gamification? Well, the first point is inducement prizes
+are about motivation. It's a prize to motivate a result. And as I've been talking about all along,
+gamification is a systematic way of employing
+techniques to motivate. An inducement prize is a particular kind of reward structure that's designed to
+motivate behavior. Now the question though is, it's clearly
+an extrinsic reward. An inducement prize typically involves
+money. It's not something that says do this just
+because it's inherently fun. So, is an inducement prize something that
+fits into the techniques of gamification that I've
+been talking about? Well actually, yes it is. So think back to the various factors that
+I've talked about under self-determination theory for
+something being intrinsically rewarding: competence,
+autonomy, and relatedness. All of them are present in a well-designed
+inducement prize competition. It requires skill and accomplishment by
+the person or group that submits the
+successful answer. It requires them to show mastery to prove
+that they have a great solution to a really
+hard problem. People submit for the prize, not just to
+win the tangible reward but to demonstrate the success of
+the technique they have. We'll see this with some of the more recent inducement prizes such as the X
+Prize Foundation and the prizes that they put
+into place in which lots and lots of teams
+spent almost as much, if not more money than the
+value of the prize because they wanted to prove how great their solutions were
+more so than caring about the amount that
+they'd win. So that's competence. Secondly, autonomy. Again, the inducement prize does not tell
+you how to come up with a solution, it just says you figure it out, come up
+with something that achieves this result. And that allows a tremendous amount of
+freedom and flexibility which hits on that aspect of autonomy that's
+important for intrinsic motivation. And finally, relatedness. Inducement prizes go out to everyone or to
+a large group of people and organizations and they typically require collaboration
+and coordination among teams of people. And in many cases, they are about achieving some major important
+societal goal. Orteig wanted to show that it was possible
+to fly a plane across the ocean nonstop. Some of the more recent prizes are
+designed to achieve public policy goals like
+building autonomous cars. And therefore people submit to the prize
+partly as a way of moving science and knowledge
+forward. So even though inducement prizes clearly
+have an extrinsic component in the tangible
+reward, they can be designed in ways that leverage the power of intrinsic motivation and fun as
+well. Now recently, there's been a spate of
+inducement prizes both from the private sector and the
+public sector. There are whole companies like you know,
+Innocentive, Kaggle and TopCoder, which specialize in
+designing inducement price competitions for various different kinds
+of scenarios, some of the them scientific, some of them more
+commercial. And then there's even organization like
+the X Prize Foundation which are in the business as a non-profit, of developing various kinds of inducement
+prize competitions. The X Prize Foundation got its start with
+the Ansari X Prize, which was a $10 million prize to the first
+team able to privately build a space craft capable of entering
+low earth orbit and the winner was a team that was funded by Richard
+Branson, the entrepreneur behind Virgin. And that inducement prize competition had
+the same effect as the Orteig prize. It generated a tremendous amount of
+activity. So the prize in this case was $10 million
+dollars. It's estimated that teams spent over $100 million chasing that reward and thereby
+vastly advanced the state of aerospace research
+especially in the private sector thanks to the prize. So in addition to private competitions
+like the ones I've described, there also are a
+number of price competitions that are being
+pushed by government agencies, in particular in the
+United States. The organization DARPA which funds
+military related research has a series of grand challenges that they call it including the self driving car one that I mentioned which had been extremely
+successful. The Office of Science and Technology
+Policy in the White House has an initiative that has led to a number of
+different agencies developing these competitions and the United States
+Congress passed something called the America
+Competes Act which encourages and makes possible these
+kind of competitions on a wide scale. So overall, there have been more than 45 US government agencies that have
+established these kinds of challenges or prize competitions
+and more than 200 challenges that they've put
+forth. And that's just what's happening in the
+United States government. So, what does it take to design one of
+these prize competitions effectively? You can't just put up money and expect to
+get results. As with gamefication, design matters. Coming up with a contest and a system that
+really encourages behavior, that encourages again that
+intrinsic motivation of the participants is
+critical. The first issue with an inducement prize
+is there have to be enough people able to compete and
+win it. If this is a challenge that only one group, one company say, has the necessary
+skills and resources to achieve, then you should just
+go and hire them and pay them to do it. So it needs to be something that a number of organizations can think that
+they can accomplish. Secondly and in a related vein, it has to be something that is cheap enough so that
+those organizations are willing to spend their
+own money chasing the inducement prize only pays off to the
+winner. Everyone else puts out the cost, but
+doesn't get the prize. Third, there has to be a balance of the scale of the competition and the
+incentives of the participants. So what do I mean by this? Karim Lakhani is a professor at Harvard
+Business school who has written some of the most significant and influential work on these inducement
+prizes. And one of the things that he and his
+collaborators have talked about is that in designing one of these
+inducement prizes on the one hand, there's the incentive to make it as
+big as possible, get as many people or as many companies as
+possible competing for the prize. That leads potentially to more out of the
+box solutions. You've got more competitors, more of a likelihood someone's going to come up,
+going to come up with a great solution that no
+one else thought of. The challenge though, is that the more
+competitors, the less of a chance that any one competitor will win
+which potentially reduces motivation. If you know there are a 1,000 or 10,000
+teams competing, you might think, well what chance do I have of
+actually being the winner? That may disinsent your participation. On the other had, if it's something that
+only 10 teams are seriously pursuing, that may motivate you to think you've got a great change of being the one that's
+successful. And again, it's a balance in designing any
+competition. The designer needs to think about the
+nature of the task at hand and how best to design
+it. Finally, there ideally should be some
+opportunity to leverage the results. In the public prizes, the ones that government agencies put forward, there
+almost always is. These are competitions designed for the
+purpose of advancing the scientific state of the art and often private
+organizations have benefits as well. So why did Richard Branson spend 10
+million dollars or more competing for that 10 million dollar
+On Sorry X prize. Well in that case, it was partly the glory
+but it was also partly to set up a private
+space tourism business called Virgin Galactic which is
+based on the technical research and the notoriety that the team
+gained in the competition. So prices are one area where potentially a
+tangible monetary reward can have actual benefits
+and lead to important results.

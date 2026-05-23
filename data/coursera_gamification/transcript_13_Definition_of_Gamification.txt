@@ -1,0 +1,140 @@
+# 1.3 Definition of Gamification
+
+What is gamification? I thought you'd ever
+ask. This is all very new, so there is not one universally accepted definition. But
+let me offer you the following, which has the major components that we see,
+generally, when people talk about the concept. Gamification is the use of game
+elements and game design techniques in non-game contexts. There are three parts
+to that definition. The first is game elements. I'll talk about this in much
+more detail, what exactly that means in a later session. The second is game design
+techniques. And the third is non-game context. So let me give you an example or
+two and then I'll explain about each of these in a little bit more detail. So, the
+first example is Nike Plus. Nike of course, make shoes. They make running
+shoes and therefore, Nike wants people to run more. And so what they do with Nike
+Plus was they developed a device, uses a piece of equipment called an
+Accelerometer, that fits into the sole of your shoe. And it tracks every single step
+you take when you're running. And so therefore, the device knows how far and
+how fast you're running and it communicates wirelessly with a Smartphone
+or your PC, which can aggregate together all of that data. And then what Nike did
+was build a set of applications around it, that made the experience of running more
+game-like. So, the Nike Plus Application has some functions like for example,
+telling how far you've run, the fastest run you've ever had, the longest run
+you've ever had, various kinds of tracking data. You can also compare yourself to
+previous times and so forth to track what you're doing. But then interestingly, you
+can also establish goals and challenges. And if you are successful in achieving
+those goals, you get a trophy or a medal. Now that sure seems a lot like a game. And
+Nike has built all sorts of other features into this system including the ability to
+compete against friends, or the ability to get encouragement from friends. And
+overall what this does is takes the experience of running and makes it feel
+somehow more like the experience of engaging in some kind of game. Now you're
+still going out and running. This is not saying, go sit down in front of your
+computer and play a running game and see how fast the avatar, the character in the
+computer can run. No, you're actually going out and running but the game
+structures around it help to encourage you and to make that whole experience of
+running feel somehow richer and more rewarding. Second example, also for the
+purpose of getting people to run but it looks very different. So this is something
+called Zombies Run. And the theme here is that you're being chased by an army of
+blood thirsty zombies. Pretty common kind of motif, hopefully not something that any
+of you have experienced, but a common setup for games. Only here the goal is not
+to get you to sit indoors on your smart phone and play the game. The goal is to
+get you to take that phone with you and go out and run. And as your are running, the
+Zombies Run game is telling you that actually the reason you're running is that
+you are running from the army of zombies that wants to kill you and eat your
+brains. And as you go you'll, you'll hear from the game the zombies are getting
+closer and you can see on a map where they are. You can get to power packs that will
+help you get special powers, or go faster. Your friends can get in the mix as well.
+The game that you are playing it's a very lightweight game, but it's taking the
+experience of running and now subtly making it feel like more fun. Subtlly
+adding another dimension to that experience of running. Different kind of
+added dimension to what we saw in Nike Plus this is a much more immersive. Kind
+of game-like experience as opposed to the challenges and rewards and so forth that
+Nike Plus had, but both are examples of using game elements and game design
+techniques to serve a purpose which itself is outside of the game. So, those are good
+examples of what we're talking about here. So now le t's go back to the definition
+and unpack in some more detail what these three aspects are, game elements, game
+design techniques, non-game context. First of all, game elements. You can think of
+game elements as the toolbox if you will. The pieces that you have to work with. If
+you are trying to build some kind of service that uses the bits and pieces of
+games. Not the game themselves, but the regular design patterns that make up the
+games. So, let me give you the example. This is Empire and Allies. It's a casual
+social game on Facebook made by Zynga. And clearly this is a game. We can see the
+kind of graphical interface that we typically see in a game and the various
+kinds of, pieces that give a game-like experience. You don't need to know how to
+play the game, you can just can look at it and see that's a game. But, if we look
+below the surface, we can start to break down, what are some of the elements of
+that game. So for example, the game has, points. A way of keeping score as you are
+accumulating something in the game. That's a very common thing that's in games. We
+sorta take it for granted that lots of games, especially online or computer games
+have points. But that's the whole point, if you, well, it's a regular pattern that
+occurs in many of these games. Similarly, you can level up you can collect resources
+here I believe these are barrels of oil that you've accumulated that you use to
+build other more complex things in the game. The game can send you on quests to
+find missions where the game says, go defeat this enemy, and you'll get certain
+kinds of rewards. Avatars, showing your character. The social graph showing you
+your friends, who you can play with or challenge and so forth. These are all,
+bits and pieces that go to make up this experience that is Empires and Allies.
+They're not the whole experience. There's a lot more to the game than this. But they
+are parts of the game that we can pull out and then think about reusing. And the
+point here with gamification is that we can do this with games. We can look at
+what are the elements at different levels of the game, but we can also do the same
+thing for services that are not games. So here's an example, this is called KEAS.
+It's a service that, helps people in companies, engage in activities to make
+them healthier. Whether that's exercise or eating well, and so forth. The company was
+started by a guy named Adam Bosworth who, was at Microsoft and BDA Systems and later
+ran Google Health. And, he has, the way it works is that you form groups within your
+company and you get a series of challenges and you report on your activities, things
+like exercising and so forth. And what we see here is exactly the same kinds of
+elements that we saw in Empires and Allies. So, we see again the points and we
+see again the levels. And if you look at this interface for points and levels in
+KEAS, it looks very similar to the one that we saw in Empires and Allies. I mean,
+graphically it's almost the identical thing on the screen and that's not by
+accident. Here KEAS is using a familiar structure that some of their players or
+participants may have seen and not only adopting those conceptual elements, but
+adopting some of the aesthetics of them as well. Similarly here are the quests that
+you go on, here's the social graph, seeing what your friends do, here are the
+avatars. The, the visual graphical representation of each participant here we
+also see rewards. If you do certain things in the game, you get more points, or you
+get other benefits. And down here you can't really see it on the screen but you
+see the label for it, badges. These devices that demarcate or represent a
+certain achievement in the game. So, there are exactly the same game elements in the
+KEAS service as in Empires and Allies but you can see there is a great deal over lap
+and a notion of elements. The notion that there are these regular design patterns is
+something that's common across games as well as gamified services. So, that's what
+I mean when we're talking about game elements. The second thing here to talk
+about in gamification is game design techniques. And the reason we need to talk
+about that is that games are not just the elements. As I already said, there's
+partly the visual experience of the game. But more than that, games are not just a
+jumble of elements that have been stuck together in some haphazard way. Games are
+things that are designed systematically, thoughtfully, artistically for the purpose
+of being fun. And, so the things game designers do is not just a matter of pure
+engineering. There's a lot of engineering involved. There's a lot of algorithms, a
+lot of technology involved but there's also an artistic experiential side of game
+design that involves thinking about problems in a certain way. And that
+involves taking an approach that uses concepts that are common to all forms of
+design as well as some concepts that are novel and specific to designing these
+things called games. And here especially I'm talking about video games although
+some of them relate to all games. That kind of practice is something that like
+the game elements can be applied outside of games. And some examples of
+gamification are more focused on the elements and some of them are more focused
+on the game design modality. And some have elements of both, that's why both are part
+of the definition. The other thing to understand about, game design techniques,
+is that it involves a way of thinking. It's not just a set of practices, but it's
+a way to approach the challenges that you have. And so, later on the course, I will
+talk in much more detail, but just what that mean to think like game designer. The
+third piece here is non-game context. And here we mean anything other than the game
+for its own sake. So, when you're playing a game, you're playing to have fun in the
+game. But if you are playing say, for reasons that relate to your business.
+You're playing because you are serving some objective of your company or you're
+playing because you're trying to learn something that's relevant to your work. Or
+you're playing to get a job. Then that's a non-game context. What you're doing may
+still be game like but the purpose, the rationale for the experience is something
+outside of the game. It's some purpose that has a validity and a intention
+independently of the experience of the game. And that doesn't just have to be
+business although, most of the examples we use will start with that context. It could
+be something like running. Now running is important to Nike for the purpose of
+selling shoes but running is important to people who are doing it for the purpose of
+being healthy and for the purpose of having all of the benefits that people
+feel like they get from running. So, non game context is anything, where your
+objective is outside of the game. So, circumstances were something involves some
+combination of game elements and game design that is for a purpose other than
+playing the game, that's gamification.

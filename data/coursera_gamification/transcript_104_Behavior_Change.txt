@@ -1,0 +1,132 @@
+# 10.4 Behavior Change
+
+What's the secret to sustainable
+behavioral change? This is particularly important for
+gamification for social good because so many of those contexts involve people
+wanting to change the way they act in their lives, and
+meeting some mechanism to motivate them to do it on a
+reliable basis. But it's relevant to other forms of
+gamification as well and of course relevant to much more
+beyond gamification. There are lots of situations where we want
+to change the way we act, somehow change our
+standard default behavior. But it's hard to do so. Really what we're talking about here is
+the formation of habits. So a habit is something that you do
+automatically. You don't stop and think about it
+consciously. It's just the default, it's the normal way
+you do something. And that makes it something that you will
+reliable do, in a way that even something you know objectively is good for
+you, you're not as likely to do because it requires you to activate that conscious, structured part of your brain
+as opposed to the automatic, unconscious part
+of your brain which can just run on
+autopilot. So ideally, what we want to do in a lot of
+these context, is help people move from the conscious mode of thinking
+to the automatic mode which is the domain of
+habits. B.J. Fogg who is the director of the persuasive technology lab at Stanford, has
+for many years studied behavior change and particularly
+looked at how technology devices and online services can
+promote behavior change. He's developed a framework for describing
+how behavior change works, which is particularly useful for us in the
+context of gamification. Fogg's model, which is here, has basically
+three elements. You see here the formula B is behavior,
+and he says it's equal to mat, M is your motivation, A is your ability and T
+is your trigger at the same moment. If all three of those things are present
+he says we are likely to see people take the
+action. So, let's look at each of these three
+elements. The first axis is motivation, and here
+we're talking about they're some things that you really
+want to do. And the more that you want to do them, the
+more motivated you are, the more likely you're
+going to do them. Ability says there are some things that
+are easy for you to do. And, the easier it is, again, the more
+likely you're going to do it. But, any action that we can think of, has
+to get plotted here on this graph. So, maybe I really want to run a marathon. I'm really desperately motivated to do it. But, I'm not much of a runner. I couldn't run a marathon if I tried. I'd collapse long before the finish line. So that would go up here. And some other task that maybe is pretty
+simple for me to do. Something like getting up in the morning
+and jogging for 10 to 15 minutes, which would be great
+everyday. I can do, it's pretty easy but I just don't because I'm not sufficiently
+motivated to do that. And so what Fogg says is that we can plot
+everything on those two axises. And then we can look at the third element,
+which is what he calls triggers. And triggers are the things that push us at a particular moment to engage in the
+activity. And what he says is basically, the more
+that you are out here, in this domain of the graph, the upper right,
+where both ability and motivation are high, the more likely it is that the
+trigger is going to work. So, the,the triggers are based on where
+you are. And, in designing these systems, it's
+important to think about, first of all, what the level of motivation is, second of all,
+what the level of perceived ability is. Important to specify, this is what the
+person thinks their ability is, it's not necessarily something that'd we find
+if we did an objective test, because again, this is about people's behavior and
+it's based on what they think they can do not what they can actually do
+that's the second dimension. And finally what could trigger given those
+conditions the desired activity. The trigger according to Fogg gets
+associated with the activity, echoing that behavior is notion
+of operant conditioning. But Frogg's framework is broader and
+brings in the notion of it as well. So, what are some of the things that we
+can learn from this framework? The first one here is that motivation and
+ability can trade off against each other to the extent that motivation is high,
+then you can do something really hard. But to the extent the motivation is low,
+it needs to be a pretty easy task for someone to be
+willing to do it. And so in looking at gamification
+techniques, which can push on both of these dimensions, it's worth thinking
+about which area is worth the most effort and what the nature is of the
+activity, and what's needed in order to move people to make
+that sustainable behavior change. Second lesson from this is that timing
+matters a lot when it comes to triggers. Because the trigger is the thing at that
+moment that gets you to take the action based on your level
+of motivation and ability, and so it's important to design
+the trigger at the right moment when someone is ready and
+able to take the action. A lot of the design challenge in applying these kinds of techniques, whether it's in
+software or in other situations, is building in the
+right kind of triggers to work at the right
+moment. Too many triggers will just overwhelm
+people. They'll become noise. And, finally Fogg says there are three
+kinds of triggers. The first one he calls sparks, and these are triggers that increase your
+motivation. They're things that make you more likely
+to want to do something. The second are facilitators triggers that
+increase your perceived ability. Things that make a task seem easier, even
+if they don't make you more motivated they make it seem simpler and therefore that triggers you to take the
+action. And finally triggers that are just
+signals. If you're motivation and ability are
+sufficiently high, so we're out here. All you need is just an alarm clock. You just need a reminder saying, okay,
+time to go do that now, and that habit will be
+activated. So, here's the punch line for
+gamification. In my gamification design framework, there
+were two kinds of activity loops. One I called the engagement loops, and the
+other I called progression loops. Each one ties into one of these elements
+of motivation in Fogg's model, and shows the way that gamification can activate
+these various kinds of conditions to encourage
+sustainable behavior change. The first one was the engagement loop. And this you may recall was the move from
+a motivation to an action to feedback, and back again to
+motivation. This was what sometimes gets called the
+addiction loop. It's the thing that creates that pull that
+you want to do something. Even if it's something that objectively
+you wouldn't think is something exciting, but you just feel that
+desire to do it. Or it's more, robustly, your reaction to
+feedback that's then giving you a sense that this is something
+that you should want to do something. That ties in directly with motivation. So engagement loops are great techniques
+for pushing up on that motivation axis, making people more
+motivated to do something. The second kind of loop is the progression
+loop, and, this was the, stair step up the mountain with the various stops and
+boss fights and so forth along the way. And this is basically about perceived
+ability because down here at the bottom, where we have on-boarding,
+this kind of progression structure in games makes people feel
+comfortable with the game. And then, as you move along to various
+spots, you go up a ramp of difficulty, and then achieve a
+level of mastery, and then level out. So, again, it navigates you through the
+process of getting better and better, and improving both your actual ability and
+your perception of your ability. Wow, now I'm up here and I was able to
+kill this really big boss, which when I was down here
+starting off, I thought was impossible. So that ties into the notion of perceived
+ability and pushing along that access of behavior
+change using gamification. And finally, triggers. If you look at well designed games,
+they're great at triggering. They're great at putting something in
+front of you at the right moment. And that's what in gamification analytics
+can do. Understanding behavior, understanding how
+people react to the system and what they're doing provides
+guidance for giving them the right trigger at the right moment to encourage them to
+participate further. If you're interested in more on this
+topic, Michael Wu, who is the principle scientist for
+analytics at a company called Lithium, has a terrific
+series of blog posts explaining some of the basic
+concepts around gamification. And, here's the one that talks
+specifically about the application of the Fogg behavior
+model.

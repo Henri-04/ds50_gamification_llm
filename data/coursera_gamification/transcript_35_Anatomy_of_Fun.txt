@@ -1,0 +1,98 @@
+# 3.5 Anatomy of Fun
+
+Now, that I've introduced the concept of
+fun, let's look more systematically. Because knowing that there are many
+different things that can produce fun, doesn't necessarily tell us as much as we
+need to know to apply the concept of fun in either game design or gamification.
+Nicole Lazarro is a researcher and game designer who has a firm call Xeodesign.
+And she has specialized in emotion in game.
+She's actually done foundational research, it's tracking peoples' eyes and
+faces. And looking at, what in games actually
+produces fun? And you can find out more of her research
+on her website. I put a link her to an image file that
+provides much more detail, as well as the original white paper that describes her
+findings. Lazarro talks about 4 keys to fun.
+Four different kinds of fun that are general categories that appear in any
+kind of game like context. So what are they?
+The first is easy fun. Fun that's about blowing up stream, just
+chilling out, goofing off, hanging out with your friends.
+It doesn't have to be taxing. In fact, you don't want it to be taxing.
+It's fun just because it's casual, it's light, it's nice.
+It's fun, because it's easy. Second category is just the opposite.
+It's hard fun. So, how can fun be hard?
+Well, as I talked about challenges, problem solving, mastery, completion,
+overcoming obstacles, all of these things are fun in their own rite.
+So, we think of those things as fun, because the fun represents
+accomplishment. It represents overcoming something.
+And that's what makes the activity fun, if we're able to reach that plateau.
+So, second category is hard fun. Third category is people fun.
+Guess I'm drawing the other one, so I'm drawing easy, as well.
+The fun of interacting with others. The fun of working together on a team.
+The fun of socializing, fun that requires other people.
+Now, that could wind up being hard fun or easy fun as well, but this differentiates
+out the aspect of that fun that comes from the social interaction.
+And finally, there is what she calls serious fun.
+Well, fun can be hard. How can fun be serious?
+I thought serious was the opposite of fun, not really.
+First of all, some kinds of fun tie into serious real objectives.
+So, I talked about the fun of giving to others.
+There's a fun in doing things that are meaningful.
+There's a fun in doing things that are good for the planet, good for your
+family, good for your community. There's also a fun in doing things that
+have meaning for you. So, you recall that when I talked about
+some of the aspects of games. The magic circle and so forth.
+Part of what makes something game-like, is that some objective that has no real
+outside purpose, has a purpose within the game and it becomes engaging, because in
+the game that's meaningful to you. So, this relates to fun, as well.
+In particular, when we're talking about things like collections, pulling together
+something, getting a whole bunch of badges to unlock some sort of award.
+It's fun because, it's meaningful in some serious way, for you at that time.
+It may not be something that someone else finds fun or meaningful, but for you
+there is some objective involved, some meaning involved, and so Lazzaro would
+call that serious fun. Four different kinds of fun.
+All different and not necessarily mutually exclusive.
+So, the same game may be one or more of these things.
+The point is when we think about fun, we can't limit ourselves to just focusing on
+one aspect or another. If we think that fun is just something
+easy and casual, we'll miss the opportunity to engage people and make
+things fun using some of these other categories.
+Now, other game designers that come up with their own frameworks.
+One of them that's fairly well known is from a game designer named Mark LeBlanc.
+Who developed a framework that I'll talk about a little bit later for
+conceptualizing games. And as part of that, he came up with
+eight different kinds of fun. Slightly different template than what
+Lazzaro talked about. I won't go into these in detail.
+But just to get you thinking about different ways to structure thinking
+about fun. LeBlanc talks about the eight as
+sensation, fantasy, narrative, challenge, fellowship, discovery, expression, and
+submission. That last one submission is just the
+casual kind of fun, just something as a pastime.
+And if you really want to dig into what fun means for game design, I recommend a
+book to you by Raph Koster, A Theory of Fun for Game Design.
+A classic book, talking about how game designers can think about fun and apply
+it. It's very conversational, gets you
+thinking. So, if you're looking for something else
+to dig deeper, that would be a good place to go.
+Alright, so some take a ways. What do we learn from this extended
+discussion about fun? Three things that I would have you take
+away from this. The first is should go without saying,
+fun doesn't just happen, it has to be designed.
+I'm going to talk later in the course about design frameworks for gamification.
+And it's really important to understand that fun is not just something that's out
+there in the world, sometimes things just happen to be fun.
+But if we're talking about making something game like, about motivating
+people to go and use less electricity, or to go and spend more time on your
+website, or to go and work together on a team to solve a problem on a project at
+work. We have to build systems that are
+expressly designed to unlock these different aspects of fun.
+Second is, fun isn't always easy. Fun isn't always simple, fun isn't always
+a purely happy positive experience, fun can be hard.
+Fun can be challenging, fun can be serious.
+And we tend to ignore that when we're thinking about fun, we shouldn't when
+we're designing gamified systems. Finally, there are different kinds of
+fun. Whether you take Lazzaro's four or
+LeBlanc's eight, or some other template. The point is, fun is a very nuanced
+concept. And we should look to exploit as many
+kinds of fun as possible. It's not always the right answer, or the
+best answer to focus in on one kind of fun, because we're missing opportunities
+to make things fun in different ways.

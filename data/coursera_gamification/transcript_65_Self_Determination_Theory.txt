@@ -1,0 +1,168 @@
+# 6.5 Self Determination Theory
+
+Starting in the 1970s, Ed Deci and Richard
+Ryan, two psychologists at the University of Rochester, developed the basis for what's now called,
+Self-determination Theory. A comprehensive theory of human
+motivation. Which through many studies has been able
+to show, that people are not necessarily always
+motivated by rewards. And in fact, intrinsic motivation, is a
+more powerful and more effective way. To encourage people to act in certain
+ways. Under self-determination theory, there's
+actually a spectrum of motivational types. So, if we could draw three categories
+here. At this end of the spectrum, is what they
+all Amotivation. And what that means is, you have no
+motivation one way or the other. You are totally indifferent to the
+activity. That's called being amotivated. At the other end of the spectrum, is
+Intrinsic motivation. Here, you do the thing for no reason other
+than, that you love it. You do the thing. Because it is rewarding in and of itself. That's the strongest form of motivation,
+because it takes nothing external at all, to get you to do the
+activity. So, this is what we find, in a really
+great game. You're not doing it for money, you're not
+doing it for fame, you're not doing it for
+status. You're doing it because it's fun. In the middle, there is the broad
+category. Of Extrinsic motivators. And, what self-determination theory says,
+is that there's actually a spectrum from the most external, to the most
+internal forms of extrinsic motivation. So, all the way over here, closest to amotivation, the most external, they call
+external regulation. [SOUND] And I know my handwriting leaves
+something to be desired here, but the idea here is, at this point, you really don't
+want to do something, or maybe you are indifferent
+to it. The only thing that makes you do it, is
+someone tells you to, someone else says do this,
+and you do it, simply because you feel like you
+have to you, have no perceived locus of control,
+as psychologist talk about. There's no you in wanting to do this thing, it's just doing it for some
+external cause. That, that doesn't mean it's bad, or it
+doesn't mean that motivation never works, but it
+does mean there is no sense of doing it because you personally value it, which makes that
+motivation less powerful. The second category they talk about, they
+call interjection. And the idea here is sometimes, we take external motivators, and make them
+our own. So, this is typically where we would find
+status, which, as we talked about, is an important kind
+of motivator. In behaviorist operant conditioning type
+approaches to gamification. Status says, I may not really want to do
+this, but other people will value me. They'll think I'm cool, they will like me. So, I'm going to do it for that reason. So, it's something about me. It's not saying I'm doing it purely for
+those other people, but it's saying. I am introjecting. I'm taking their view about status, and
+somehow appropriating it to make me want to do the
+thing. Next in line, they call identification,
+and the idea here is, at this point, I've taken
+the. External motivator, and I've somehow made
+it my own. It's not just because other people will
+think I'm cool, It's because I can see some value in
+it. I don't really enjoy learning math, but I
+can see that knowing something about math, is important to success in modern
+business, and the modern economy. So I'll do it. It somehow is aligned with my own personal
+goals. I identify. I can somehow logically say, there's value
+to me in doing this, but I still don't really
+want to. And then finally, the closest to intrinsic
+motivation they call, integration. [SOUND] And here, there's a complete
+alignment internally, between my goals and the
+thing. This is, for example, the way many people
+feel about exercise. I really want to exercise. It's good for me, I know I should do it. I can say, yeah, I want to exercise, and
+yet I don't like exercising. It's just not fun for me. I still need some push. I still won't do it just because of love
+of the thing itself. And then finally, when we get all the way
+to this end, an intrinsic, the activity has reached that stage where it's worthwhile and motivating, in and of
+itself. Now, take away here for gamification. All of these may be relevant in a gamified
+system. The ideal is something that people just
+love doing for its own sake. But that's not necessarily realistic in
+every context. So the question is, how to utilize these
+different kinds of motivation. Appropriately for the situation. And how to push generally, towards
+approaches, that are more dependent on intrinsic
+motivation. The more that this is something the person
+really wants to do for themselves. And it has to be authentic. It's not that you've tricked them into
+thinking they love do so, doing something, it's that they
+actually love doing it. And find some meaning in it. They find the fun, in the activity, going
+back to Mary Poppins, the more you can get towards that
+direction of the spectrum, the better. So, okay, so, what does it actually take to make something
+intrinsically motivating? And this is at the heart of
+self-determination theory. Under self-determination theory, there are
+three characteristics. Of intrinsic motivation. Three factors, that when they are present,
+suggest that an activity will be worthwhile to people, in
+and of itself. And this has been tested in study after
+study, domain after domain, including with regard
+to video games. So the three characteristics are the
+following. The first one is competence. Which has to do with the person's sense of
+ability. Their sense that they are accomplishing something, solving problems,
+surmounting obstacles. They are achieving something within the
+activity. The second one is autonomy, which says the
+person feels like they're in control. I'm the one making the choices, it's not
+someone else telling me to do this. It's me doing it by my own free choice. Meaningful choices. And the third one is relatedness, and by
+this Deci and Ryan, means something like. Your activity is connected to something
+beyond yourself. That could be some sense of meaning or
+purpose. It could be, I am doing this because I'm using less energy, and that's good for the
+planet. It could be, I'm doing this because it
+will help my company, and I believe in my company, and want to be a
+good team player in the organization. Or it could, be I'm doing this with
+friends. Social interaction is an element of
+relatedness, which we see a great deal, with regard to games. So, lets look at one example quickly, from
+a gamified side, and how some of the standard kinds of game
+elements we've talked about. Can activate, these three motivators, of intrinsic motivation under
+self-determination theory. And the point here is that game elements
+are not necessarily one or the other. It's not that a badge is inherently an external motivator, or inherently an
+internal motivator. It can be one or the other, depending on the context, and the way that it's
+applied. So, these examples are about a site called
+Fitrocaracy, a site to encourage people to exercise, to work out
+and to get into shape. And Fitrocracy uses all of the standard kinds of PBL type game elements we've
+seen. But they do it in a fairly coherent
+sophisticated way, which is really targeted towards intrinsically
+motivating people, to engage in the activity. So, first here, this is what happens on
+Fitocracy when you level up. You get a certain number of points. Standard game element. It says you are a level up, now you're now
+at level three, and here is the badge that you get
+for leveling up. But notice how this is all integrated
+together, it's not just you've leveled up. It's, congratulations! You've earned it! earning, i.e. A sense of competence that you've done
+something hard, that got you to that next level. You're now level three. Awesome! And the click button says I'm awesome! And you can share it with your friends. To tell them how awesome you are. And this is part of the overall structure
+of this site. It really wants to make you feel good
+about yourself, when you exercise, and it wants you to see this
+as a challenge. And a challenge that when you overcome
+some of those challenges, when you start to tag and, and report your workouts, and
+start to move up, and how. Effective your workouts are, that means
+you are leveling up, not just in some abstract sense, but you
+are getting better. You're getting into better shape. So, that's all about competence, and
+again, it's in how the site is designed, to make the person feel, that
+their activity is achieving something. Mastering something, as opposed to just
+doing something, for no particular reason. Second one is autonomy. And here typically in games and
+gamification, the issue is choices. How much freedom does the user have? The games that are heavily structured and
+scaffolded, where you have two choices but the game will push you to
+just one choice. And there's very little freedom within
+those choices, tend to activate less autonomy, than the more sandbox type
+game environments, where the user has lots of scope for choice, and within
+gamification, when services give users lots of options, choose your own
+adventure, decide where you go. That tends, tends to activate more
+autonomy. So, here we see on Fitocracy. You get to choose your interests. And you get to custom build what sets of
+challenges that you have, based on the kinds of workouts you
+want to engage in. And some of them are groups, some of them
+are individual. The point is, your decisions about which
+path you want to take, customize the site. So you feel like the experience is one
+that you are in control of. It's not telling you. Cardio is what matters, you get to choose
+that. And then, once you make those choices, it gives you a whole set of different
+potential quests. So, it's not just that you need to engage
+in one type of workout. Here's a whole bunch of different
+workouts, this one's only worth ten points, this one's
+worth 300. But obviously, the first one's a lot
+easier. So, you get to make choices, and trade off
+what's more important to you. Autonomy. The decisions are in the control of the player, not predetermined across the board
+by the game. Finally, relatedness, here in Fitocarcy we
+see a very strong social element. It's better with friends. Recruit your friends. Help keep each other motivated. Here's a pop-up that you see some other
+people on the site. And it'll recommend people you follow. Here's groups, you can join together with
+groups that are interested in particular kinds of workouts, who have
+particular kinds of questions. The whole experience is structured very
+much around, you're not in this alone. This is not just about you, sitting in a gym, or in your basement, and lifting
+weights. This is about some activity, that you
+engage in with a community, it's bigger than you,
+that's relatedness. So, three good examples of applying self-determination theory, to make a
+gamified site, even when using the standard PBL elements, feel more intrinsically
+motivating. If you're interested in more on self-determination theory, two good books
+to recommend. One is a book called Drive by Daniel Pink,
+and this is a kind of business popularization
+of self-determination theory. He recounts the history of the work by
+Deci and Ryan. And then shows how this kind of approach
+can be applied in business, and gives some great examples of companies, that are using these kinds intrinsic motivators for
+great success. Really well written book, if you want to. Understand how this, these concepts apply
+in business. It's not about gamification per se, but
+it's very relevant to the discussions that we have
+in this course. The second one is by Richard Ryan, and a
+co-author, Scott Rigby and it is specifically applying
+self-dermination theory to video games. It's called, Glued to Games. And it shows some of their research on,
+specifically, how video games can activate these three
+motivators of self-determination theory. So, ideally, every gamification
+implementation, should be based on some attempt to engage these aspects of intrinsic motivation, which
+self-determination theory outlines

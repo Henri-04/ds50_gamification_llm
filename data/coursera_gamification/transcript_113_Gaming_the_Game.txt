@@ -1,0 +1,120 @@
+# 11.3 Gaming the Game
+
+There are many mistakes that you can make
+in designing a gamified system. But one of the most common and the most
+dangerous is to forget about who the object of the system is,
+namely, the players. And to forget that players are people,
+they're human beings, they're thinking and feeling
+and interacting agents. And while you can anticipate, in many
+ways, how they're going to behave. And you can certainly anticipate the
+different kinds of motivational structures that might push them in one
+direction or another. You can never be sure what they're going
+to do. And in designing gamified systems, it's
+critical to recognize that one thing that players may do is game the
+system. They may turn the tables on you and do something that you never expected and
+never intended. Sometimes this can be dangerous, not just
+for you, but for them. Nicole Lazzaro, the game designer who
+developed the concept of four types of fun, gives a great example in her presentations which she calls gamification
+can kill. And the example is, the on ramp to the San Francisco Bay Bridge, maybe it's the
+Golden Gate Bridge. But, It's one of the bridges in San
+Francisco, California. And, like many urban transit systems, they have a system for pricing that's
+congestion based. The price goes up during rush hour to try
+to encourage people to go across the bridge
+at less busy times. So you see here at 6:59, I think this must
+be p.m., it's six bucks to go over the bridge but
+at seven, a minute later, it's only four bucks to go
+over the bridge. Great. Incentive system. You could call it a gamified system. You could call it behavioral economics. It certainly encourages people to drive
+during off hours. What's the problem? The problem, Lazzaro points out, is if you
+drive towards the bridge at 6:59 p.m., you will see a whole bunch of people
+swerving off the road. Trying to park on the side because they
+know that if they wait just a minute or two more to go over the
+bridge, it's $2 less. The problem is, what this is incentivizing
+people to do is, to swerve dangerously off the road in ways that might cause them
+to get into an accident. And so that's the point about Gamification
+Can Kill. We have to realize how people are going to
+respond to the systems. They may very well react to the prompts that are given, not necessarily in the
+ways that are anticipated or even too much in the way that is, that are, the ways that
+anticipated. And that can be dangerous. Now, one dimension of this is a recognition that sometimes people will
+cheat. That sometimes people will figure out a
+way to achieve their own aims in the system that are not the aims
+of the game designer. Maybe there is some flaw in the game that
+lets people accumulate vast numbers of points for a
+small amount of work. And if that option is there, many people
+will take it. Now, as I talked about part of what makes
+a game a game is that the players have to voluntarily
+accept the rules of the game. That often there are opportunities to
+cheat in the game, but we don't do them because if we do them, we're following the rules, we are
+not playing the game, we're just doing
+something else entirely. And the people around us, our opponent,
+the other participants won't even recognize that
+we're playing the game. But, in gamified systems, where we're dealing with people interacting with
+computer based software systems, often, even though
+they're in a social context, they're interacting
+individually. It's often easy for people to feel like
+the game that they're playing Is one that
+allows them to bend the rules or make their own rules in ways that the game designer would
+consider cheating. Interestingly enough, well designed games
+that have social elements tend to see this last, because the social
+pressure, whether explicit or implicit, is enough to
+get people not to cheat even in ways that they could. But even there, there is the potential, if
+the rewards are great enough or the incentive is great enough, that
+people may try to cut corners. And this is something that, depending on
+the nature of the system, maybe the game designer will
+just live with. Or maybe it is something that the game
+needs to be expressly built with the anticipation
+that people act that way. This is a big reason why iteration and
+play testing is so critical in designing games as well as
+an effective gamification design because you can never be sure what exactly
+people are going to do until you get them in and see them
+actually doing it. In some cases though, cheating may be a
+virtue, it may actually help achieve results that the
+game designer was thinking about. How can that be, well let me give you one
+example. James Gardener is an innovation designer,
+who now works for a company called Spigot that makes a gamified
+prediction market system that can be used in companies to develop innovations by creating contests where people bet real
+money, or virtual goods that potentially are translatable into real money, on new
+ideas. And he's been part of teams that had
+developed these types of system, in many different
+kinds of contexts. Originally in England. He famously developed the idea street
+program at the Department of Welfare and Pensions in the U.K. but before that he
+did it for Lloyds bank. And something interesting happened at
+Lloyds bank where they created an innovation
+market. So, this was a market place where you came
+up with ideas that would be helpful motivations for the bank
+and people could buy and sell those innovations and people could get together
+in teams to develop the innovation and the market would determine which were the
+more popular and the more successful ones. And then the company would take the most
+successful ones and try to implement them. And they found, in this and other cases,
+lots of amazing results in implementing the ideas that bubble to the
+top through this prediction market place. But something interesting happened at
+Lloyds when they applied this gamiified system,
+insider trading. People realized that they could find the
+good ideas and go and join up with those
+groups. And be able to buy and sell with the ideas that were rising and successful in
+the system. In financial markets, insider trading is a
+danger, it's cheating. It's a form of fraud because it's using information that you have that other
+people don't have, it undermines trust in the
+financial markets, that's a reason that's it's often
+prosecuted. But, in this gamified system, this kind of virtual insider trading was not about, but
+actually a feature, because it was a way of strengthening and growing the teams around
+the great ideas. And it was a way of reinforcing, providing
+additional signal value around the ideas that people thought
+had great potential. Which is what the gamified system was
+about. It was not about making money for people,
+or making money for companies that were issuing securities, it was about
+finding and developing great ideas, and
+reinforcing them. So, the gaming of the game by the
+participants as Gardner realized, was actually something
+that helped achieve that result. In all of these cases, again, the critical
+piece is to recognize that people will act in unpredictable, sometimes
+spontaneous ways in response to the signals that the system
+produces. And so, part of game design is building in
+structures that first of all ensure that those activities, if they're unanticipated, don't destroy
+the game. Don't create imbalances or otherwise make
+the game unplayable or undesirable for a large segment of the
+players. And ideally create systems so that they
+help the game. So that even though people aren't doing
+what the game designer expressly told them to, they're exercising
+their autonomy, and therefore feeling more intrinsically motivated in the activity,
+and doing things that get to the same result that the gamification system was originally designed to
+accomplish.

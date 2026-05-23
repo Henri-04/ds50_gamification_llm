@@ -1,0 +1,202 @@
+# 9.1 Enterprise Applications
+
+This week we're going to look at some
+specific applications of gamification. Many of the examples I've given you
+are in the external gamefication bucket. They're about customer
+facing types of uses. In this unit, I'm going to look at
+internal gamification, and specifically gamification in the enterprise in
+a large business organization. Many major enterprises are starting
+to experiment with gamification, and to apply it in concrete situations. Sometimes consciously, thinking that
+they are trying to gamify a process. Sometimes just using
+a technique that seems to work. That when we look at it we would
+identify as being part of gamification. The research from Constellation Research,
+put out a report at the end of last year, where they talked to 55 different early
+adopters of enterprise gamification. And found a wide range of different
+kinds of uses within the enterprise. I'd like to highlight a few examples for
+you, major areas where I see potential take up by enterprises and
+give you an example for each of them. The first is intranets or extranets. Online collaboration systems that
+companies operate for their employees or their extended networks. And gamification here works just like
+it does in the external setting with a discussion forum like stack overflow. The game elements can be used to
+encourage people to contribute. To encourage people to comment and respond, to enhance the quality of
+the participation that people engage in. And to develop leaderboards to identify
+people who have the most expertise or the most involvement in certain topics. So here you see a set of leaderboards for
+the SAP community network. Which is the extranet for
+the enterprise software company SAP and their network of developers. That interact with SAP
+software at other companies. And they very actively use gamification
+techniques to enhance the quality of the discussion in that form. So that's an enterprise case because it's
+being used internally by an enterprise. But the same basic dynamics that
+we saw with stack overflow, and really any other discussion
+forum kind of application. The next one though, is different. This is about productivity. And when I say productivity enhancement,
+I mean. Helping or encouraging employees
+to do their core job better. There are many different
+examples of this and there are many different kinds of jobs. So what it takes to
+motivate a salesperson. Maybe different from what it takes
+to motivate an accountant or an financial analyst but
+in almost every case. Gamification can produce motivation and
+can provide information and feedback. That is valuable to employees and
+helps them improve their job performance. Here's one concrete example
+which comes from call centers. So call centers have
+large numbers of agents. And they have to encourage those agents
+to first of all deal with calls quickly, because the longer they're on the phone
+the more cost there is for the customer. And, at the same time they want
+to encourage the agents to deal with the customers well. Because, the ultimate customers, the customers of the people
+using the call center business, will tend to be upset if the agent is
+clueless or surly, or anything like that. So, the call center operators
+are starting to look to gamification as a technique to help them manage
+these customer service agents better. This is an example from
+a startup called Arcaris, which is specifically focused on
+this call center enterprise market. And you see here on the right a screen
+that would come up for an agent. And it's got a leaderboard,
+she's number one. It's got a set of levels that she
+can achieve by virtue of her various activities on dealing with calls. It's got some customer satisfaction
+numbers that show some data on how she's doing, and it's got achievement, so
+all the standard gamification elements. But here focused in specifically,
+on encouraging better performance for a customer service agent, and highlighting
+the key elements in designed in an aesthetic way that works for
+that application. This here, that you see on the left,
+is a screen that the company might get, looking at key performance indicators,
+that's what KPI stands for. And integrating in those business metrics with the data coming out
+of the gamification engine. Allowing them to monitor their
+employee performance and use the gamification system to
+improve the level of productivity. Now let me put a placeholder here,
+which I'm going to expand on later. That there's a danger in this kind
+of application, that the gamified system could actually, rather than
+helping the call center agents. Be a tool for oppressing them and constantly monitoring their work in
+a way that's not helpful to them. So let's keep that in mind as a risk, but it certainly can be
+done in a positive way. Which I think this is an example of. Next category i'll call
+efficiency enhancement. The difference between productivity and efficiency here is productivity is in
+someone's core job responsibility. Efficiency is about just
+making them work better by doing everything they
+do at work efficiently. And specifically the example
+I wanna talk about is email. So lots and
+lots of workers spend time in their email. And it's not their job,
+primarily, to answer email, but they have to do it as part of their job. And people waste tons and
+tons of time, countless hours. Answering email, getting email that's
+irrelevant, cleaning out their mailbox and so forth. And so gamification is being used to
+improve the efficiency of that process. The example that I show you here
+is something called The Email Game from a company called Baitin. And you see here that they've got a timer,
+so you see how much time you're
+spending in your email. You see this progress bar of
+how much you've got left, and you see a point system. And the way the email game works
+is that you get points for quickly disposing of your email. For deleting it or responding to it in a way that you
+can take it out of your inbox. It incentivizes and encourages you
+to deal with email efficiently. And that little nudge tends to give people enough reason to deal with their email
+in a more efficient way, saving lots and lots of time that gets freed up for
+other things. Another interesting approach to email
+is being taken by a company called Seriosity that has a system called Attent. And their idea was to create
+a virtual currency around email. So they created a set of tokens
+that you attach to email. And it costs you this virtual
+currency to send and receive email. And the idea is by creating
+this kind of virtual economy, people will start to think about
+whether it's worth sending an email. Well, if it actually costs something and
+I've only got so many resources and I have to use some of
+them to send this email. Do I really want to send all
+to the whole company about this particular irrelevant thing? Or not. And, so the idea here is that by creating
+a structure that provides feedback. And the ability manipulate the activity
+around email In a game like way. People will start to see their
+effects on the overall system, that kind of systems thinking
+that games can encourage. And therefore be more responsible about
+the email that they send and receive. So a different approach
+tackling a similar problem and their other problems in
+the efficiency domain as well. Situations where gamification can be used
+to encourage people to waste less time. And therefore have more time for
+their core jobs. The next one I don't have a screenshot
+for, but this is an example from Deloitte, where they have an application
+called WhoWhatWhere. That is used to encourage
+their consultants to find out more about each other. That's in the broad domain
+of knowledge management. Companies don't necessarily
+collaborate internally that well, especially a very
+knowledge oriented company. Like a consulting firm has people all
+over the world with tremendous amounts of knowledge about customers and
+about topics. And yet they don't necessarily
+know about each other. And it would be really helpful for
+the company. If when a consultant in
+Cleveland had a question about, say, supply chain process improvements
+in the oil and gas industry. That they would be able to quickly
+see who else in my company has worked on those engagements or who
+else has real knowledge about that area. So gamification can be
+a way of encouraging people to provide that
+information into the system. And facilitating a process that
+encourages that kind of sharing. The who, what, where system at Deloid
+does that by creating game mechanics around the consultants sharing
+information about what they're doing. On their existing enterprise
+collaboration system. And other companies are starting
+to use similar kinds of applications to encourage that kind
+of lightweight knowledge sharing. There are a variety of
+applications in human resources. Let me touch on a few of them,
+really quickly. Companies are using gamification for
+hiring. Just playing games sometimes
+tells you something about people. And gamifying systems can be used to
+identify the best candidates, and to review candidates
+in the hiring process. Onboarding, gamification is
+a way to get people up and running at a company early on. We talked about onboarding as
+an important technique in game design. So if you think about your HR process
+as a kind of game, gamification and game techniques can be used to
+on board employees quickly. Beyond Onboarding is Acculturation, getting people engaged in
+the culture of the enterprise. And games by creating a fun kind of
+collaborative environment can help people get a sense of their co workers. And the notion of working
+together as a team. And can be a way to reinforce
+the culture of the organization. Now If the culture of
+the organization is very formal and serious, then a game like system
+may not be the best way to do it. But if not, or
+in a wide variety of other contexts. A game like system may be a great
+way to ease people into a sense of how we do things here and
+what the nature is of our culture. Corporate training, easy way to see
+that that applies to gamification. Using game mechanics to encourage
+people and reward people. For the learning that they do
+within the organization and various kinds of training programs. Performance review and
+employee recognition. When we hear from Daniel Debow who I'll do
+an interview with, later in the segment. His company uses gamification for
+informal employee rewards. Telling people you did a great
+job in the enterprise. And providing a structure
+around that activity to have it redown down to the benefit of the company. We can also think of gamification
+being used in the more structured, formal process of performance reviews. By expanding out to badges and
+achievements and other forms of recognition. And by encouraging employees to contribute
+to 360 reviews of their employees and co-workers. And finally, T and E, travel and entertainment,
+here's an example from Google. For their travel and
+entertainment reimbursements, they give people a fixed amount. That they can recover for a particular two-city travel pair
+that they were traveling to. And then, what they do is they
+create a virtual economy. So, if you don't use the full amount
+you're granted, you can bank it. You can give it to charity or
+you can cash it out, though at a discount. And this makes that kind
+of credit liquid in a way, which encourages people to think
+about creatively using it. To be more efficient about their use of
+that travel and entertainment currency. Which previously employees didn't think
+about as a currency or a game at all. They just thought about it as
+a process of getting reimbursement. Here employees are encouraged
+to think about. How to spend efficiently, because
+then they bank additional currency. That they can use either for
+themselves or for charitable donations. Next one is innovation. Companies want to encourage their
+employees to come up with great, new ideas. So this is an example from the Department
+of Work and Pensions in the UK. A public governmental organization, not necessarily the kind of organization
+known for great innovation. What they've done is they've built
+something called idea street which is an idea marketplace. So to encourage people within their
+organization to come up with great ideas. To improve their service,
+they created a virtual stock market. So, employees come up with ideas and
+you can see some ideas here, and other employees can essentially
+buy and sell shares in those ideas. There's a price, daily change,
+volume, total market cap. And here's the link where you can buy and
+sell it. And they've created a stock market
+like market place around these ideas. So great ideas start to float to the top. People can join in on teams that
+have ideas that they think are cool. And that are effective and that
+encourages more activity on those ideas. And what they've found is they've
+generated a large number of ideas. That have actually been put
+into place in the organization, saving millions of dollars, or
+millions of pounds there in the UK. And actually delivering better
+service to their constituencies. Using these game mechanics to make the
+process of coming up with innovative ideas more game-like, as opposed to just the
+suggestion box that you drop an idea in. Finally, there are many examples of
+serious games in the enterprise. So, here's an example from Siemens, the electronics and
+telecommunications company. Where they have created
+something called Plantville. Which is a simulation of one of
+their manufacturing plants and they've created a game around
+operating a manufacturing plant. So, this is something that can be used for
+training, it's something that can be used for other
+purposes, to help people understand how to be more effective in the process
+of managing one of their plants. That is what I would call a serious game,
+cuz it's a full-blown game. So, worth talking about in
+this overall context, but worth Putting to the side for the moment. Because I wanna focus most specifically
+on uses of game elements and structures that get incorporated
+into existing businesses. So as we see, a wide variety of
+different kinds of applications in different kinds of enterprises,
+all using gamification.
