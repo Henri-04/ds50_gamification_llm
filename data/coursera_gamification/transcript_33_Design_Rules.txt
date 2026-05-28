@@ -1,0 +1,160 @@
+# 3.3 Design Rules
+
+So, you've oriented yourself to thinking
+like a game designer. The next step is to focus in on some of the basic design rules that go into good
+game design. The first of these is the player journey. We've talked about thinking of your
+customers or your audience as players. Part of what that means is realizing that
+the player is engaged in an experience. The player is going through a journey in
+playing your game. And the game doesn't have to give them a 3D virtual environment where they are
+getting in a car, or on a horse, and riding around
+a territory to have that journey. The journey is the conceptual path that
+they follow through the game. Because you don't want your player journey
+to be just a random walk, because you don't know where the player's going to get and ultimately that becomes
+uninteresting. You want the player journey to have a
+beginning, a middle and an end. And ideally, those are in some sort of
+progression. The player always starts at the beginning. You want the player to get to a point of mastery and to have that journey be
+seamless. So, the first aspect of the player journey
+is onboarding. So in other words, how to get the player into the game as quickly, as easily, as
+possible. The second aspect is scaffolding. How does the game provide training wheels,
+if you will? Places where the game makes it easier and
+overcome some of the complexity that otherwise would get
+a user stuck. That otherwise, would have the player not
+realize what they'd need to do next. And finally, does the game enable that
+player to get to mastery? To get to the point where the player has
+conquered and achieved some real skill, some real accomplishment within the
+framework of the game. So, let's look at an example of how this
+works in an actual video game. I'd like you to go and play the first
+level of Plants versus Zombies. Many of you already have Plants versus
+Zombies, it has been an extremely successful,
+casual game on mobile devices and the web as well, and
+you can go and play the web-based version for
+free. And again, just play the first easy level
+of the game and think about, how does this game do
+onboarding and scaffolding? It's level one, so you won't be able to
+see, at that point, the path to mastery. But, what are the things that the game
+does that get users quickly into the game, and make it easier for them to
+make progress within the game? Go check it out and then come back. Okay. Hope you had fun with that. So, how does Plants versus Zombies onboard
+you and scaffold the experience? Here are few of the things that I picked
+up. It gives you guides which deliberately
+say, here is what you should do. Go pick up this seed packet. Go put this down on the lawn. It does that sometimes verbally with a
+direct guidance, sometimes just by highlighting
+something, the flashing that tells you intuitively, this is where I
+should click or this is where I should put
+something. It gives you express feedback. Good job. Reinforces that you did the right thing. The game also is dumbed down. There's a limited of what you can do. So, at this point on level one, you get
+one lane of grass only. Only one place you can put your plant. Once the game gets going, there's a lot
+more choices that you have, both in terms of what plant to use and
+where to put it. And if the game were just one kind of
+plant on one lane of grass, it would be pretty dull after a
+while, after just a couple of levels. But starting off, you need that
+simplification, because otherwise the game quickly becomes too
+complex to understand. And similarly, there is only one kind of
+monster, the result of which is that the game, at this level,
+is unbelievably easy. You have to try very hard. I know, probably some of you did die on
+that level because you deliberately didn't put something down, but you have to
+try hard to fail at that level. It's almost automatic that you will level
+up and get that reinforcement and feedback and reward of
+achieving something at that first level. And also, you will become educated and be
+able to move up to the next level of
+difficulty. All of this is without any kind of manual. Think about it, if you had to explain to
+someone how Plants versus Zombies works. There's your house and there's these
+zombies that are ambling towards it, along different lanes
+of grass, and you have to click on seed pods and put
+different kinds of plants down that shoot things at
+the zombies. And you get sunflowers that capture
+sunlight and that gives you more seeds and all this. It sounds really weird, first of all, and
+also kind of complicated. But the onboarding process and the
+scaffolding process of the game makes it easy, in just a few minutes, for anyone to
+figure it out and to get to the point where they can go to the next
+level of complexity, until ultimately the training wheels come off
+and the game gives you the full experience. So, that's onboarding and scaffolding, and
+then ultimately, the challenge down the road is to keep the game interesting to get the
+player up to the level of mastery. The second key to effective game design,
+second design rule that I'll talk about is
+balance. Games have to be balanced. Not too hard, not too easy. Not too many choices, not too few choices. All kinds of balance that have to be in
+the game. Also, not too easy for one player and not
+too easy for the other player. There has to be a sense of competition
+that either player could win. Balance is something that games need at
+every stage. A game can start off in balance and then quickly become imbalanced and then
+fall apart. So, a lot of game design is about ensuring
+that the game is constantly in balance. It's tricky, because the players are real
+people. You don't know exactly what they're going
+to do. You have to play-test the game to see what happens and ensure that the game
+doesn't get out of balance, because at that point it's
+not fun for at least one of the players. So, let's think about a game that you may
+have played. The game being Monopoly. You see it back there, behind me on the
+shelf. And in Monopoly, you go around this game
+board that has four sides and it's divided up into
+various tiles. And there are properties and things like
+railroads and utilities and places you draw cards and so forth, at different
+places here on the board. And all of those things have prices
+associated with them, or at least the houses do and the properties
+do, and they vary. So think about it, what if Boardwalk, as I
+recall Boardwalk is somewhere down over here, if Boardwalk costs twice
+as much, how would the game change? Well, it would be a whole lot better if
+you owned Boardwalk and a whole lot worse if
+you didn't. And it's impossible for me to say in the
+abstract, is the price of Boardwalk too low or too
+high? But if you play the game enough times, you will find out at a certain price, it's too
+high. The game is ultimately not going to be fun
+for whoever doesn't get Boardwalk. That's just a matter of chance. The game will be out of balance. So, with all the properties in the game,
+the challenge is, keep the numbers in balance so that it's fun for people to play, and also people of different skill
+levels. The other piece of bounds which is not
+quite so obvious is this square right here, which in
+Monopoly, says Go on it. And as you probably know, if you've played
+Monopoly, when you pass Go, you get $200. Whoopee for me, I get $200. Why is that in the game? Why does the game have to give you money? The reason is balance. The reason is that if money were not continuously
+injected into the game, the players would quickly run
+out. There's not enough money built into the
+game to keep it going, given all the properties that
+you have to buy. And if the game started you of with two or
+three times as much money as you started with, then the
+game would be too easy. So, the game has to keep the economy in
+balance. It's like a real economy. People are buying things and people are
+getting money. And if the balance between those two things gets out of whack, we have
+inflation. Or, it becomes too difficult for people to
+buy things and then we have something like a
+recession. So, the game of Monopoly has to maintain
+balance in the virtual economy by interject, by injecting $200 into the
+economy each time you pass Go. That's the function of that. Within the game, it's all about balance. So, same thing in gamification. If you're trying to encourage people to do
+something on your website or trying to encourage your employees to
+engage in some practice, it needs to always be designed in a way
+that's not too hard, not too easy, doesn't necessarily favor one group systematically over
+another. Third design rule for gamification is to
+create an experience. And this is, at some level, implicit in the notion of gamification being about
+games. But, you want to take something that is
+not game-like and make it feel game-like by creating an
+integrated experience. So, here is turntable.fm, a site that lets
+people listen to music. Well, that's a common thing on the web. But, what turntable.fm did in very clever ways, was essentially, gamify this
+experience. So, you go to this website and there's
+some music that's playing here. Here's the, the song that happens to be
+playing. But, in addition to the music itself that
+you hear, you see this interface. You see a group of people up at the top
+here who are DJing. They're picking the music that gets
+played. And then all the other people are out
+here, and you see these little, very simple avatars of their
+backs, they're standing out there. They're in a club. So now, all of a sudden, you are not just
+listening to music, you're in a club. And you're in a club with a frie, a bunch
+of friends. And you're in a club with a bunch of
+people. Actual human beings here, who are picking
+the music. And you can rate the music on this little
+thing down here, which lets you say the music is
+either awesome or lame. And then it gets a score on this meter
+here. All of this combines to reinforced the
+notion that you are involved not just in sitting and listening to music
+in your home, but an experience. That you are in a particular kind of world that means something, and that makes the
+act of listening to music somehow richer and
+deeper than just going into iTunes and clicking on one song
+or another. That's a good example about how to use gamification to change an experience
+without really changing it. Now, this is also a good example for
+another reason. Turntable.fm recently shut down. The company decided to refocus on other
+services. Does this mean gamification doesn't work? No, it means that the turntable.fm service
+didn't work ultimately as a business. And it's certainly worth looking back at
+whether the implementation of gamification helped or
+hurt in that process. Gamification doesn't automatically make
+businesses successful. But, if you're going to do gamification,
+it's important to do it in the best possible
+way. And even though turntable.fm ultimately
+didn't make it as a service, it generated a tremendous amount
+of interest at the time. And I still think that's a good example of
+how to do a particular aspect of gamification, the experience
+design aspect of gamification in a very clever,
+interesting way

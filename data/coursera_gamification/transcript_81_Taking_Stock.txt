@@ -1,0 +1,122 @@
+# 8.1 Taking Stock
+
+I've thrown a lot at you in the course so
+far. And truth be told, if this were say, an
+enterprise workshop on gamification, I would've
+stopped after the last section. You've got all the basic concepts, you've
+got a design framework. You've got all of the components necessary
+to apply gamification successfully. But because this is a course, I want to go
+deeper. I want to push you to think about some of the conceptual issues around
+gamification and some of the big, deep questions about its future and about different ways to
+implement it. And so this is a good point in the course
+to take stock at a high level about just what
+gamification is, because it turns out that for many of the
+reasons that I've talked about, there are really two
+different kinds of gamification. Two different things that people mean when
+they use that word. Both to my mind are true examples of
+gamification and there certainly are plenty of places which, where they
+overlap, some of which I'll illustrate. But they're very different answers that
+you get to about gamification, depending on which of these
+two models you adhere to. And people use the same word gamification
+for both of them, and don't necessarily think about
+which one they are following. The best way I can think of to divide these two camps is to ask you the
+following question. Is this a game? This slot machine here which I've showed
+you before, is it a game? Well, if you use the definitions of games
+that I gave you early on in the course,
+probably not. There's no sense of a game-like or
+play-like attitude. There is no sense of meaningful choices
+here. The slot machine is just a big random
+number generator. You pull the handle, that's it, and it
+either gives you money or it doesn't. And, whether it gives you money or not, is
+not based on your skill and your play. It's just based on a random determination
+by the slot machine itself. So fundamentally, the slot machine is no
+different than just flipping a coin, time after time after time, and seeing if
+you get heads or tails. And that's not really a game, is it? On the other hand, many of the examples we
+have of social games on social networks online, as well as gamification, as I've
+talked about, look a lot like the slot machine. They create engagement loops which pull in
+the user by the potential of a reward. They involve surprise. They involve trying to find a pattern. And many people find them powerfully
+engaging. In many of the same ways that they find
+games powerfully engaging. So, there's something game-like about the
+slot machine, and we call it a game of chance. But, that's very different from most of
+the types of games that I described early on in defining what
+makes something truly game-like. And I think this is indicative of a broader split within the notion of
+gamification. There really are two different things
+going on when we use the term. One thing could be summarized as being
+about doing. Gamefication is about doing things using
+games and game-like structures. The other approach, I can over simplify by
+saying it's about feeling. It's about, not necessarily what you do,
+but how you feel about it, what's going on inside
+you. And this leads to a variety of different
+decisions that get made implicitly in which camp
+you're in. So where do you draw inspiration from? If you're focusing on doing things or
+getting other people to do things, then you will draw from
+disciplines like marketing and economics, disciplines that are about
+measuring behavior, and thinking about creating structures that encourage
+people to behave in certain ways. On the other hand, if you come from the feelings camp, you're going to look more
+to things like game design and cognitive psychology,
+these disciplines that are about what's going on that makes someone
+interested in something. What is there more deeply than the surface
+phenomena that they're experiencing? And we've already talked about both of
+these in the class, because the class is designed to give you both
+perspectives and show where they overlap. Similarly, if you're thinking in the first
+camp, you will talk about incentives, things that create some
+mechanism to pull someone to an activity. The other camp, you'll talk about
+experiences, what the person encounters, how they experience
+certain activities. again, the incentive is something outside
+of them, the experience is something inside
+them. The next one is do we talk about
+satisfying people's needs, people's desires, people's wants,
+or do we talk about fun? That term that as we talked about we can
+give meaning to and we can think systematically
+about how to design for fun, but it's something more than just
+meeting basic needs or even meeting higher level kinds of
+needs that people have. There's something, again, experiential and
+indivisible let this notion of fun. If you are in the first camp, you will
+gravitate more towards game elements, which I've
+talked about in great detail. And I say here inductive, in other words,
+the idea is building up from the bottom, little bits and pieces of games to move
+towards the more integrated experience. If you take the other approach, you will start with game thinking, which is more
+deductive, starting with general principles about how games
+work and using those to go down to the more specific
+examples. If you are in the first camp, you will
+think more about status. If you're in the second camp you'll think
+more about meaning. And I've talked about both of these in the psychological section, the appeal of
+status, and also its dangers. The first camp is P-B-Ls, points badgers
+leaderboards, the second camp is gamification as
+puzzles, as learning, as challenges which can be
+represented in systems involving game elements and points
+badges and leaderboards. But typically involve a different kind of approach, an approach that puts the
+challenges and the puzzles and the creativity at the center rather than the structural or
+visible elements. Rewards on the one hand, I've talked in
+great detail about reward design especially in the
+behaviorist tradition of psychology. Progression on the other hand. Mastery. Competence. Not necessarily about a reward, more about
+the journey. And finally and in summary, the first camp
+is about making users do things the second camp is about
+making players awesome. Making users do things should mean making
+them do things that they want to do on their own, but somehow
+don't get to. There are things that are beneficial for
+the player but the player needs some motivational help to
+push them along that path. It doesn't mean necessarily forcing
+someone or tricking someone into doing something that they never really wanted to
+do in the first place. Making players awesome is about figuring
+out in the first instance what it is that will help someone achieve
+their full potential, and focusing more on that, focusing more
+on the user's goals than the external goals of some organization or
+company, viz-a-vis those users. Now it should be evident by now that I
+tend to feel much more comfortable with this camp
+here on the right, with the more game-based approach to
+gamification, but I think it's important and essential really, to also
+understand the one on the left. Many game designers tend to be very
+dismissive or critical of gameification. And we're going to look in detail at some
+of those critiques later on in the course. And I tend to think that while their
+critiques do have some bite, the notion that
+gameifcation is fundamentally flawed and that looking for example at game
+elements as opposed to the more integrative structures of game
+thinking is fundamentally misguided. I tend to take issue with that because, as
+we've seen, there are lots of great examples of
+using the more doing-based approach to gamification
+to get to valuable results for companies and for users or players of
+the gamified system. So, both perspectives tend to be valuable. And in a specific case you may find one or
+the other is more helpful. But it's important to, as a starting
+point, be aware of these two approaches and be aware of where they come
+together and where they diverge.

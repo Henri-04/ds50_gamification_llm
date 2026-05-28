@@ -1,0 +1,191 @@
+# 12.4 Collective Action
+
+Gamification can be a very powerful
+technique for collective action, for motivating and
+encouraging large numbers of people to come together and
+work on a common task or set of tasks. I already talked about something related
+to this when I described Stack Overflow and showed how
+the gamification design for that site encouraged pro social and, in
+some cases, collaborative behavior, like people commenting and
+responding on each others questions. But, what if you have a specific
+objective. Stack Overflow is designed to be a forum for people learning about and getting
+better at programming. What if you have a task that you want to
+solve and you want to employ the energy and ideas and enthusiasm
+of a large number of people towards it? There are a number of different scenarios
+where this might be the case. Some of them we've actually already looked
+at. So, let me give you a framework to
+understand what I'm talking about. I'll draw two axes here. One of them, we'll say, is competitive
+versus collaborative. [BLANK_AUDIO] In other words, are people working
+together with each other or against each other in trying to achieve the task and the other
+one would be top down versus bottom up. Traditionally the way people are motivated
+and encouraged to do things is top down. Someone says, this is what you will do. The alternative approach is to do it in a
+more bottom up way by getting them to be motivated to
+do it themselves. So, in this first quadrant here,
+competitive top down, this would be grants so this is where a company or
+foundation organization says we want to find someone who's going
+to do a certain amount of research to achieve
+something or get a certain result. And so we'll pick a winner and then give
+them the money to do it. The alternative approach that's bottom up
+was described in one of the earlier sessions, that's where we
+would put the inducement prizes. Still competitive people, or
+organizations, or groups are competing to win the prize but now it's bottom up. Anyone can submit to the prize and the
+organization only pays out to the winner. Here, on the collaborative side, is what
+I'm going to talk about more in this lecture. The traditional approach is to use
+employees. So, if you want a group of people to work together to solve a problem, you tell them
+to do it. The alternative, though, is what's called crowdsourcing, or in some cases,
+microwork. This is a family of approaches that
+encourage people to come together to either
+collaborate with each other or to each take a small part or a
+small amount of effort towards a task. But the people are not workers for the
+entity that puts forth the task. They're are people who are motivated
+through a bunch of different mechanisms that I'm about to talk about, voluntarily
+to take on the task. So, what is it that might motivate people
+to take on a task if it's not for their
+employer? Well, one thing is, of course, money. So, there are a number of platforms. Amazon's Mechanical Turk, which I'm
+showing you here, is the biggest and best known, which provides an environment for
+this collaborative crowdsourced microwork. For people to voluntarily work on certain
+tasks, typically for money. Doesn't have to be for money but typically these are situations where a company wants
+something done. They want someone to go check out a bunch of websites or review a bunch of
+documents. Do some sort of task that requires some
+level of human intelligence. Amazon calls them here, human intelligence
+tasks. You may not be able to see it on the
+graphic here, it's a little small, but they're
+task that can't easily be done by a computer, because if they
+could easily be done by a computer we'd just have a
+computer do them. The computers are a lot cheaper and faster than people, but lots of things require
+some degree of thought and discrimination that
+humans do well, so Mechanical Turk and other things
+like it are platforms for people to come and do
+those tasks, and typically they get paid a small amount for doing it, and this has
+been quite successful, as you see here. There are over 200,000 of these tasks
+available today on Mechanical Turk. So, this is one form of crowdsourcing. But, as I've talked about throughout the
+class, money is not necessarily the only thing that
+motivates people. So, is it possible to motivate people to
+participate in these crowdsourced projects without necessarily
+paying them to do it? Indeed, it is. And the way to do it is to use
+gamification. Let me show you a few examples. This is something called Foldit. I didn't put the URL on here. But, it is just fold.it. Foldit. This is a site that was developed by some biomedical researchers at the
+University of Washington. And they are working on 3D protein
+folding. It turns out that the three dimensional
+shape that a protein molecule folds up into has a tremendous impact on what it
+does in the body. So, if we know the 3D shape, we are much
+further along in developing drugs based on those
+proteins and those other molecules. But it's incredibly computationally
+difficult to figure out what shape a molecule will fold into. However, people are really good at
+figuring this out because it's a puzzle. It's something that involves looking at
+the shapes and figuring out the most efficient
+configuration. And so, Foldit is a game like system that
+gives you some real world proteins and asks you to figure out
+the most efficient lay out. And by making this process game like, by making it seem like fun, these researchers
+were able to motivate thousands of people to come
+together and work on these problems with some
+tremendous success. So, there was a case in which there was a
+molecule that's important for AIDS research, has to do
+with the monkey virus that's similar to AIDS, where for 15 years researchers
+have been trying to figure out the the 3D fold, folding shape of that
+molecule and unfold it. Volunteers were able to figure it out in
+just ten days. Incredible success, and they have had
+another, a number of other examples like that where this aspect of making
+something feel fun or puzzle like and also telling people it's part of
+helping medical research has been very successful at motivating
+participation which has gotten to great results. Now the funny thing is, a lot of the press
+that came out after this, development was announced involving
+the monkey virus talked about video gamers solving
+the problem. Online gamers were the ones who had solved
+the puzzle and, and cracked the medical research problem and I
+thought that was kind of ironic. Because these people were gamers only in
+the sense that Foldit was a game. It wasn't that Foldit deliberately
+recruited only people who actively played certain kinds
+of online games, they were gamers because
+they were using a site that was gamified. Foldit is a, a very good example but there
+are a number of other examples like this where applying
+game-like structures can encourage voluntary participation in
+crowdsourced activities. Here's another one from a company called Microtask in Finland where they partnered
+with the Finish National Library which was
+trying to digitize major historical works in
+Finish. And they needed people to review and proofread the optical character
+recognition. So, they created this thing called Digital
+Koot, that is basically a game where you play these
+creatures. I don't really know what these are. But and they're building a bridge across
+the river. And the component pieces of the bridge are
+words that have been interpreted by the optical
+character recognition system. And you need to see if the words are
+correct and you use this game to feed in your work to the process of checking the
+digitization of the, finished works. And they were able, through this process,
+to get a huge number of people to participate and to review 2.5 million specific examples in this
+digitization process. Again, not by paying people, but by
+encouraging them by making it fun. Now, Microtask also has a business that uses the same game like interfaces in
+environments where they do pay people, the game then just encourages and increases the level of
+motivation. And then they go out to paying clients who
+want to do things like form processing, where you want to understand optical character recognition
+of handwritten forms. And you're willing to pay an amount of
+money to Microtask which then can pay a little
+bit to each of the participants and the
+company gets back much better results on the quality of
+their forms. The gamification there becomes not the
+only form of motivation but something that dramatically increases the level of motivation and gets more people to
+participate. In some cases, crowdsourcing and microwork
+can be done without people even fully understanding
+that that's what they're doing. Lewis Von On is a researcher at Carnegie
+Melon University who is one of the leaders in developing what he
+calls games with a purpose. One of the ones that he originally
+developed was this example here called the ESP game. Which is a cute little game that shows
+people a picture, here we see a bunch of sheep. And says, what is this? Type in what this is. And the same thing is given to two
+different people. So you type in here what you think it is,
+and the system says, did you and the other person
+type in the same word? Because if two people looking at an image
+type in the same word, there's a pretty high likelihood
+that that word corresponds to the image. conversely, if people type in different
+things then, maybe, those are not right and that provides some more data
+to the system. What's the point of this? Well, it's kind of fun for the players to
+figure out if you're matching with other people, if you
+get the right description of something. And in fact they got lots of people to
+participate in it, and try and get a high score, and engage in it in the same way that I talked about for other examples of
+gamification. The point of this though, for the company
+setting it up, is improving image search. Very hard for a computer to look at this,
+and know this is sheep. We've got lots of great research on visual
+recognition and computer vision, but it's still not as good as a
+person doing it. So, this is a way of improving the quality of image search and meta tagging images
+for search engines. And, in fact, Google bought, the company
+bought the technology that Von On had developed for this ESP game in order
+to improve their image search. Now here again, this is not something like
+the prior examples where people were being told,
+you're participating in image search. People were just being told here is
+something fun and they're doing it to the extent that
+it's fun. So, gamification can be used both in
+situations where people know explicitly know what they're
+doing or in situations were they are just being encouraged to
+participate in some way in what turns out to be a crowdsourced
+activity. So, what kinds of situations lend
+themselves well? Well, they need to be tasks that can be
+split up easily, fairly obvious, it needs to be a task that
+lots of people can work on in parallel, either that means
+each person gets a little segment of the task or many persons are
+simultaneously trying to solve the task. And it also needs to be a task, as I talked about before, that people are
+good at doing. Because, if either it's too hard for
+people to do or, it's too easy for computers to do, those, the
+people are not the best possible solution. The second major element is, it has to be something where, a gamified system is a
+good motivational technique. There are three basic ways people can be
+motivated to do something crowdsourced. One is for money. One is for love, it's something that they
+care about, that's important to them. The Finnish library example might be a
+good example, if people in that country want to promote the
+preservation of Finnish literature. Another example was when Jim Gray, who was
+a famous computer science researcher, disappeared
+on his boat in the ocean. People volunteered to scour satellite maps
+to try and figure out if they could find evidence of
+his ship because they cared a lot about trying to
+save this guy who was a very revered figure in the
+field. So, they did it, not for money or because
+the task was fun but because they cared about the
+result, so that's another situation. And the third is people being motivated
+for fun. And, and this one is really the one that we're most concerned about in
+gamification. But, as I talked about with, the, earlier
+examples. More than one of these can be present at the same time, and fun, game-like
+approaches tend to be something that can magnify the level of
+engagement, even if it's already there and being reinforced by
+some other mechanism. So, inducement prizes, virtual economies,
+crowdsourcing are three different techniques for expanding the
+scope of gamification, going beyond dealing with a specific objective within a
+company or for a company vis a vis its customer base. And, as I've talked about, they can relate
+to each other in different ways. But they all rely upon the same basic
+motivational techniques and lessons that we've been seeing
+throughout this entire course.

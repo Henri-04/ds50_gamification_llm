@@ -1,0 +1,97 @@
+# 1.2 Course Overview
+
+So what's this course about? It's important I think to start
+with a set of learning goals, especially because gamification
+is a novel concept. It's not something like
+introductory physics where it's obvious what a course
+is going to teach you about. So there are four things that I hope that
+you will get out of this course, if you stick with it all the way through, watch
+the video, do the homework, and so forth. The first is to understand
+what gamification is. The second is to understand
+how it might be valuable. The third is to learn how
+to do it effectively, and the fourth is to understand some specific,
+concrete applications of gamification. So, let me say a little
+bit about each of those. What is gamification is not obvious. Gamification is a new concept, and,
+in many ways, it's misunderstood. So, we'll talk a lot about understanding
+just what gamification is, and what it isn't,
+as well as some of the history and some of the context for
+this emerging business practice. Then we'll talk about how gamification can
+be used and why it might be effective. And notice I say here might be. Gamification is a powerful tool. And I'll give you lots of
+examples of companies and other organizations that are successfully
+applying game mechanics and applying other lessons from
+games to address their problems. But it's important to have
+some measure of skepticism, to realize that gamification
+isn't right for every problem. It's not, by any means, a panacea. And furthermore,
+doing gamification requires you to understand how to do it well and that's
+why we have this third learning goal, to talk about how to do
+gamification effectively. You can understand how gamification might
+be relative to a problem but you need to understand the different techniques,
+the different components that you can use, and the pros and cons of different
+forms of gamification in order to know how to do the right sort of thing
+when faced with a particular situation. And finally some applications, there will
+be examples running throughout the course. Some of them in for
+profit business context. Some of them in non-profit
+social impact kinds of contexts. But we'll look towards
+the end of the course at some specific domains like Inside
+the Enterprise and For Social Good, where there are particular issues that
+come up with applying gamification. It's important to note,
+this is not a technical class. There are no technical prerequisites. There's not going to be
+any coding involved. It's also not a full
+blown game design course. So, there's no requirement that you be
+familiar with any of the technical or aesthetic aspects, artistic aspects,
+of being a game designer, weâre going to talk about some
+of those concepts in the course. Because in order to do
+gamification effectively, even just as a business person, you need
+to understand something about game design. But there are no detailed
+prerequisites involved anyone who has a basic kind of understanding
+about online services, and about digital technology,
+will be fine understanding this course. I mentioned all of the stuff behind me
+on the bookcases, keep an eye on it. You might notice some changes. Some things that look different
+from video to video and if you really notice what's going
+on you might notice something else, from time to time, appearing back
+there and who knows, maybe a message. Now, this course is novel in
+a few different ways which I wanted to highlight here at the outset. The first, obviously, is this new
+method of open online delivery. That's something that has been
+used in certain experiments for the past few years but
+has really expanded greatly only recently. So this is a new way for
+me in teaching and probably for you a fairly new way
+in learning this kind of material. But this course in particular has some
+other aspects that distinguish it even from other courses that
+use this mechanism. The first is that gamification
+is a brand new concept. As Iâll talk about,
+it has roots that go back many years. And itâs going to draw on some
+very old concepts in psychology, and management, and so forth. But gamification as a phrase to describe what Iâm going to talk about
+is really only a couple of years old. And as I said, just understanding what
+gamification is, is not universal today. So we're going to have to start by learning what the concept
+is to begin with. The third thing that's new is
+that this is a new course. I've taught on this subject in person
+at the Wharton School at Penn. In fact, I think that I offered
+the first class on gamification for business that had ever been offered
+anywhere at any university. But for this massive open
+online version on Coursera, I rebuilt the course entirely from
+scratch, to take advantage of some of the unique aspects of this
+new kind of online environment. And finally,
+this course is about practical knowledge, which may be somewhat different from
+some of the other courses that you take. On an open online platform that
+focus on understanding concepts. This is not necessarily about theory. There's a lot of theory that we'll touch
+on that goes in to concepts we discuss in the class, but this is a course, ultimately, that is designed to
+give you some practical knowledge. That's designed to help you understand
+how gamification is used today in the real world and how you potentially
+can be someone who uses it yourself. Now as we go along I'll point
+you through various lengths and other information if you want to dig
+deeper into gamification concepts. But one resource in particular that many
+students find helpful is my book For the Win, How Game Thinking Can
+Revolutionize Your Business which I co-wrote with a colleague, Dan Hunter. It's not a required text. You don't have to purchase it
+in order to take the course, but I hope that you will take a look and
+consider it. Students often find that the book is
+helpful because it's laid out in the same basic structure as the course, and expands
+upon it with additional examples and frameworks that you can then take
+with you after you finish up the. It's available in e-book form on
+all the major e-book platforms and also in paperback. It's also now available,
+in addition to English, in Spanish and Japanese translation with a number
+of other translations in the works. If you go to the link at the bottom of
+the page, the Wharton Digital Press link, it will give you a list of retailers
+to purchase it in e-book or hard copy format in various
+countries around the world. I hope you will at least
+take look at the book and consider it as a useful resource to deepen
+your understanding of gamification.

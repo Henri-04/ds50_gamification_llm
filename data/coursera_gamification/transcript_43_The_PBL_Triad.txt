@@ -1,0 +1,183 @@
+# 4.3 The PBL Triad
+
+All game elements are equal but some are
+more equal than others. Actually no, that's not true. But there are some game elements that are
+more common than others and that are more influential in others in
+shaping typical examples of gamification. And there's three of them I'd like to
+highlight for you and go into more detail on, which are
+represented by the acronym PBL. And these are the following, points, badges, and leaderboards. P-B-L. When I taught the first business school course on gamification,with my
+colleague Dan Hunter last year. We challenged our teams of MBAs to come up with novel implementations of
+gamification. And yet virtually every one of them used
+PBLs as at least one of the core elements of their
+gamification designs. There's just a fundamental attraction to
+using these elements in gamification and part of
+that is because they serve a variety of different functions, more so than one
+might expect. So, most of the common examples. At least the standard kinds of examples of
+gamification like Samsung Nation which I've already mentioned to you
+have PBLs at their core. Shouldn't be too hard for you to see them
+on the screenshot here. But lets look at each of these elements in
+detail. And try to understand what functions they
+serve. Because it turns out that one of the
+reasons why PBLs are useful is that they do a number of
+different things. But it's important to realize that as useful as PBLs are, they are not
+everything. And gamification should not start and end
+with just these three elements. Or it will easily become boring and
+shallow. Alright, so let's start with points. What is the point of points? Well, the first thing you might think of,
+is that points are a way of keeping score. So, if we know that someone has 100
+points, and someone else has 5000 points, then we know that this
+player here is the winner. Points are our way of determining how well
+someone is doing in the game. So points can either show the relative
+position of players or they can actually define
+winning. Winning might be the first person to
+achieve 5,000 points. But they do other things as well. Points can connect up with rewards. So you need say, 5,000 virtual points to
+get some reward, whether that's a free hotel stay or some
+badge in a gamified system. Points also provide feedback. Seeing here that you've got 5,000 points
+in this case is pretty good evidence that you're doing better than you when you had
+a 100 or this other player who has a 100. The points are a feedback mechanism. They show you in real time exactly how
+you're doing in the game. The points also are a way of displaying
+progress. So you remember I talked about the
+importance of the progress dynamic of getting up to a
+higher point. The points give you feedback but they also
+are a way of telling that you're moving along that
+staircase and where you are. The points also provide data. So the game designer can see how many
+points you're earning, where you're earning them,
+how fast you're earning them and so forth, and that can be used to enhance the game or the gamified
+system. And finally the great thing about points
+is that a point is a point is a point is a point is a
+point. They're all equal. So as long as you have one point system
+you could conceivably have games and gamified systems with multiple independent point systems that
+aren't tradeable. But generally speaking, one point is as
+good as another. Which means that points can be used to
+represent anything. They're a universal currency if you will,
+that allows us to create a system where doing one sort of action,
+going off on a quest with your friends, is somehow
+equivalent or comparable to doing some other sort of action, sitting and watching
+a video on the site. So points do all of those sorts of things, all of which can be valuable in
+gamification. Next up, badges. Badges are representations of achievement. So they are some visual indication that
+you have reached a certain level or you've accomplished some set of objectives that
+was set for you in the gameified system. The point is that there are something,
+typically a button-like, graphic that goes on a
+profile page or some place that other players can see, and
+they show and represent and encapsulate the
+achievement of that player. Now there are many great things about
+badges. They are often associated with Four Square
+although a great many gamified services now use badges in
+various different ways. One of the powerful things about badges is
+just how flexible they are. So you can represent anything in a badge. The badge is just this little shield or
+button or whatever, that is an open canvas for the game designer to reward or
+commemorate what ever they want. So maybe you get a badge for the first
+time that you do something. Maybe you get a badge for doing something
+100 times in a row. Maybe you get a badge just at random
+because the game designer wanted to give you a little
+surprise that morning. The badge can represent what ever the game
+designer wants and that's very powerful. Because the gamified system is trying to
+motivate certain behavior. It's trying to result in certain outcomes
+that are relevant to the business or the other
+context. So the badge can be a great way of
+conveying that by linking to exactly what it is that the
+gamification designer wants to motivate. Badges also can convey style. Now this badge you see here, if you can
+even think of that as a badge, does not convey a whole
+lot of style. It conveys the fact that I'm not very good
+at drawing. But the point here is because badges are
+graphical, they can have their own kind of graphical style
+and the design elements, the pattern of those
+badges, can represent and communicate the vibe, or the overall
+aesthetic of the gamified system. They also signal importance. So, a badge designates what things are
+significant in the game. There are many kinds of things that might
+be achievements or points or levels, but the
+badge says, yes, this is something this game or this
+gamified service will reward and that tells you potentially
+that it's significant. They also function as credentials. The badge tells anyone who's looking
+here's what I've done. I have gotten all the way through Professor Warbeck's course error corse on
+gamification. And I see some badge that shows everyone
+that I've done that. That's a credential like the good
+housekeeping seal, or the diploma that you get if you graduate from
+a college. Badges also can support collections. So if you have a bookcase if you will,
+that can hold a variety of different badges, then that's often seen by players
+as an invitation to fill it up. And players want to have the full cupboard
+and they want to collect things from many different
+places that fit into that cupboard. That then becomes, in and of itself, a
+structure, a mechanic that pushes people along to play the game more and to
+feel more engaged in it. And finally badges are status symbols. They show ah-hah, I have accomplished
+this. I have this really cool badge that no one
+else has. Now badges don't have to be that. Status is a complicated and dangerous thing in gamification that we'll talk
+about. But certainly if the gamified system is
+going to depend on status, then badges are typically going to be some part
+of how it does so. There are number of initiatives that
+involve using badges not just in game verification but more
+broadly in particular for this credentialing
+function, one of the most significant is the open badge framework
+from the Mozilla foundation. Here's the url so you can find out more. Here's, a, a graphic which comes from
+Wikipedia showing the process. The challenge here that the Mozilla
+Foundation is taking on is informal learning or other kinds of
+learning that don't fit into the traditional
+mechanisms of things like college where you get the badge of
+the diploma. So if you've taken a whole bunch of online
+courses, or if you have more informally participated in some online activities that are tantamount
+in the kind of skill development you would
+get in a course, how do you show employers, potential colleagues, anyone
+who's curious, that you've done that. How do you represent that skill? How do you credential what you've done? Given that the badge that you get within
+any particular system is typically only designed for use
+within that system. So the open badge framework is a software
+platform that allows any kind of badge issuer, which could be universities
+or training programs or informal programs to
+then issue badges to the learner, and then the
+learner has the opportunity to take those badges in a secure way and put them into
+what they call a badge backpack. Some collection of all of that users
+badges which then itself can be pushed out to social media and job
+sites and so forth. This is an integrated system for using
+badges effectively as credentials. Which is catalyzing a lot of activity in
+various kinds of online learning, especially outside of our
+traditional formal higher educational and K-12
+educational learning. It's canalizing a lot of activity to use
+these badges as ways of encouraging and memorializing
+effective learning that occurs. Finally Leaderboards, Leaderboards are
+about ranking, they tell you exactly where you stand relative to other people
+who play the game. Another way to think about them is as a
+form of feedback as are all these elements that we're talking
+about here, but this feedback is specifically on
+competition. How well you're doing relative to others
+who play the game, and leaderboards are fairly ubiquitous in
+video games and arcade games of all kinds. But there's a danger with leaderboards,
+and a challenge which is that if you see your score, and let's say your score in the
+game is 555, and then you look at the leaderboard, and the leaderboard tells you
+that the person on the top of the leaderboard has
+127,000,000 you're going to look at that and say,
+whoa, it's a long way from here to there. And you're not going to feel as good or confident about your score, and you're
+also potentially going to feel like there's no
+way I'm going to get good at this game. I'm never going to get 100 million points,
+and it tends to make it more common for people to abandon the
+game, for people to not find it fun. So what a number of social games have done
+is an innovation on the leader board. Is what we can call the personalized
+leaderboard. So now you have have your 555 score here,
+but instead of seeing that relative to all players of the game, you see it
+appear in the middle of the leaderboard. That's you, and then you see immediately
+of, above you, here is someone with 980, here's
+someone with 400. Here's someone with with 325 and so forth. Your score now looks like it's in the
+middle. You're zooming directly on your score as
+opposed to seeing the fact that there's someone way, way, way above you
+who has a much better score. A variant on that is what I'll call friend relative leader boards where the
+only things that you see on this personalized
+leaderboards are your friends, people who are in your
+social graph. So now you are comparing yourself not just to strangers, but specifically
+comparing yourself to people you know, which is encouraging
+to you to want to compete against them. So that's some of the innovation that
+we're seeing in leaderboards in social games, which also
+could be applied to gamification. But there's some real dangers to the
+leaderboards. And in fact with all of these elements as
+I'll talk about in the next segment. Leaderboards in many contexts have been
+shown in studies to demotivate. Leaderboards are commonly used in things
+like sales contests. If you sell the most in this week you get
+some award and will show as the contest is going on
+who's at the top. And the idea companies use that for is
+that will really push people. You'll see that someone's ahead of you and
+you'll double down, or you'll see that you're just a little bit
+behind and you'll work harder. And that may be so, but in many cases researchers have found that seeing
+things in those leaderboard terms, zero sum game, it's all
+about competition, actually will make people
+less willing to engage. They will just give up or not try as hard
+because the leaderboard focuses them too squarely on that kind of zero-sum competitive
+challenge. So in the next segment I'll talk in more
+detail about some of the limitations and problems with designing
+with game elements in general, and in particular
+these PBLs.
