@@ -21,7 +21,7 @@ import re
 import sys
 from pathlib import Path
 
-# Permet de lancer ce fichier directement (python agent/agent2_recommender.py)
+# Permet de lancer ce fichier directement (python src/agent/agent2.py)
 # en ajoutant src/ au chemin de recherche des modules.
 _SRC = Path(__file__).resolve().parents[1]  # .../src
 if str(_SRC) not in sys.path:
@@ -32,7 +32,7 @@ from tools.sparql_tools import run_sparql, PREFIXES
 
 try:
     from .state import AgentState
-except ImportError:  # execution directe (python src/agent/agent2_recommender.py)
+except ImportError:  # execution directe (python src/agent/agent2.py)
     AgentState = dict  # type: ignore
 
 # Nombre maximum de tentatives de generation/execution de la requete.

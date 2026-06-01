@@ -44,3 +44,6 @@ chroma_db/
 test.py
 
 outputs_agent3/ 
+
+.claude 
+CLAUDE.md 

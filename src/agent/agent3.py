@@ -13,15 +13,20 @@ plus proprement en plusieurs fichiers si le projet grossit.
 """
 
 import os
+import sys
 from datetime import datetime
+from pathlib import Path
 from textwrap import dedent
 from typing import Any, Dict, List, Optional
 
-from dotenv import load_dotenv
-from langchain_nvidia_ai_endpoints import ChatNVIDIA
 from langgraph.graph import END, StateGraph
 import time
 
+_SRC = Path(__file__).resolve().parents[1]
+if str(_SRC) not in sys.path:
+    sys.path.insert(0, str(_SRC))
+
+from llm.nvidia_client import llm
 from state import AgentState
 
 
@@ -88,18 +93,6 @@ def mock_previous_agents_output() -> AgentState:
         "generated_resource": None,
     }
 
-
-# ============================================================
-# 2. Connexion au modèle NVIDIA
-# ============================================================
-
-load_dotenv()
-
-llm = ChatNVIDIA(
-    model=os.getenv("NVIDIA_MODEL", "openai/gpt-oss-120b"),
-    temperature=0.3,
-    max_completion_tokens=2500,
-)
 
 
 # ============================================================
