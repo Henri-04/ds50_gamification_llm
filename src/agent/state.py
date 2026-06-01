@@ -7,9 +7,22 @@ class AgentState(TypedDict, total=False):
     user_input: str
     decision: Optional[str]
     tool_result: Optional[str]
-    final_answer: Optional[str]
+    final_answer: str
 
-    # --- Champs Agent 1 (résumé ontologie) ---
+    # --- Champs Agent 1 (pipeline graph : exploration ontologie + recommandation) ---
+    conversation_history: list
+    current_query: str
+    ontology_schema: str
+    ontology_rules: list
+    rag_results: list
+    reasoning_chain: list
+    required_queries: list
+    draft_recommendation: str
+    validation_errors: list
+    is_valid: bool
+    retry_count: int
+    confidence: str
+    needs_clarification: bool
 
     # --- Champs Agent 2 (Agent de recommandation : NLP -> SPARQL -> execute) ---
     # Resume brut produit par l'Agent 1 (blob opaque, interprete par le LLM).
