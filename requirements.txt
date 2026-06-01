@@ -23,6 +23,7 @@ rdflib>=7.0.0
 
 # LLM APIs
 groq>=0.4.0
+langchain-nvidia-ai-endpoints>=0.1.0
 
 # Utilitaires
 python-dotenv>=1.0.0
