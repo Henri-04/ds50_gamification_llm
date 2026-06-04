@@ -3,6 +3,7 @@ from langgraph.graph import StateGraph, END
 
 from .state import AgentState
 from .nodes import node_load_taxonomy, node_recommend, node_bridge, node_generate_resource
+from ..config import DEFAULT_TEACHER, DEFAULT_COURSE
 
 
 def create_pipeline():
@@ -23,12 +24,18 @@ def create_pipeline():
     return graph.compile()
 
 
-def run_pipeline(user_input: str, teacher: str = "Sara", lesson: str = "") -> dict:
+def run_pipeline(
+    user_input: str,
+    teacher: str = DEFAULT_TEACHER,
+    course: str = DEFAULT_COURSE,
+    lesson: str = "",
+) -> dict:
     """Lance la pipeline complète et retourne le state final."""
     pipeline = create_pipeline()
     initial_state: AgentState = {
         "user_input": user_input,
         "teacher": teacher,
+        "course": course,
         "lesson": lesson,
     }
     return pipeline.invoke(initial_state)

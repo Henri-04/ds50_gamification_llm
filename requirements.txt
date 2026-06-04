@@ -1,25 +1,25 @@
-# Interface
-streamlit>=1.28.0
-
 # Framework IA
-langchain>=0.3.0
-langchain-community>=0.3.0
-langchain-groq>=0.2.0
+langchain==1.2.15
+langchain-community==0.4.1
+langchain-groq==1.1.2
 
 # Orchestration
-langgraph>=0.2.0
+langgraph==1.1.9
 
 # Ontologie OWL (Agent 1)
-owlready2
+owlready2==0.50
 
 # Ontologie SPARQL (Agent 2)
-rdflib>=7.0.0
+rdflib==7.6.0
 
 # LLM APIs
-groq>=0.4.0
-langchain-nvidia-ai-endpoints>=0.1.0
+groq==0.37.1
+langchain-nvidia-ai-endpoints==1.4.1
 
 # Utilitaires
-python-dotenv>=1.0.0
-pydantic>=2.5.0
-requests>=2.31.0
+python-dotenv==1.2.2
+pydantic==2.13.3
+requests==2.33.1
+
+# Tests
+pytest==8.3.4

@@ -1,11 +1,7 @@
-import os
-from dotenv import load_dotenv
+"""Client NVIDIA, utilisé par l'Agent 3. Clé NVIDIA_API_KEY dans .env."""
+
 from langchain_nvidia_ai_endpoints import ChatNVIDIA
 
-load_dotenv()
+from ..config import NVIDIA_MODEL
 
-llm = ChatNVIDIA(
-    model=os.getenv("NVIDIA_MODEL", "openai/gpt-oss-120b"),
-    temperature=0.3,
-    max_completion_tokens=2500,
-)
+llm = ChatNVIDIA(model=NVIDIA_MODEL, temperature=0.3, max_completion_tokens=2500)

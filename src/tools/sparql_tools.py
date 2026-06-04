@@ -16,6 +16,8 @@ from rdflib.plugins.sparql import prepareQuery
 # du projet (../../ontologies/ depuis ici).
 _PROJECT_ROOT = Path(__file__).resolve().parents[2]
 ONTOLOGY_PATH = _PROJECT_ROOT / "ontologies" / "TGC3March2026.owl"
+# Ontologie enrichie par le raisonneur (regles SWRL), generee par l'Agent 1.
+INFERRED_PATH = _PROJECT_ROOT / "ontologies" / "TGC_inferred.owl"
 
 # --- Prefixes de l'ontologie -----------------------------------------------
 # Filet de securite : injectes en tete de chaque requete pour que le LLM
@@ -38,11 +40,13 @@ def get_graph() -> Graph:
     """Retourne le graphe RDF, en le chargeant a la premiere demande."""
     global _graph
     if _graph is None:
-        if not ONTOLOGY_PATH.exists():
-            raise FileNotFoundError(f"Ontologie introuvable : {ONTOLOGY_PATH}")
+        # Si le raisonneur a tourne (Agent 1), on utilise l'ontologie enrichie.
+        chemin = INFERRED_PATH if INFERRED_PATH.exists() else ONTOLOGY_PATH
+        if not chemin.exists():
+            raise FileNotFoundError(f"Ontologie introuvable : {chemin}")
         g = Graph()
         # L'OWL est au format RDF/XML.
-        g.parse(str(ONTOLOGY_PATH), format="xml")
+        g.parse(str(chemin), format="xml")
         _graph = g
     return _graph
 

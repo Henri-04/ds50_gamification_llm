@@ -18,22 +18,44 @@ Si le LLM est indisponible (clé manquante, rate limit), un repli déterministe
 basé sur les namespaces produit quand même un JSON exploitable.
 """
 
-import os
 import re
 import json
-from dotenv import load_dotenv
 from collections import defaultdict
-from owlready2 import get_ontology, ThingClass, And, Or, Restriction
+from owlready2 import get_ontology, ThingClass, And, Or, Restriction, sync_reasoner_hermit
 from langchain_groq import ChatGroq
 from langchain_core.messages import SystemMessage, HumanMessage
 
-load_dotenv()
+from ..config import GROQ_CURATION_MODEL
+from ..tools.sparql_tools import ONTOLOGY_PATH, INFERRED_PATH
 
-ONTOLOGY_PATH = "ontologies/TGC3March2026.owl"
-OUTPUT_PATH = "taxonomy_for_agent_2.json"
-MODEL = "openai/gpt-oss-120b"
+# Le JSON de taxonomie est écrit à la racine du projet (../../ depuis l'ontologie).
+OUTPUT_PATH = ONTOLOGY_PATH.parents[1] / "taxonomy_for_agent_2.json"
 
-onto = get_ontology(ONTOLOGY_PATH).load()
+# Ontologie chargée de façon paresseuse : importer ce module ne lit pas le .owl.
+_onto = None
+
+
+def _get_onto():
+    """Charge l'ontologie OWL (owlready2) à la première demande."""
+    global _onto
+    if _onto is None:
+        # owlready2 veut un chemin de fichier brut (pas une URI file://).
+        # as_posix() donne des slashes avant, OK sous Windows comme Unix.
+        _onto = get_ontology(ONTOLOGY_PATH.as_posix()).load()
+    return _onto
+
+
+def run_reasoner():
+    """
+    Lance le raisonneur HermiT UNE seule fois et sauvegarde l'ontologie enrichie
+    (faits déduits) dans TGC_inferred.owl. Ensuite, l'Agent 2 interroge ce fichier
+    (via sparql_tools) sans relancer le raisonneur à chaque fois. Nécessite Java.
+    """
+    onto = _get_onto()
+    with onto:
+        sync_reasoner_hermit(infer_property_values=True)
+    onto.save(file=str(INFERRED_PATH), format="rdfxml")
+    print(f"Ontologie enrichie sauvegardée : {INFERRED_PATH}")
 
 # Classes que l'on garde TOUJOURS : socle minimal du cas d'usage. Sert de
 # garde-fou si le LLM renvoie une réponse appauvrie. Le LLM décide du reste.
@@ -111,6 +133,7 @@ def first_comment(entity):
 # ==========================================================================
 def extract_structure() -> dict:
     """Extrait toute la structure de l'ontologie en dicts purs (URIs incluses)."""
+    onto = _get_onto()
     prefixes = {}
 
     def record_ns(iri):
@@ -240,7 +263,7 @@ def parse_json_obj(text: str) -> dict:
 
 def curate_with_llm(structure: dict) -> dict:
     """Appel LLM unique. Renvoie les sets de noms à garder, ou lève une exception."""
-    llm = ChatGroq(model=MODEL, temperature=0)
+    llm = ChatGroq(model=GROQ_CURATION_MODEL, temperature=0)
     messages = [
         SystemMessage(content=FILTER_SYSTEM),
         HumanMessage(content=build_filter_input(structure)),
@@ -385,3 +408,9 @@ if __name__ == "__main__":
           f"{len(result['object_properties'])} object props, "
           f"{len(result['data_properties'])} data props, "
           f"{len(result['individuals'])} individus de vocabulaire")
+
+    print("\nPhase 4 — raisonneur (règles SWRL)...")
+    try:
+        run_reasoner()
+    except Exception as e:
+        print(f"  ⚠ Raisonneur non exécuté ({e}). Java est-il installé ?")

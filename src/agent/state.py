@@ -17,6 +17,7 @@ class AgentState(TypedDict, total=False):
     query_results: Optional[List[Dict[str, Any]]]
     attempts: Optional[int]
     recommendation: Optional[str]
+    ontology_facts: Optional[str]   # faits riches récupérés sur la leçon (déterministe)
 
     # Bridge LLM → champs structurés pour Agent 3
     learner_profile: Optional[str]

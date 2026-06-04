@@ -5,26 +5,55 @@ Chaque nœud prend un AgentState et retourne un AgentState enrichi.
 """
 
 import json
-import sys
-from pathlib import Path
 
-_SRC = Path(__file__).resolve().parents[1]   # .../src/
-_AGENT = Path(__file__).resolve().parent      # .../src/agent/
-for _p in (str(_AGENT), str(_SRC)):
-    if _p not in sys.path:
-        sys.path.insert(0, _p)
+from .state import AgentState
+from .agent2 import recommend
+from .agent3 import build_agent3_graph
+from ..llm.groq_client import call_llm
+from ..tools.sparql_tools import ONTOLOGY_PATH
 
-from llm.groq_client import call_llm
-from agent2 import recommend
-from agent3 import build_agent3_graph
-from state import AgentState
-
-TAXONOMY_PATH = Path(__file__).resolve().parents[2] / "taxonomy_for_agent_2.json"
+# Taxonomie à la racine du projet (../../ depuis l'ontologie).
+TAXONOMY_PATH = ONTOLOGY_PATH.parents[1] / "taxonomy_for_agent_2.json"
 
 
 # =============================================================================
 # Nœud 1 — Taxonomie (Agent 1)
 # =============================================================================
+
+def _nom_court(uri, prefixes):
+    """Transforme une URI en nom court (ex: tgc:Teacher)."""
+    for prefixe, ns in prefixes.items():
+        if uri.startswith(ns):
+            return prefixe + ":" + uri[len(ns):]
+    return uri.split("#")[-1]
+
+
+def _compact_summary(taxonomy):
+    """
+    Petit résumé texte de l'ontologie pour l'Agent 2 (noms + relations).
+
+    On n'envoie pas toute la taxonomie (trop de tokens -> erreurs 429 de Groq) :
+    juste les classes, les relations et le vocabulaire utiles pour écrire du SPARQL.
+    """
+    prefixes = taxonomy["prefixes"]
+    lignes = []
+
+    lignes.append("CLASSES : " + ", ".join(c["prefixed"] for c in taxonomy["classes"]))
+
+    lignes.append("RELATIONS (propriete : domaine -> portee) :")
+    for p in taxonomy["object_properties"]:
+        domaine = ", ".join(_nom_court(u, prefixes) for u in p.get("domain", [])) or "?"
+        portee = ", ".join(_nom_court(u, prefixes) for u in p.get("range", [])) or "?"
+        lignes.append("  " + p["prefixed"] + " : " + domaine + " -> " + portee)
+
+    lignes.append("ATTRIBUTS : " + ", ".join(p["prefixed"] for p in taxonomy["data_properties"]))
+
+    individus = taxonomy.get("individuals", [])
+    if individus:
+        lignes.append("VOCABULAIRE : " + ", ".join(_nom_court(i["uri"], prefixes) for i in individus))
+
+    return "\n".join(lignes)
+
 
 def node_load_taxonomy(state: AgentState) -> AgentState:
     """Charge taxonomy_for_agent_2.json, ou lance Agent 1 pour le générer."""
@@ -32,19 +61,19 @@ def node_load_taxonomy(state: AgentState) -> AgentState:
         with open(TAXONOMY_PATH, encoding="utf-8") as f:
             taxonomy = json.load(f)
     else:
-        print("[Agent 1] Fichier absent — génération...")
-        from agent1 import extract_structure, curate_with_llm, apply_filter, fallback_keep
+        print("Agent 1 : taxonomie absente — génération...")
+        from .agent1 import extract_structure, curate_with_llm, apply_filter, fallback_keep
         structure = extract_structure()
         try:
             keep = curate_with_llm(structure)
         except Exception as e:
-            print(f"[Agent 1] ⚠ LLM indisponible ({e}) — repli déterministe")
+            print(f"Agent 1 : LLM indisponible ({e}) — repli déterministe")
             keep = fallback_keep(structure)
         taxonomy = apply_filter(structure, keep)
         with open(TAXONOMY_PATH, "w", encoding="utf-8") as f:
             json.dump(taxonomy, f, indent=2, ensure_ascii=False)
 
-    state["ontology_summary"] = json.dumps(taxonomy, ensure_ascii=False, separators=(",", ":"))
+    state["ontology_summary"] = _compact_summary(taxonomy)
     return state
 
 
@@ -75,24 +104,55 @@ Réponds UNIQUEMENT avec un objet JSON valide, sans texte autour :
   "recommended_resource_type": "type de ressource (ex: activité interactive, défi chronométré, parcours...)"
 }"""
 
+# Champs que le Bridge doit produire, avec des valeurs de repli sûres si le LLM
+# renvoie un JSON invalide : ainsi l'Agent 3 dispose toujours de tous les champs.
+_BRIDGE_FIELDS = (
+    "learner_profile",
+    "pedagogical_objective",
+    "behavioural_objective",
+    "recommended_game_element",
+    "recommended_resource_type",
+)
+
+
+def _bridge_fallback(state: AgentState) -> dict:
+    """Valeurs par défaut si le LLM du Bridge échoue (JSON illisible/incomplet)."""
+    return {
+        "learner_profile": "Profil apprenant non précisé",
+        "pedagogical_objective": state.get("lesson") or "Objectif pédagogique de la leçon",
+        "behavioural_objective": "Motivation",
+        "recommended_game_element": "Quiz",
+        "recommended_resource_type": "activité interactive",
+    }
+
 
 def node_bridge(state: AgentState) -> AgentState:
     """Bridge LLM : structure la sortie d'Agent 2 en champs pour Agent 3."""
     user_msg = (
         f"Leçon : {state.get('lesson', 'inconnue')}\n"
-        f"Question : {state.get('user_input', '')}\n"
-        f"Recommandation Agent 2 : {state.get('recommendation', '')}\n"
-        f"Données SPARQL (extrait) : {json.dumps((state.get('query_results') or [])[:5], ensure_ascii=False)}"
+        f"Question : {state.get('user_input', '')}\n\n"
+        f"{state.get('ontology_facts') or 'Aucun fait d ontologie.'}\n\n"
+        "Choisis de préférence un élément de jeu et un objectif présents dans ces faits."
     )
     messages = [
         {"role": "system", "content": _BRIDGE_SYSTEM},
         {"role": "user", "content": user_msg},
     ]
-    response = call_llm(messages)
-    raw = response.choices[0].message.content.strip()
-    start, end = raw.find("{"), raw.rfind("}") + 1
-    bridge = json.loads(raw[start:end])
-    state.update(bridge)
+
+    fallback = _bridge_fallback(state)
+    try:
+        raw = call_llm(messages).strip()
+        start, end = raw.find("{"), raw.rfind("}") + 1
+        if start == -1 or end == 0:
+            raise ValueError("aucun objet JSON dans la réponse du Bridge")
+        bridge = json.loads(raw[start:end])
+    except Exception as e:
+        print(f"Bridge : sortie LLM illisible ({e}) — repli sur valeurs par défaut")
+        bridge = {}
+
+    # Complète les champs manquants avec le repli (robustesse Agent 3).
+    for field in _BRIDGE_FIELDS:
+        state[field] = bridge.get(field) or fallback[field]
     return state
 
 

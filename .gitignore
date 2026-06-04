@@ -23,9 +23,8 @@ build/
 *~
 .DS_Store
 
-# Streamlit
-.streamlit/
-.streamlit/secrets.toml
+# Ontologie enrichie par le raisonneur (générée par Agent 1)
+ontologies/TGC_inferred.owl
 
 # Bases de données locales
 chroma_db/
