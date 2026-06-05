@@ -72,7 +72,7 @@ Puis lancer l'import avec URI raccourcies (plus lisible dans Neo4j):
 
 ```cypher
 CALL n10s.rdf.import.fetch(
-  "file:///C:/Users/.../import/TGC3March2026.owl", 
+  "/Users/henribost/Library/Application Support/neo4j-desktop/Application/Data/dbmss/dbms-89ef1bd0-96e3-4be3-ba9f-675ae6d699a2/import/TGC3March2026.owl", 
   "RDF/XML",
   { handleVocabUris: "SHORTEN" }
 );

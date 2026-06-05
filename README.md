@@ -1,51 +1,76 @@
-# Projet DS50 : IA Generative et Gamification
+# Projet DS50 : IA Générative et Gamification
 
 ## Description
 
-Systeme d'intelligence artificielle generative fournissant des recommandations de gamification personnalisees pour les enseignants. Le systeme s'appuie sur un module conversationnel, un pipeline RAG (Retrieval-Augmented Generation) et un graphe de connaissances (ontologie) pour contextualiser les propositions selon les objectifs pedagogiques, la discipline et le profil des apprenants.
+Système d'IA générative qui recommande des stratégies de **gamification pédagogique**
+personnalisées à un enseignant. Le système s'appuie sur une **ontologie** (graphe de
+connaissances OWL/RDF) pour ancrer ses propositions dans des faits réels (leçons,
+ressources, profils d'apprenants, objectifs), et sur des **LLM** pour interpréter la
+question, requêter le graphe et générer une ressource concrète.
 
-## Stack Technique
+## Architecture
 
-- **Interface utilisateur** : Streamlit
-- **Orchestration IA** : LangChain / LangGraph
-- **Modeles LLM** : API (Groq, Gemini, OpenAI) ou modeles locaux
-- **Embeddings** : Sentence-Transformers (paraphrase-multilingual-MiniLM-L12-v2)
-- **Base vectorielle** : ChromaDB (locale, sans serveur)
-- **Base de graphe** : Neo4j (ontologie, regles SWRL)
-- **Modelisation semantique** : Protege (OWL/RDF)
+Pipeline orchestré avec **LangGraph** en 4 étapes :
 
-## Structure du repertoire
+```
+Agent 1 ──> Agent 2 ──> Bridge ──> Agent 3
+(ontologie) (SPARQL)  (structure) (génération)
+```
+
+| Étape | Rôle | Techno |
+|-------|------|--------|
+| **Agent 1** | Explore l'ontologie OWL et produit une taxonomie épurée (`taxonomy_for_agent_2.json`) : extraction déterministe + 1 appel LLM de curation, avec repli sans LLM. | `owlready2`, Groq |
+| **Agent 2** | Traduit la question (langage naturel) en requête **SPARQL**, l'exécute sur l'ontologie et renvoie les données réelles. Boucle de retry bornée si la requête échoue. | `rdflib`, Groq |
+| **Bridge** | Structure la sortie d'Agent 2 en champs exploitables (profil apprenant, objectifs, élément de jeu…). Repli sur valeurs par défaut si le LLM renvoie un JSON invalide. | Groq |
+| **Agent 3** | Génère la ressource gamifiée finale (Markdown) prête à l'emploi. | NVIDIA |
+
+> L'ontologie est interrogée **en mémoire via rdflib** — aucun serveur Neo4j n'est
+> nécessaire pour faire tourner l'application. Un guide d'import vers Neo4j existe à
+> titre optionnel/exploratoire : [ontologies/IMPORT_OWL_NEO4J.md](ontologies/IMPORT_OWL_NEO4J.md).
+
+## Stack technique
+
+- **Interface** : ligne de commande (CLI / terminal)
+- **Orchestration** : LangGraph / LangChain
+- **LLM** : Groq (Agents 1, 2, Bridge) et NVIDIA (Agent 3) — modèles configurables
+- **Ontologie** : OWL/RDF interrogée par SPARQL via `rdflib`
+- **Modélisation** : Protégé (OWL/RDF)
+
+## Structure du dépôt
 
 ```
 ds50_gamification_llm/
-├── app.py                    # Point d'entree Streamlit 
-├── requirements.txt          # Dependances Python
-├── README.md
-├── .env                      # Cles API (non versionne)
-├── /data                     # Donnees de cours
-│   ├── /coursera_gamification  # Contenu extrait via API Coursera
-│   │   ├── transcript_*.txt    # Transcriptions des videos
-│   │   └── supplement_*.txt    # Contenu des lectures
-│   └── /cours_DS52             # PDF de cours supplementaires
-├── /src                      # Code source
-│   └── /rag                  # Pipeline RAG 
-│       ├── __init__.py
-│       ├── collect_coursera.py  # Collecte automatique via API Coursera
-│       ├── loader.py            # Chargement des documents (TXT + PDF)
-│       ├── chunker.py           # Decoupage en chunks (500 chars, overlap 50)
-│       ├── embedder.py          # Vectorisation + stockage ChromaDB
-│       └── retriever.py         # Recherche semantique (fonction retrieve())
-├── /ontologies               # Fichiers .owl ou .rdf 
-└── /chroma_db                # Base vectorielle generee (non versionnee)
+├── requirements.txt
+├── pytest.ini
+├── taxonomy_for_agent_2.json   # Taxonomie produite par Agent 1 (cache)
+├── ontologies/
+│   ├── TGC3March2026.owl        # Ontologie de gamification pédagogique
+│   └── IMPORT_OWL_NEO4J.md      # Import optionnel vers Neo4j
+├── src/
+│   ├── config.py               # Config centralisée (modèles LLM, défauts)
+│   ├── logging_config.py
+│   ├── main.py                 # Point d'entrée CLI (principal)
+│   ├── agent/
+│   │   ├── agent1.py           # Curation d'ontologie
+│   │   ├── agent2.py           # NL → SPARQL → recommandation
+│   │   ├── agent3.py           # Génération de ressource
+│   │   ├── nodes.py            # Nœuds LangGraph (dont le Bridge)
+│   │   ├── graph.py            # Assemblage de la pipeline (run_pipeline)
+│   │   ├── state.py            # AgentState (TypedDict)
+│   │   └── test_pipeline.py    # Démo interactive en terminal
+│   ├── llm/
+│   │   ├── groq_client.py      # Client Groq (lazy)
+│   │   └── nvidia_client.py    # Client NVIDIA (lazy)
+│   └── tools/
+│       └── sparql_tools.py     # Chargement ontologie + exécution SPARQL
+└── tests/                      # Tests pytest (sans clé API)
 ```
 
-## Installation et demarrage
+## Installation
 
-### 1. Prerequis
-
-- Python 3.10 ou superieur
-- Neo4j Desktop (pour la base graphe)
-- Une cle API valide pour le LLM choisi (Groq, OpenAI, etc.)
+### 1. Prérequis
+- Python 3.10+
+- Une clé API **Groq** et une clé API **NVIDIA**
 
 ### 2. Cloner et installer
 
@@ -53,63 +78,70 @@ ds50_gamification_llm/
 git clone https://github.com/Henri-04/ds50_gamification_llm.git
 cd ds50_gamification_llm
 
-# Creer et activer un environnement virtuel
 python -m venv venv
-
 # Windows :
 venv\Scripts\activate
-
 # macOS/Linux :
 source venv/bin/activate
 
-# Installer les dependances
 pip install -r requirements.txt
 ```
 
-### 3. Configuration
-
-Creer un fichier `.env` a la racine :
+### 3. Configuration (`.env` à la racine)
 
 ```
-GROQ_API_KEY=votre_cle_ici
-NEO4J_URI=bolt://localhost:7687
-NEO4J_USERNAME=neo4j
-NEO4J_PASSWORD=votre_mot_de_passe
+GROQ_API_KEY=gsk_...
+NVIDIA_API_KEY=nvapi-...        # créer sur https://build.nvidia.com
 ```
 
-### 4. Pipeline RAG : collecte et indexation
+Variables optionnelles (surcharge des défauts de `src/config.py`) :
 
-Ces commandes collectent les donnees de cours et construisent la base vectorielle.
-A executer une seule fois (ou quand les donnees changent).
+```
+GROQ_MODEL=llama-3.3-70b-versatile
+NVIDIA_MODEL=openai/gpt-oss-120b
+DEFAULT_TEACHER=Sara
+DEFAULT_COURSE=ObjectOrientedProgramming
+```
+
+> Les clés `NEO4J_*` ne sont pas requises (Neo4j n'est pas utilisé par le code).
+
+## Lancement
 
 ```bash
-# Collecter le contenu du cours Coursera (transcriptions + supplements)
-python src/rag/collect_coursera.py
+# CLI sur une question (point d'entrée principal)
+python -m src.main "Comment gamifier ma leçon sur l'héritage ?"
 
-# Construire la base vectorielle (charge, decoupe, vectorise, stocke)
-python src/rag/embedder.py
+# Démo interactive en terminal (choix d'une leçon)
+python -m src.agent.test_pipeline
+
+# (Re)générer la taxonomie + lancer le raisonneur (règles SWRL) — à faire 1 fois
+python -m src.agent.agent1
 ```
 
-Verifier que tout fonctionne :
+> Le raisonneur (HermiT, via owlready2) déduit des faits et écrit `ontologies/TGC_inferred.owl`.
+> Il tourne **une seule fois** ; ensuite l'Agent 2 interroge l'ontologie enrichie. **Java requis.**
+
+La première exécution génère `taxonomy_for_agent_2.json` si absent (Agent 1).
+
+## Tests
 
 ```bash
-# Tester la recherche semantique
-python src/rag/retriever.py
+pytest
 ```
 
-### 5. Lancement de l'application
+Les tests couvrent l'exécution SPARQL, l'extraction d'ontologie (Agent 1), la
+génération/retry SPARQL (Agent 2) et le Bridge — **sans nécessiter de clé API**
+(les appels LLM sont mockés).
 
-```bash
-streamlit run app.py
-```
-
-L'application sera accessible a `http://localhost:8501`
-
-## Utilisation du RAG depuis un autre module
+## Utiliser la pipeline depuis un autre module
 
 ```python
-from src.rag.retriever import retrieve
+from src.agent.graph import run_pipeline
 
-# Recherche semantique (fonctionne en francais et en anglais)
-passages = retrieve("Comment motiver les eleves ?", top_k=3)
+result = run_pipeline(
+    "Comment motiver les élèves avec la gamification ?",
+    teacher="Sara",
+    lesson="Lesson4_Inheritance",
+)
+print(result["final_answer"])
 ```

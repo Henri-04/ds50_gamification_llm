@@ -1,15 +1,12 @@
-from dotenv import load_dotenv
-from groq import Groq
+"""Client Groq (LangChain), utilisé par l'Agent 2 et le Bridge."""
 
-#Chargement des variables d'environnement
-load_dotenv()
+from langchain_groq import ChatGroq
 
-# Initialisation du client
-client = Groq()
+from ..config import GROQ_MODEL
+
+llm = ChatGroq(model=GROQ_MODEL, temperature=0.2)  # clé GROQ_API_KEY lue dans .env
+
 
 def call_llm(messages):
-    return client.chat.completions.create(
-        model="llama-3.1-8b-instant",
-        messages=messages,
-        temperature=0.2,
-    )
+    """messages = liste [{'role': ..., 'content': ...}]. Renvoie le texte de la réponse."""
+    return llm.invoke(messages).content
