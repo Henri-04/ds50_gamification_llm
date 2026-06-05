@@ -1,211 +1,391 @@
-# SWRL Rules Added to the TGC Ontology
+# Proposed SWRL Rules for the TGC Ontology
 
-**Last updated:** May 10, 2026  
-**Ontology version:** TGC 1.0.0
+This document summarizes the proposed SWRL rules for recommending gamified resources and inferring teacher similarity / mentoring relations in the TGC ontology.
 
-## Overview
-
-This document tracks the SWRL (Semantic Web Rule Language) rules added to `TGC_working.owl`.
-
-- The original ontology file `TGC_original.owl` is kept unchanged
-- All modifications are applied only to `TGC_working.owl`
-- Rules are designed to infer new relationships based on existing semantic patterns
-
-## Table of Contents
-
-1. [Rule 1 — InferLessonTopicFromReusedResource](#rule-1--inferlessontopicfromreusedresource)
-2. [Rule 2 — InferCourseTopicFromLesson](#rule-2--infercoursetopicfromlesson)
-3. [Rule 3 — InferClassroomObjectiveBehaviouralObjective](#rule-3--inferclassroomobjectivebehaviouralobjective)
-
+Protégé version : 5-6.4 
 ---
 
-# Rule 1 — InferLessonTopicFromReusedResource
+## Rule 1 — Recommend a motivation resource based on ProgressBar for Socializer + Sequential learners
 
-## Description
+### Objective
 
-If a lesson reuses a gamified resource, and that resource has an educational topic, then the lesson covers that educational topic.
+This rule recommends a gamified resource to a teacher when the teacher teaches a course whose audience contains a learner with:
 
-## SWRL Rule
+- player type: `TGC:Socializer`;
+- understanding pole: `TGC:Sequential`;
+- and when the resource contains a `TGC:ProgressBar` relevant to the behavioural objective `TGC:Motivation`.
 
-```swrl
-TCO:Lesson(?l)
-^ TGC:GamifiedResource(?r)
-^ TCO:reuseResource(?l, ?r)
-^ TGC:EducationalTopic(?et)
-^ TGC:hasEducationalTopic(?r, ?et)
--> TGC:CoversTopic(?l, ?et)
-```
+### Property created
 
-## Purpose
+`TGC:recommendedResource`
 
-This rule propagates the educational topic from a gamified resource to the lesson that reuses it.
+- **Domain:** `TCO:Teacher`
+- **Range:** `TGC:GamifiedResource`
 
-It extends the semantic propagation chain already present in the ontology:
+The recommendation is made **to the teacher**, not directly to the learner. The learner profile is used as a criterion for the recommendation.
 
-```text
-GameElement
-→ BehaviouralObjective
-→ EducationalTopic
-→ GamifiedResource
-→ Lesson
-```
-
-## Semantic Context
-
-**Dependencies:**
-- Requires `TCO:Lesson` class
-- Requires `TGC:GamifiedResource` class
-- Requires `TCO:reuseResource` object property
-- Requires `TGC:EducationalTopic` class
-- Requires `TGC:hasEducationalTopic` object property
-
-**Output property:**
-- `TGC:CoversTopic` — inferred property linking lessons to educational topics
-
-## Expected Inference
-
-### Before reasoning
-
-```text
-LessonX TCO:reuseResource ResourceY
-ResourceY TGC:hasEducationalTopic TopicZ
-```
-
-### After reasoning
-
-```text
-LessonX TGC:CoversTopic TopicZ
-```
-
----
-
-# Rule 2 — InferCourseTopicFromLesson
-
-## Description
-
-If a course consists of a lesson, and that lesson covers an educational topic, then the course also has that educational topic.
-
-## SWRL Rule
+### SWRL
 
 ```swrl
-TCO:Course(?c)
-^ TCO:Lesson(?l)
-^ TGC:EducationalTopic(?et)
-^ TCO:consists_of(?c, ?l)
-^ TGC:CoversTopic(?l, ?et)
--> TGC:hasEducationalTopic(?c, ?et)
-```
-
-## Purpose
-
-This rule propagates educational topics from lessons to the course that contains them.
-
-It extends the semantic propagation chain introduced by Rule 1:
-
-```text
-GamifiedResource
-→ Lesson
-→ Course
-```
-
-Together with Rule 1, it allows the ontology to infer the educational topics of a course from the gamified resources reused by its lessons.
-
-## Semantic Context
-
-**Dependencies:**
-
-* Requires `TCO:Course` class
-* Requires `TCO:Lesson` class
-* Requires `TGC:EducationalTopic` class
-* Requires `TCO:consists_of` object property
-* Requires `TGC:CoversTopic` object property
-
-**Output property:**
-
-* `TGC:hasEducationalTopic` — inferred property linking courses to educational topics
-
-## Expected Inference
-
-### Before reasoning
-
-```text
-CourseX TCO:consists_of LessonY
-LessonY TGC:CoversTopic TopicZ
-```
-
-### After reasoning
-
-```text
-CourseX TGC:hasEducationalTopic TopicZ
-```
-
----
-
-# Rule 3 — InferClassroomObjectiveBehaviouralObjective
-
-## Description
-
-If a classroom objective concerns a course, and a lesson of that course reuses a gamified resource designed with a behavioural objective, then the classroom objective concerns that behavioural objective.
-
-## SWRL Rule
-
-```swrl
-TGC:ClassroomObjective(?co)
+TCO:Teacher(?t)
 ^ TCO:Course(?c)
-^ TCO:Lesson(?l)
+^ TCO:Learner(?l)
+^ TGC:Audience(?a)
+^ TGC:ClassroomObjective(?o)
+^ TCO:teaches(?t, ?c)
+^ TCO:hasClassroomObjective(?t, ?o)
+^ TGC:concernsACourse(?o, ?c)
+^ TGC:hasTargetAudience(?c, ?a)
+^ TGC:isComposedOf(?a, ?l)
+^ TGC:hasPlayerType(?l, TGC:Socializer)
+^ TGC:hasUnderstandingPole(?l, TGC:Sequential)
 ^ TGC:GamifiedResource(?r)
-^ TGC:BehaviouralObjective(?o)
+^ TGC:containsGameElement(?r, ?ge)
+^ TGC:ProgressBar(?ge)
+^ TGC:relevantToObjective(?ge, TGC:Motivation)
+->
+TGC:recommendedResource(?t, ?r)
+```
+
+---
+
+## Rule 2 — Recommend a gamified resource based on the teacher's behavioural objective
+
+"Cette règle recommande une ressource gamifiée lorsque l’un de ses éléments de jeu est pertinent pour l’objectif comportemental visé par l’enseignant."
+
+title : RecommendResourceByTeacherObjective
+
+### Objective
+
+This rule is a generalization of Rule 1. It recommends a gamified resource when the resource is designed with the same behavioural objective as the classroom objective associated with the course taught by the teacher.
+
+This rule relies on the existing relation:
+
+```swrl
+TGC:designedWithObjective(?r, ?bo)
+```
+
+This relation may already be asserted in the ontology or inferred by another SWRL rule such as:
+
+```swrl
+TGC:GamifiedResource(?r)
+^ TGC:GameElementResource(?ge)
+^ TGC:BehaviouralObjective(?bo)
+^ TGC:containsGameElement(?r, ?ge)
+^ TGC:relevantToObjective(?ge, ?bo)
+->
+TGC:designedWithObjective(?r, ?bo)
+```
+
+### SWRL
+
+```swrl
+TCO:Teacher(?t)
+^ TCO:Course(?c)
+^ TCO:teaches(?t, ?c)
+^ TGC:ClassroomObjective(?co)
+^ TGC:BehaviouralObjective(?bo)
+^ TGC:concernsObjective(?co, ?bo)
 ^ TGC:concernsACourse(?co, ?c)
-^ TCO:consists_of(?c, ?l)
-^ TCO:reuseResource(?l, ?r)
-^ TGC:designedWithObjective(?r, ?o)
--> TGC:concernsObjective(?co, ?o)
+^ TGC:GamifiedResource(?r)
+^ TGC:designedWithObjective(?r, ?bo)
+->
+TGC:recommendedResource(?t, ?r)
 ```
 
-## Purpose
+---
 
-This rule propagates behavioural objectives from gamified resources to the classroom objective associated with the course.
+## Rule 3 — Recommend resources to teachers with strong gamification experience
+"Cette règle recommande aux enseignants ayant une forte expérience en gamification des ressources gamifiées adaptées à leurs objectifs comportementaux."
 
-It allows the ontology to infer which behavioural objectives are involved in a classroom objective based on the gamified resources reused in the course lessons.
+title : RecommendResourceForExperiencedTeacher
 
-## Semantic Context
+### Objective
 
-**Dependencies:**
+This rule recommends a gamified resource to a teacher only if:
 
-* Requires `TGC:ClassroomObjective` class
-* Requires `TCO:Course` class
-* Requires `TCO:Lesson` class
-* Requires `TGC:GamifiedResource` class
-* Requires `TGC:BehaviouralObjective` class
-* Requires `TGC:concernsACourse` object property
-* Requires `TCO:consists_of` object property
-* Requires `TCO:reuseResource` object property
-* Requires `TGC:designedWithObjective` object property
+- the resource is designed with the behavioural objective targeted by the course/classroom objective;
+- the teacher has a sufficient gamification experience level.
 
-**Output property:**
+### SWRL
 
-* `TGC:concernsObjective` — inferred property linking a classroom objective to a behavioural objective
-
-**Semantic note:**
-
-* `TGC:concernsObjective` has `TGC:Objective` as range.
-* This rule uses `TGC:BehaviouralObjective` as the inferred target because `TGC:BehaviouralObjective` is a subclass of `TGC:Objective`.
-* Therefore, the rule is compatible with the ontology domain and range constraints.
-
-## Expected Inference
-
-### Before reasoning
-
-```text
-ClassroomObjectiveX TGC:concernsACourse CourseY
-CourseY TCO:consists_of LessonZ
-LessonZ TCO:reuseResource GamifiedResourceA
-GamifiedResourceA TGC:designedWithObjective BehaviouralObjectiveB
+```swrl
+TCO:Teacher(?t)
+^ TCO:Course(?c)
+^ TCO:teaches(?t, ?c)
+^ TGC:ClassroomObjective(?co)
+^ TGC:BehaviouralObjective(?bo)
+^ TGC:concernsObjective(?co, ?bo)
+^ TGC:concernsACourse(?co, ?c)
+^ TGC:GamifiedResource(?r)
+^ TGC:designedWithObjective(?r, ?bo)
+^ TGC:GamificationExperience(?geExp)
+^ TGC:hasGamificationExperience(?t, ?geExp)
+^ TGC:experienceLevel(?geExp, ?level)
+^ swrlb:greaterThan(?level, 2)
+->
+TGC:recommendedResource(?t, ?r)
 ```
 
-### After reasoning
+### Alternative threshold
 
-```text
-ClassroomObjectiveX TGC:concernsObjective BehaviouralObjectiveB
+```swrl
+swrlb:greaterThanOrEqual(?level, 3)
 ```
+
+instead of:
+
+```swrl
+swrlb:greaterThan(?level, 2)
+```
+
+---
+
+## Rule 4 — Infer that one teacher is more expert than another
+"Cette règle infère qu’un enseignant est plus expert qu’un autre lorsque son niveau d’expérience en gamification est supérieur."
+
+title : InferMoreExpertTeacher
+
+### Objective
+
+This rule infers that a teacher is more expert than another teacher when their gamification experience level is higher.
+
+### Property created
+
+`TGC:moreExpertThan`
+
+- **Domain:** `TCO:Teacher`
+- **Range:** `TCO:Teacher`
+
+### SWRL
+
+```swrl
+TCO:Teacher(?t1)
+^ TCO:Teacher(?t2)
+^ TGC:GamificationExperience(?geExp1)
+^ TGC:GamificationExperience(?geExp2)
+^ TGC:hasGamificationExperience(?t1, ?geExp1)
+^ TGC:hasGamificationExperience(?t2, ?geExp2)
+^ TGC:experienceLevel(?geExp1, ?level1)
+^ TGC:experienceLevel(?geExp2, ?level2)
+^ swrlb:greaterThan(?level1, ?level2)
+->
+TGC:moreExpertThan(?t1, ?t2)
+```
+
+### Comment
+
+This rule compares two teachers through their associated `TGC:Gamification_Experience` individuals.
+
+---
+
+## Rule 5 — Infer similarity between teachers based on domain or teaching topic
+"Cette règle infère que deux enseignants ont un domaine similaire lorsqu’ils sont spécialisés dans le même topic."
+
+Two variants are proposed because they do not express exactly the same level of similarity.
+
+---
+
+### Rule 5A — Similarity based on `TGC:SubjectArea`
+
+title : InferSimilarDomainBySubjectArea
+
+#### Objective
+
+This rule infers that two teachers have a similar domain when they are specialized in the same subject area.
+
+#### Property created
+
+`TGC:hasSimilarDomain`
+
+- **Domain:** `TCO:Teacher`
+- **Range:** `TCO:Teacher`
+
+#### SWRL
+
+```swrl
+TCO:Teacher(?t1)
+^ TCO:Teacher(?t2)
+^ TGC:subjectArea(?sa)
+^ TGC:specializedIn(?t1, ?sa)
+^ TGC:specializedIn(?t2, ?sa)
+^ differentFrom(?t1, ?t2)
+->
+TGC:hasSimilarDomain(?t1, ?t2)
+```
+
+#### Comment
+
+This version is broader. It checks whether two teachers share the same general subject area, such as InteractiveLearningDesigne, ObjectOrientedProgramming, SoftwareEngineering, etc.
+
+---
+
+### Rule 5B — Similarity based on `TGC:EducationalTopic`
+
+title : InferSimilarTeachingTopicByEducationalTopic
+
+#### Objective
+
+This rule infers that two teachers have a similar teaching topic when they teach courses associated with the same educational topic.
+
+#### Required property
+
+`TGC:hasSimilarTeachingTopic`
+
+- **Domain:** `TCO:Teacher`
+- **Range:** `TCO:Teacher`
+
+#### SWRL
+
+```swrl
+TCO:Teacher(?t1)
+^ TCO:Teacher(?t2)
+^ TCO:Course(?c1)
+^ TCO:Course(?c2)
+^ TGC:EducationalTopic(?et)
+^ TCO:teaches(?t1, ?c1)
+^ TCO:teaches(?t2, ?c2)
+^ TGC:hasEducationalTopic(?c1, ?et)
+^ TGC:hasEducationalTopic(?c2, ?et)
+^ differentFrom(?t1, ?t2)
+->
+TGC:hasSimilarTeachingTopic(?t1, ?t2)
+```
+
+#### Comment
+
+This version is more precise than Rule 5A because it compares the actual educational topics associated with the courses taught by the teachers.
+
+---
+
+## Rule 6 — Infer a potential mentor relationship between teachers
+"Cette règle propose un enseignant X comme mentor potentiel de Y lorsqu’il est plus expérimenté, partage le même espace et enseigne le même topic."
+
+### Objective
+
+This rule proposes teacher `?t1` as a potential mentor of teacher `?t2` when:
+
+- `?t1` is more expert than `?t2`;
+- `?t1` has a sufficient gamification experience level;
+- both teachers share the same collaborative space;
+- both teachers have a similar domain or teaching topic.
+
+### Property created
+
+`TGC:potentialMentorOf`
+
+- **Domain:** `TCO:Teacher`
+- **Range:** `TCO:Teacher`
+
+---
+
+### Rule 6A — Mentor recommendation based on similar domain
+
+title: InferPotentialMentorBySimilarDomain
+
+```swrl
+TCO:Teacher(?t1)
+^ TCO:Teacher(?t2)
+^ TGC:GamificationExperience(?geExp1)
+^ TGC:hasGamificationExperience(?t1, ?geExp1)
+^ TGC:experienceLevel(?geExp1, ?level1)
+^ swrlb:greaterThan(?level1, 2)
+^ TGC:moreExpertThan(?t1, ?t2)
+^ TGC:sharesSpaceWith(?t1, ?t2)
+^ TGC:hasSimilarDomain(?t1, ?t2)
+->
+TGC:potentialMentorOf(?t1, ?t2)
+```
+
+### Rule 6B — Mentor recommendation based on similar teaching topic
+
+title: InferPotentialMentorBySimilarTeachingTopic
+
+```swrl
+TCO:Teacher(?t1)
+^ TCO:Teacher(?t2)
+^ TGC:GamificationExperience(?geExp1)
+^ TGC:hasGamificationExperience(?t1, ?geExp1)
+^ TGC:experienceLevel(?geExp1, ?level1)
+^ swrlb:greaterThan(?level1, 2)
+^ TGC:moreExpertThan(?t1, ?t2)
+^ TGC:sharesSpaceWith(?t1, ?t2)
+^ TGC:hasSimilarTeachingTopic(?t1, ?t2)
+->
+TGC:potentialMentorOf(?t1, ?t2)
+```
+
+### Comment
+
+Rule 6A is broader because it relies on the general subject area.  
+Rule 6B is stricter because it relies on the educational topic associated with the taught courses.
+
+---
+
+## Rule 7 — Infer similar teacher profiles based on player type and domain/topic
+"Cette règle infère une similarité entre enseignants lorsqu’ils ont le même player type et sont spécialisés dans le même topic."
+
+### Objective
+
+This rule infers a profile similarity between two teachers when they have the same player type and share either:
+
+- a similar teaching topic; or
+- the same subject area.
+
+### Required property
+
+`TGC:hasSimilarProfile`
+
+- **Domain:** `TCO:Teacher`
+- **Range:** `TCO:Teacher`
+
+---
+
+### Rule 7A — Similar profile based on player type and similar teaching topic
+
+title : InferSimilarProfileByPlayerTypeAndTopic
+```swrl
+TCO:Teacher(?t1)
+^ TCO:Teacher(?t2)
+^ TGC:PlayerType(?pt)
+^ TGC:hasPlayerType(?t1, ?pt)
+^ TGC:hasPlayerType(?t2, ?pt)
+^ TGC:hasSimilarTeachingTopic(?t1, ?t2)
+->
+TGC:hasSimilarProfile(?t1, ?t2)
+```
+
+### Rule 7B — Similar profile based on player type and subject area
+
+title : InferSimilarProfileByPlayerTypeAndDomain
+
+```swrl
+TCO:Teacher(?t1)
+^ TCO:Teacher(?t2)
+^ TGC:PlayerType(?pt)
+^ TGC:hasPlayerType(?t1, ?pt)
+^ TGC:hasPlayerType(?t2, ?pt)
+^ TGC:hasSimilarDomain(?t1, ?t2)
+->
+TGC:hasSimilarProfile(?t1, ?t2)
+```
+
+### Comment
+
+Rule 7A is more precise if `hasSimilarTeachingTopic` is inferred using Rule 5B.  
+Rule 7B is broader and directly uses `specializedIn` with `SubjectArea`.
+---
+
+## Summary of proposed new properties
+
+| Property | Domain | Range | Purpose |
+|---|---|---|---|
+| `TGC:recommendedResource` | `TCO:Teacher` | `TGC:GamifiedResource` | Recommends a gamified resource to a teacher. |
+| `TGC:moreExpertThan` | `TCO:Teacher` | `TCO:Teacher` | Indicates that one teacher has a higher gamification experience level than another. |
+| `TGC:hasSimilarDomain` | `TCO:Teacher` | `TCO:Teacher` | Indicates that two teachers share the same general subject area. |
+| `TGC:hasSimilarTeachingTopic` | `TCO:Teacher` | `TCO:Teacher` | Indicates that two teachers teach courses linked to the same educational topic. |
+| `TGC:potentialMentorOf` | `TCO:Teacher` | `TCO:Teacher` | Indicates that one teacher can potentially mentor another. |
+| `TGC:hasSimilarProfile` | `TCO:Teacher` | `TCO:Teacher` | Indicates that two teachers have a similar profile based on player type and domain/topic. |
+
+---
 
