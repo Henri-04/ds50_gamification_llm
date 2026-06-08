@@ -16,8 +16,8 @@ from ..config import DEFAULT_TEACHER, DEFAULT_COURSE
 
 
 def list_teachers():
-    """Enseignants de l'ontologie = tous ceux qui conçoivent au moins une leçon."""
-    rows = run_sparql("SELECT DISTINCT ?teacher WHERE { ?teacher tgc:designLesson ?l } ORDER BY ?teacher")
+    """Tous les enseignants de l'ontologie (les 15 individus de type tco:Teacher)."""
+    rows = run_sparql("SELECT DISTINCT ?teacher WHERE { ?teacher a tco:Teacher } ORDER BY ?teacher")
     return [r["teacher"] for r in rows]
 
 
@@ -41,8 +41,20 @@ def select_teacher():
 
 
 def select_lesson(teacher):
-    """Affiche les leçons de l'enseignant et retourne celle choisie."""
-    rows = run_sparql(f"SELECT ?lesson WHERE {{ tgc:{teacher} tgc:designLesson ?lesson }} ORDER BY ?lesson")
+    """Affiche les leçons de l'enseignant et retourne celle choisie.
+
+    Une leçon de l'enseignant = soit une leçon qu'il a conçue (tgc:designLesson),
+    soit une leçon d'un cours qu'il enseigne (tco:teaches -> cours -> tco:consists_of
+    -> leçon). NB : tco:teaches relie l'enseignant à un COURS, pas à une leçon ;
+    d'où le passage par consists_of. L'union couvre les 15 enseignants.
+    """
+    rows = run_sparql(f"""
+        SELECT DISTINCT ?lesson WHERE {{
+          {{ tgc:{teacher} tgc:designLesson ?lesson }}
+          UNION
+          {{ tgc:{teacher} tco:teaches ?course . ?course tco:consists_of ?lesson }}
+        }} ORDER BY ?lesson
+    """)
     lessons = [r["lesson"] for r in rows]
     print(f"\n=== Leçons de {teacher} ===")
     for i, lesson in enumerate(lessons, 1):

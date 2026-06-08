@@ -5,6 +5,7 @@ class AgentState(TypedDict, total=False):
     # Entrée utilisateur
     user_input: str
     final_answer: str
+    intent: Optional[str]   # "people" (recommander des profs) ou "resource" (défaut)
 
     # Contexte enseignant (fourni par l'appelant ou l'interactif)
     teacher: Optional[str]
@@ -28,3 +29,6 @@ class AgentState(TypedDict, total=False):
 
     # Agent 3 — ressource gamifiée générée
     generated_resource: Optional[str]
+
+    # Recommandation de personnes (mentors / pairs)
+    people_recommendations: Optional[Dict[str, Any]]

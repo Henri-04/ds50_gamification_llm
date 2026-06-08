@@ -16,7 +16,7 @@ from typing import Optional
 from langgraph.graph import END, StateGraph
 
 from .state import AgentState
-from ..llm.nvidia_client import llm
+from ..llm.nvidia_client import get_llm
 
 
 # ============================================================
@@ -92,7 +92,7 @@ def generate_resource(state: AgentState) -> AgentState:
 
     print("Agent 3 : appel du modèle NVIDIA...")
     start = time.perf_counter()
-    response = llm.invoke(prompt)
+    response = get_llm().invoke(prompt)
     print(f"Agent 3 : génération terminée en {time.perf_counter() - start:.2f} s")
 
     texte = response.content

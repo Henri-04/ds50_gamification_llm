@@ -22,8 +22,6 @@ import re
 import json
 from collections import defaultdict
 from owlready2 import get_ontology, ThingClass, And, Or, Restriction, sync_reasoner_hermit
-from langchain_groq import ChatGroq
-from langchain_core.messages import SystemMessage, HumanMessage
 
 from ..config import GROQ_CURATION_MODEL
 from ..tools.sparql_tools import ONTOLOGY_PATH, INFERRED_PATH
@@ -263,6 +261,9 @@ def parse_json_obj(text: str) -> dict:
 
 def curate_with_llm(structure: dict) -> dict:
     """Appel LLM unique. Renvoie les sets de noms à garder, ou lève une exception."""
+    # Import paresseux : extract_structure / apply_filter restent utilisables sans le paquet LLM.
+    from langchain_groq import ChatGroq
+    from langchain_core.messages import SystemMessage, HumanMessage
     llm = ChatGroq(model=GROQ_CURATION_MODEL, temperature=0)
     messages = [
         SystemMessage(content=FILTER_SYSTEM),

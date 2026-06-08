@@ -7,13 +7,38 @@ Chaque nœud prend un AgentState et retourne un AgentState enrichi.
 import json
 
 from .state import AgentState
-from .agent2 import recommend
-from .agent3 import build_agent3_graph
-from ..llm.groq_client import call_llm
+from .intent import detect_intent
+from ..llm.groq_client import call_llm   # import léger (client Groq paresseux)
 from ..tools.sparql_tools import ONTOLOGY_PATH
+
+# agent2 / agent3 sont importés paresseusement dans les nœuds correspondants :
+# la branche « personnes » et la détection d'intention restent ainsi utilisables
+# sans les paquets LLM (la branche « ressource » les charge à la demande).
 
 # Taxonomie à la racine du projet (../../ depuis l'ontologie).
 TAXONOMY_PATH = ONTOLOGY_PATH.parents[1] / "taxonomy_for_agent_2.json"
+
+
+# =============================================================================
+# Nœud 0 — Détection d'intention (recommander une ressource OU des personnes)
+# =============================================================================
+
+def node_classify_intent(state: AgentState) -> AgentState:
+    """Détermine l'intention de la question et la stocke dans le state."""
+    state["intent"] = detect_intent(state.get("user_input", ""))
+    print(f"Intention détectée : {state['intent']}")
+    return state
+
+
+def route_intent(state: AgentState) -> str:
+    """Aiguillage LangGraph : 'people' -> recommandation de profs, sinon ressource."""
+    return "people" if state.get("intent") == "people" else "resource"
+
+
+def node_recommend_people(state: AgentState) -> AgentState:
+    """Recommande des enseignants (mentors / pairs) à partir de l'ontologie."""
+    from .people import recommend_people  # déterministe, pas de dépendance LLM
+    return recommend_people(state)
 
 
 # =============================================================================
@@ -83,6 +108,7 @@ def node_load_taxonomy(state: AgentState) -> AgentState:
 
 def node_recommend(state: AgentState) -> AgentState:
     """Agent 2 : question NL → SPARQL → recommandation."""
+    from .agent2 import recommend
     return recommend(state)
 
 

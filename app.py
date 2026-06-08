@@ -91,7 +91,7 @@ def get_teachers() -> dict[str, str]:
     try:
         rows = run_sparql("""
             SELECT DISTINCT ?teacher ?subject WHERE {
-                ?teacher tgc:designLesson ?lesson .
+                ?teacher tgc:teaches ?lesson .
                 OPTIONAL { ?teacher tgc:specializedIn ?subject }
             }
             ORDER BY ?teacher
@@ -109,7 +109,7 @@ def get_lessons(teacher: str) -> list[str]:
     try:
         rows = run_sparql(f"""
             SELECT DISTINCT ?lesson WHERE {{
-                tgc:{teacher} tgc:designLesson ?lesson .
+                tgc:{teacher} tgc:teaches ?lesson .
             }}
             ORDER BY ?lesson
         """)

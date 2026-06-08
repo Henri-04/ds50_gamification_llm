@@ -1,21 +1,40 @@
-"""Pipeline LangGraph : Agent 1 → Agent 2 → Bridge → Agent 3."""
+"""
+Pipeline LangGraph avec routage d'intention :
+
+                         ┌─ (people)   → recommend_people → END
+  classify_intent ──────┤
+                         └─ (resource) → load_taxonomy → recommend → bridge
+                                         → generate_resource → END
+"""
 from langgraph.graph import StateGraph, END
 
 from .state import AgentState
-from .nodes import node_load_taxonomy, node_recommend, node_bridge, node_generate_resource
+from .nodes import (
+    node_classify_intent, route_intent, node_recommend_people,
+    node_load_taxonomy, node_recommend, node_bridge, node_generate_resource,
+)
 from ..config import DEFAULT_TEACHER, DEFAULT_COURSE
 
 
 def create_pipeline():
-    """Crée le graphe de la pipeline complète."""
+    """Crée le graphe de la pipeline complète (ressource OU personnes)."""
     graph = StateGraph(AgentState)
 
+    graph.add_node("classify_intent", node_classify_intent)
+    graph.add_node("recommend_people", node_recommend_people)
     graph.add_node("load_taxonomy", node_load_taxonomy)
     graph.add_node("recommend", node_recommend)
     graph.add_node("bridge", node_bridge)
     graph.add_node("generate_resource", node_generate_resource)
 
-    graph.set_entry_point("load_taxonomy")
+    graph.set_entry_point("classify_intent")
+    graph.add_conditional_edges(
+        "classify_intent", route_intent,
+        {"people": "recommend_people", "resource": "load_taxonomy"},
+    )
+    # Branche « personnes » : déterministe, pas d'Agent 1/2/3.
+    graph.add_edge("recommend_people", END)
+    # Branche « ressource » : pipeline historique.
     graph.add_edge("load_taxonomy", "recommend")
     graph.add_edge("recommend", "bridge")
     graph.add_edge("bridge", "generate_resource")

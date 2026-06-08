@@ -15,8 +15,12 @@ from rdflib.plugins.sparql import prepareQuery
 # Ce fichier est dans src/tools/ ; l'ontologie est dans ontologies/ a la racine
 # du projet (../../ontologies/ depuis ici).
 _PROJECT_ROOT = Path(__file__).resolve().parents[2]
-ONTOLOGY_PATH = _PROJECT_ROOT / "ontologies" / "TGC3March2026.owl"
-# Ontologie enrichie par le raisonneur (regles SWRL), generee par l'Agent 1.
+# Ontologie de travail : version enrichie (regles SWRL deja materialisees via
+# Protege/Drools) -> contient les relations entre enseignants (potentialMentorOf,
+# hasSimilarProfile, moreExpertThan, recommendedResource...) pour TOUS les profs.
+ONTOLOGY_PATH = _PROJECT_ROOT / "ontologies" / "TGC_working-2026-06-05.owl"
+# Ontologie enrichie par le raisonneur HermiT (owlready2), generee par l'Agent 1.
+# Si presente, elle est utilisee en priorite (sur-ensemble de l'ontologie de travail).
 INFERRED_PATH = _PROJECT_ROOT / "ontologies" / "TGC_inferred.owl"
 
 # --- Prefixes de l'ontologie -----------------------------------------------
