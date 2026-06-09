@@ -1,40 +1,48 @@
 """
-Détection d'intention (déterministe, sans LLM ni dépendance lourde).
+Détection d'intention par LLM (Groq).
 
-Permet d'aiguiller la pipeline entre deux usages :
-  - "people"   : recommander des PERSONNES (mentors, collègues au profil proche) ;
+Aiguille la pipeline entre deux usages :
+  - "people"   : recommander des PERSONNES (mentors, collègues, pairs, quelqu'un
+                 à qui s'adresser / qui peut aider) ;
   - "resource" : recommander/générer une RESSOURCE gamifiée (comportement par défaut).
 
-Volontairement basé sur des mots-clés : robuste, instantané, testable sans clé API.
+Contrairement à un matching de mots-clés (fragile aux formulations), le LLM
+classe la question quelle que soit la tournure. En cas d'échec (API indisponible,
+réponse inattendue), on retombe sur "resource" — la branche par défaut.
 """
 
-import unicodedata
+from ..llm.groq_client import call_llm
 
-# Mots-clés signalant une demande de recommandation de PERSONNES (profs).
-_PEOPLE_KEYWORDS = (
-    "mentor", "mentorat", "mentore",
-    "collegue", "collegues",
-    "binome",
-    "quel prof", "quels profs", "autre prof", "autres profs", "d autres profs",
-    "quel enseignant", "quels enseignants", "autre enseignant", "autres enseignants",
-    "plus experimente", "plus expert", "plus experimentes",
-    "profil similaire", "profils similaires", "profil proche",
-    "qui peut m aider", "qui pourrait m aider", "m accompagner", "se former",
-    "recommande un prof", "recommander un prof", "recommande moi quelqu un",
-    "une personne", "quelqu un qui",
-)
+_SYSTEM = """\
+Tu es un classifieur d'intention pour un assistant de gamification pédagogique.
+Tu reçois la question d'un enseignant et tu dois la classer dans UNE catégorie :
 
+- "people"   : l'enseignant cherche une PERSONNE — un collègue, un mentor, un pair,
+               quelqu'un à qui s'adresser, qui peut l'aider ou l'accompagner.
+               Exemples : « à qui je pourrais m'adresser ? », « tu me recommandes
+               qui pour m'aider ? », « quel collègue plus expérimenté peut me
+               mentorer ? », « avec qui échanger sur ce sujet ? ».
+- "resource" : TOUT LE RESTE — gamifier une leçon, obtenir une ressource, une
+               activité, un élément de jeu, des idées, un quiz, un badge, etc.
 
-def _normalize(text: str) -> str:
-    """Minuscule + suppression des accents et apostrophes (matching robuste)."""
-    text = unicodedata.normalize("NFKD", text.lower())
-    text = "".join(c for c in text if not unicodedata.combining(c))
-    for ch in "'’-":
-        text = text.replace(ch, " ")
-    return text
+Réponds par UN SEUL mot, en minuscules : people ou resource. Rien d'autre."""
 
 
 def detect_intent(user_input: str) -> str:
-    """Renvoie 'people' si la question vise des personnes, sinon 'resource'."""
-    norm = _normalize(user_input or "")
-    return "people" if any(kw in norm for kw in _PEOPLE_KEYWORDS) else "resource"
+    """Classe la question en 'people' ou 'resource' via le LLM (repli : 'resource')."""
+    question = (user_input or "").strip()
+    if not question:
+        return "resource"
+
+    messages = [
+        {"role": "system", "content": _SYSTEM},
+        {"role": "user", "content": question},
+    ]
+    try:
+        answer = call_llm(messages).strip().lower()
+    except Exception as e:
+        print(f"Intent : LLM indisponible ({e}) — repli sur 'resource'")
+        return "resource"
+
+    token = answer.split()[0] if answer else ""
+    return "people" if token.startswith("people") else "resource"
