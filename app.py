@@ -8,21 +8,27 @@ Flux :
 """
 
 import sys
-import time
 from pathlib import Path
 
 import streamlit as st
 
-# ── Chemin vers src/ pour imports SPARQL ──────────────────────────────────────
-_SRC = Path(__file__).resolve().parent / "src"
-if str(_SRC) not in sys.path:
-    sys.path.insert(0, str(_SRC))
+# ── Racine projet sur le sys.path ─────────────────────────────────────────────
+# On importe EXACTEMENT comme le CLI (src.agent.*, src.tools.*) pour réutiliser
+# le même code et le même singleton ontologie que test_pipeline -> mêmes résultats.
+_ROOT = Path(__file__).resolve().parent
+if str(_ROOT) not in sys.path:
+    sys.path.insert(0, str(_ROOT))
 
 try:
-    from tools.sparql_tools import run_sparql
-    _SPARQL_OK = True
-except Exception:
-    _SPARQL_OK = False
+    from src.agent.test_pipeline import (
+        list_teachers, teacher_course, lessons_of, run_pipeline_steps,
+    )
+    from src.agent.agent3 import save_resource_to_file
+    _PIPELINE_OK = True
+    _IMPORT_ERR = None
+except Exception as e:  # dépendances/LLM absents : l'app reste affichable
+    _PIPELINE_OK = False
+    _IMPORT_ERR = e
 
 # ── Config page ───────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -85,51 +91,28 @@ st.markdown("""
 
 @st.cache_data(show_spinner=False)
 def get_teachers() -> dict[str, str]:
-    """Retourne {nom: spécialité} pour tous les enseignants de l'ontologie."""
-    if not _SPARQL_OK:
-        return {"Sara": "ObjectOrientedProgramming"}
-    try:
-        rows = run_sparql("""
-            SELECT DISTINCT ?teacher ?subject WHERE {
-                ?teacher tgc:teaches ?lesson .
-                OPTIONAL { ?teacher tgc:specializedIn ?subject }
-            }
-            ORDER BY ?teacher
-        """)
-        return {r["teacher"]: r.get("subject") or "" for r in rows}
-    except Exception:
-        return {"Sara": "ObjectOrientedProgramming"}
+    """{nom: spécialité} pour les 15 enseignants — MÊME requête que le CLI (list_teachers)."""
+    return {t: teacher_course(t) for t in list_teachers()}
 
 
 @st.cache_data(show_spinner=False)
 def get_lessons(teacher: str) -> list[str]:
-    """Retourne les leçons de l'enseignant sélectionné."""
-    if not _SPARQL_OK:
-        return ["Lesson1_JavaBasics", "Lesson2_ClassesAndObjects", "Lesson3_Constructors"]
-    try:
-        rows = run_sparql(f"""
-            SELECT DISTINCT ?lesson WHERE {{
-                tgc:{teacher} tgc:teaches ?lesson .
-            }}
-            ORDER BY ?lesson
-        """)
-        result = [r["lesson"] for r in rows]
-        return result if result else ["(aucune leçon)"]
-    except Exception:
-        return ["(aucune leçon)"]
+    """Leçons de l'enseignant — MÊME requête que le CLI (lessons_of)."""
+    return lessons_of(teacher)
 
 
-# ── Réponse dummy ──────────────────────────────────────────────────────────────
+# ── Pipeline (même chaîne que test_pipeline) ─────────────────────────────────────
 
-def dummy_response(teacher: str, lesson: str, question: str) -> str:
-    """Bouchon — remplacer par graph.run_pipeline(user_input, teacher, lesson)."""
-    time.sleep(0.8)
-    return (
-        f"**Réponse de démonstration** pour *{teacher}* · *{lesson}*\n\n"
-        f"> {question}\n\n"
-        "Cette réponse est un bouchon. Elle sera remplacée par la pipeline "
-        "complète (Agent 1 → Agent 2 → Bridge → Agent 3) lors de l'intégration."
-    )
+def run_assistant(teacher: str, course: str, lesson: str, question: str):
+    """Appelle la pipeline partagée et renvoie (réponse_markdown, trace, result).
+
+    `run_pipeline_steps` est la source unique partagée avec le CLI : la chaîne de
+    raisonnement et les résultats sont donc strictement identiques. `log` capture
+    les étapes pour les afficher (équivalent des prints du CLI).
+    """
+    trace: list[str] = []
+    result = run_pipeline_steps(teacher, course, lesson, question, log=trace.append)
+    return result.get("final_answer") or "(réponse vide)", trace, result
 
 
 # ── État session ───────────────────────────────────────────────────────────────
@@ -137,11 +120,18 @@ def dummy_response(teacher: str, lesson: str, question: str) -> str:
 for key, default in {
     "setup_done": False,
     "teacher": "",
+    "course": "",
     "lesson": "",
     "messages": [],
 }.items():
     if key not in st.session_state:
         st.session_state[key] = default
+
+
+# ── Garde-fou : pipeline importée ? (erreur visible, jamais de repli silencieux) ──
+if not _PIPELINE_OK:
+    st.error(f"Pipeline indisponible (échec d'import) : {_IMPORT_ERR}")
+    st.stop()
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -174,6 +164,8 @@ if not st.session_state.setup_done:
 
         if st.button("Démarrer la conversation", use_container_width=True):
             st.session_state.teacher = teacher
+            # Cours de spécialisation (= teacher_course du CLI), récupéré au setup.
+            st.session_state.course = teachers.get(teacher) or "ObjectOrientedProgramming"
             st.session_state.lesson = lesson
             st.session_state.messages = []
             st.session_state.setup_done = True
@@ -225,8 +217,31 @@ else:
             st.markdown(prompt)
 
         with st.chat_message("assistant"):
-            with st.spinner(""):
-                response = dummy_response(teacher, lesson, prompt)
-            st.markdown(response)
+            if not _PIPELINE_OK:
+                response = f"⚠ Pipeline indisponible à l'import : `{_IMPORT_ERR}`"
+                st.markdown(response)
+            else:
+                trace, result = [], None
+                with st.spinner("Raisonnement en cours…"):
+                    try:
+                        response, trace, result = run_assistant(
+                            teacher, st.session_state.course, lesson, prompt
+                        )
+                    except Exception as e:
+                        response = f"⚠ Erreur pendant la pipeline : `{e}`"
+                st.markdown(response)
+
+                # Chaîne de raisonnement (mêmes étapes que les prints du CLI).
+                if trace:
+                    with st.expander("🧠 Chaîne de raisonnement"):
+                        st.code("\n".join(trace).strip(), language="text")
+
+                # Branche ressource : on sauvegarde le .md comme le CLI.
+                if result and result.get("branch") == "resource":
+                    try:
+                        path = save_resource_to_file(result["state"])
+                        st.caption(f"✓ Ressource sauvegardée : {path}")
+                    except Exception:
+                        pass
 
         st.session_state.messages.append({"role": "assistant", "content": response})
