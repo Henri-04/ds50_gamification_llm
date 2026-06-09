@@ -116,9 +116,8 @@ GROQ_API_KEY=gsk_...      # https://console.groq.com/keys
 NVIDIA_API_KEY=nvapi-...  # https://build.nvidia.com
 ```
 
-Ce sont les **seules** variables requises. Les modèles LLM et les valeurs par
-défaut (`DEFAULT_TEACHER`, `DEFAULT_COURSE`…) se règlent directement dans
-`src/config.py`, **pas** dans `.env`. Le tracing LangSmith (`LANGCHAIN_*`) est
+Ce sont les **seules** variables requises. Les modèles LLM se règlent
+directement dans `src/config.py`, **pas** dans `.env`. Le tracing LangSmith (`LANGCHAIN_*`) est
 optionnel et désactivé par défaut.
 
 ## Lancement

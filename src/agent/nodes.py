@@ -117,7 +117,23 @@ def node_recommend(state: AgentState) -> AgentState:
     state = recommend(state)
     n = len(state.get("query_results") or [])
     print(f"[Agent 2] {n} résultat(s) en {state.get('attempts', '?')} tentative(s)")
+
+    # Aucun ancrage possible (ni résultat SPARQL, ni fait déterministe) : on
+    # ABANDONNE explicitement plutôt que de générer une ressource sans fondement.
+    if not state.get("query_results") and not state.get("ontology_facts"):
+        state["status"] = "no_data"
+        lecon = state.get("lesson") or "cette leçon"
+        state["final_answer"] = (
+            f"Aucune donnée dans l'ontologie ne correspond à cette demande pour « {lecon} ». "
+            "Aucune recommandation n'est produite (pas de fabrication)."
+        )
+        print("[Agent 2] aucun fait exploitable → abandon explicite")
     return state
+
+
+def route_after_recommend(state: AgentState) -> str:
+    """Abandonne si Agent 2 n'a aucun fait à transmettre ; sinon continue vers le Bridge."""
+    return "abort" if state.get("status") == "no_data" else "bridge"
 
 
 # =============================================================================
@@ -138,8 +154,8 @@ Réponds UNIQUEMENT avec un objet JSON valide, sans texte autour :
   "recommended_resource_type": "type de ressource (ex: activité interactive, défi chronométré, parcours...)"
 }"""
 
-# Champs que le Bridge doit produire, avec des valeurs de repli sûres si le LLM
-# renvoie un JSON invalide : ainsi l'Agent 3 dispose toujours de tous les champs.
+# Champs produits par le Bridge à partir des faits réels. AUCUNE valeur n'est
+# fabriquée : si le LLM ne les fournit pas, le Bridge échoue explicitement.
 _BRIDGE_FIELDS = (
     "learner_profile",
     "pedagogical_objective",
@@ -148,20 +164,34 @@ _BRIDGE_FIELDS = (
     "recommended_resource_type",
 )
 
+# Champs sans lesquels une ressource gamifiée n'a pas de sens : ils doivent être
+# présents et non vides, sinon la sortie du Bridge est considérée inexploitable.
+_BRIDGE_REQUIRED = ("behavioural_objective", "recommended_game_element")
 
-def _bridge_fallback(state: AgentState) -> dict:
-    """Valeurs par défaut si le LLM du Bridge échoue (JSON illisible/incomplet)."""
-    return {
-        "learner_profile": "Profil apprenant non précisé",
-        "pedagogical_objective": state.get("lesson") or "Objectif pédagogique de la leçon",
-        "behavioural_objective": "Motivation",
-        "recommended_game_element": "Quiz",
-        "recommended_resource_type": "activité interactive",
-    }
+_BRIDGE_MAX_TRIES = 2   # appel initial + 1 retry (re-prompt strict)
+
+
+def _parse_bridge(raw: str) -> dict:
+    """Extrait l'objet JSON de la réponse du LLM et vérifie les champs requis."""
+    raw = raw.strip()
+    start, end = raw.find("{"), raw.rfind("}") + 1
+    if start == -1 or end <= start:
+        raise ValueError("aucun objet JSON dans la réponse")
+    parsed = json.loads(raw[start:end])
+    manquants = [f for f in _BRIDGE_REQUIRED if not parsed.get(f)]
+    if manquants:
+        raise ValueError("champs requis manquants : " + ", ".join(manquants))
+    return parsed
 
 
 def node_bridge(state: AgentState) -> AgentState:
-    """Bridge LLM : structure la sortie d'Agent 2 en champs pour Agent 3."""
+    """
+    Bridge LLM : structure la sortie d'Agent 2 en champs pour Agent 3.
+
+    En cas d'échec (LLM injoignable, ou sortie inexploitable après retry), on
+    signale un échec EXPLICITE (status="bridge_failed") au lieu d'inventer des
+    valeurs : la chaîne s'arrête et la raison remonte à l'utilisateur.
+    """
     user_msg = (
         f"Leçon : {state.get('lesson', 'inconnue')}\n"
         f"Question : {state.get('user_input', '')}\n\n"
@@ -173,23 +203,41 @@ def node_bridge(state: AgentState) -> AgentState:
         {"role": "user", "content": user_msg},
     ]
 
-    fallback = _bridge_fallback(state)
-    try:
-        raw = call_llm(messages).strip()
-        start, end = raw.find("{"), raw.rfind("}") + 1
-        if start == -1 or end == 0:
-            raise ValueError("aucun objet JSON dans la réponse du Bridge")
-        bridge = json.loads(raw[start:end])
-    except Exception as e:
-        print(f"Bridge : sortie LLM illisible ({e}) — repli sur valeurs par défaut")
-        bridge = {}
+    bridge, derniere_erreur = None, None
+    for tentative in range(1, _BRIDGE_MAX_TRIES + 1):
+        try:
+            bridge = _parse_bridge(call_llm(messages))
+            break
+        except Exception as e:
+            derniere_erreur = e
+            print(f"[Bridge] tentative {tentative} invalide ({e})")
+            messages.append({
+                "role": "user",
+                "content": "Ta réponse n'était pas un JSON valide et complet. "
+                           "Renvoie UNIQUEMENT l'objet JSON avec les 5 champs.",
+            })
 
-    # Complète les champs manquants avec le repli (robustesse Agent 3).
+    # Échec explicite : pas de valeurs fabriquées, on arrête la chaîne.
+    if bridge is None:
+        state["status"] = "bridge_failed"
+        state["final_answer"] = (
+            "Recommandation impossible : le service LLM n'a pas produit de sortie "
+            f"exploitable ({derniere_erreur}). Aucune ressource n'est générée."
+        )
+        print("[Bridge] échec → abandon explicite")
+        return state
+
     for field in _BRIDGE_FIELDS:
-        state[field] = bridge.get(field) or fallback[field]
+        state[field] = bridge.get(field)
+    state["status"] = "ok"
     print(f"[Bridge] élément de jeu = {state['recommended_game_element']} | "
           f"objectif = {state['behavioural_objective']}")
     return state
+
+
+def route_after_bridge(state: AgentState) -> str:
+    """Abandonne si le Bridge a échoué ; sinon continue vers la génération (Agent 3)."""
+    return "abort" if state.get("status") == "bridge_failed" else "generate"
 
 
 # =============================================================================

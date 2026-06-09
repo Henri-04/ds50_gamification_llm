@@ -6,6 +6,10 @@ class AgentState(TypedDict, total=False):
     user_input: str
     final_answer: str
     intent: Optional[str]   # "people" (recommander des profs) ou "resource" (défaut)
+    # Statut de la branche ressource : None/"ok" si tout s'est bien passé, sinon un
+    # échec EXPLICITE (jamais de valeur fabriquée) : "no_data" (rien dans l'ontologie)
+    # ou "bridge_failed" (LLM injoignable / sortie inexploitable).
+    status: Optional[str]
 
     # Contexte enseignant (fourni par l'appelant ou l'interactif)
     teacher: Optional[str]
