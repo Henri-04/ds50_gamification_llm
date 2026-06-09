@@ -1,28 +1,22 @@
-# Framework IA
-langchain==1.2.15
-langchain-community==0.4.1
-langchain-groq==1.1.2
-
-# Orchestration
-langgraph==1.1.9
-
-# Ontologie OWL (Agent 1)
-owlready2==0.50
-
-# Ontologie SPARQL (Agent 2)
-rdflib==7.6.0
-
-# LLM APIs
-groq==0.37.1
-langchain-nvidia-ai-endpoints==1.4.1
-
 # Interface web
 streamlit==1.58.0
 
-# Utilitaires
+# Orchestration de la pipeline d'agents
+langgraph==1.2.2
+langchain-core==1.4.0
+
+# LLM — Groq (Agent 1, Agent 2, Bridge)
+langchain-groq==1.1.2
+
+# LLM — NVIDIA (Agent 3)
+langchain-nvidia-ai-endpoints==1.4.0
+
+# Ontologie OWL — extraction (Agent 1) et SPARQL (Agent 2)
+owlready2==0.50
+rdflib==7.6.0
+
+# Chargement des clés API depuis .env
 python-dotenv==1.2.2
-pydantic==2.13.3
-requests==2.33.1
 
 # Tests
 pytest==8.3.4
