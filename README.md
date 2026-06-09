@@ -62,6 +62,7 @@ ds50_gamification_llm/
 │   ├── config.py               # Config centralisée (modèles LLM, défauts)
 │   ├── main.py                 # Point d'entrée CLI interactif
 │   ├── pipeline.py             # Logique partagée CLI ↔ interface (sélection + run)
+│   ├── reason.py               # Raisonneur Pellet → régénère TGC_inferred.owl
 │   ├── agent/
 │   │   ├── intent.py           # Détection d'intention (people / resource)
 │   │   ├── people.py           # Recommandation de personnes (mentors / pairs)
@@ -84,6 +85,8 @@ ds50_gamification_llm/
 ### 1. Prérequis
 - Python 3.10+
 - Une clé API **Groq** et une clé API **NVIDIA**
+- **Java 25+** — uniquement pour régénérer l'inférence (`python -m src.reason`).
+  Pas nécessaire pour lancer l'app si `TGC_inferred.owl` est déjà présent.
 
 ### 2. Cloner et installer
 
@@ -141,15 +144,28 @@ des agents (`[Agent 1]`, `[Agent 2]`, `[Bridge]`…) s'affichent en temps réel 
 ```bash
 # Recommandation de personnes en direct (déterministe, sans LLM)
 python -m src.agent.people Sara
-
-# (Re)générer la taxonomie + lancer le raisonneur (règles SWRL) — à faire 1 fois
-python -m src.agent.agent1
 ```
 
-> Le raisonneur (HermiT, via owlready2) déduit des faits et écrit `ontologies/TGC_inferred.owl`.
-> Il tourne **une seule fois** ; ensuite l'Agent 2 interroge l'ontologie enrichie. **Java requis.**
-
 La première exécution génère `taxonomy_for_agent_2.json` si absent (Agent 1).
+
+### Régénérer l'inférence (relations entre enseignants)
+
+La recommandation de **personnes** (mentors, pairs) s'appuie sur des relations
+déduites par des **règles SWRL** : `potentialMentorOf`, `hasSimilarProfile`,
+`moreExpertThan`… Elles sont matérialisées par le raisonneur **Pellet** (et non
+HermiT, qui n'exécute pas les règles SWRL) dans `ontologies/TGC_inferred.owl`.
+
+À relancer **après chaque modification de l'ontologie de travail** :
+
+```bash
+python -m src.reason     # raisonneur seul → réécrit TGC_inferred.owl
+```
+
+> ⚠ **Java 25+ requis** : les jars Pellet d'owlready2 ≥ 0.50 sont compilés pour
+> Java 25 (sinon `UnsupportedClassVersionError`). macOS : `brew install --cask temurin`.
+>
+> Si `TGC_inferred.owl` est absent, le chargeur retombe sur l'ontologie de travail
+> `TGC_working-…owl`, qui contient déjà ces relations (matérialisées via Protégé).
 
 ## Tests
 
