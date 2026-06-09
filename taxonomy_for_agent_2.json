@@ -1,37 +1,20 @@
 {
   "ontology_iri": "http://www.hds.utc.fr/tgc/tbox#",
   "prefixes": {
-    "mc2.1": "http://www.hds.utc.fr/mc2.1/tbox#",
     "mc2": "http://www.hds.utc.fr/mc2/tbox#",
-    "mc2sois": "http://www.hds.utc.fr/mc2sois/tbox#",
     "tco": "http://www.hds.utc.fr/tco/tbox#",
-    "tgc": "http://www.hds.utc.fr/tgc/tbox#",
-    "prov": "http://www.w3.org/ns/prov#"
+    "tgc": "http://www.hds.utc.fr/tgc/tbox#"
   },
   "classes": [
-    {
-      "name": "Achievement",
-      "uri": "http://www.hds.utc.fr/tgc/tbox#Achievement",
-      "prefixed": "tgc:Achievement",
-      "parents": [
-        "http://www.hds.utc.fr/tgc/tbox#GameElementResource"
-      ],
-      "subclasses": []
-    },
-    {
-      "name": "Activity",
-      "uri": "http://www.hds.utc.fr/mc2.1/tbox#Activity",
-      "prefixed": "mc2.1:Activity",
-      "parents": [],
-      "subclasses": []
-    },
     {
       "name": "Agent",
       "uri": "http://www.hds.utc.fr/mc2/tbox#Agent",
       "prefixed": "mc2:Agent",
       "parents": [],
       "subclasses": [
-        "http://www.hds.utc.fr/mc2/tbox#Person"
+        "http://www.hds.utc.fr/mc2/tbox#Person",
+        "http://www.hds.utc.fr/tco/tbox#Teacher",
+        "http://www.hds.utc.fr/tco/tbox#Learner"
       ],
       "comment": "The Agent class is the class of agents; things that do stuff. A well known sub-class is Person, representing people. Other kinds of agents include Organization and Group."
     },
@@ -47,7 +30,9 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#Badge",
       "prefixed": "tgc:Badge",
       "parents": [
-        "http://www.hds.utc.fr/tgc/tbox#GameElementResource"
+        "http://www.hds.utc.fr/tgc/tbox#GameElementResource",
+        "http://www.hds.utc.fr/mc2/tbox#SimpleResource",
+        "http://www.hds.utc.fr/mc2/tbox#Resource"
       ],
       "subclasses": []
     },
@@ -65,16 +50,9 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#BonusPoints",
       "prefixed": "tgc:BonusPoints",
       "parents": [
-        "http://www.hds.utc.fr/tgc/tbox#Points"
-      ],
-      "subclasses": []
-    },
-    {
-      "name": "BonusPointsLeaderboard",
-      "uri": "http://www.hds.utc.fr/tgc/tbox#BonusPointsLeaderboard",
-      "prefixed": "tgc:BonusPointsLeaderboard",
-      "parents": [
-        "http://www.hds.utc.fr/tgc/tbox#Leaderboard"
+        "http://www.hds.utc.fr/tgc/tbox#Points",
+        "http://www.hds.utc.fr/tgc/tbox#GameElementResource",
+        "http://www.hds.utc.fr/mc2/tbox#SimpleResource"
       ],
       "subclasses": []
     },
@@ -83,7 +61,9 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#Challenge",
       "prefixed": "tgc:Challenge",
       "parents": [
-        "http://www.hds.utc.fr/tgc/tbox#GameElementResource"
+        "http://www.hds.utc.fr/tgc/tbox#GameElementResource",
+        "http://www.hds.utc.fr/mc2/tbox#SimpleResource",
+        "http://www.hds.utc.fr/mc2/tbox#Resource"
       ],
       "subclasses": []
     },
@@ -130,7 +110,8 @@
       "prefixed": "tgc:Digital_Competency",
       "parents": [],
       "subclasses": [
-        "http://www.hds.utc.fr/tgc/tbox#DigitalContent_Competency"
+        "http://www.hds.utc.fr/tgc/tbox#DigitalContent_Competency",
+        "http://www.hds.utc.fr/tgc/tbox#SocialCommittment_Competency"
       ]
     },
     {
@@ -138,7 +119,8 @@
       "uri": "http://www.hds.utc.fr/mc2/tbox#Document",
       "prefixed": "mc2:Document",
       "parents": [
-        "http://www.hds.utc.fr/mc2/tbox#SimpleResource"
+        "http://www.hds.utc.fr/mc2/tbox#SimpleResource",
+        "http://www.hds.utc.fr/mc2/tbox#Resource"
       ],
       "subclasses": [],
       "comment": "in memorae, document is equivalent to bibo:document which consists of: image, article, audio, book, slideshow, etc."
@@ -158,13 +140,6 @@
       "subclasses": []
     },
     {
-      "name": "Entity",
-      "uri": "http://www.w3.org/ns/prov#Entity",
-      "prefixed": "prov:Entity",
-      "parents": [],
-      "subclasses": []
-    },
-    {
       "name": "Experience",
       "uri": "http://www.hds.utc.fr/tgc/tbox#Experience",
       "prefixed": "tgc:Experience",
@@ -175,22 +150,49 @@
       ]
     },
     {
+      "name": "ExperiencePoints",
+      "uri": "http://www.hds.utc.fr/tgc/tbox#ExperiencePoints",
+      "prefixed": "tgc:ExperiencePoints",
+      "parents": [
+        "http://www.hds.utc.fr/tgc/tbox#Points",
+        "http://www.hds.utc.fr/tgc/tbox#GameElementResource",
+        "http://www.hds.utc.fr/mc2/tbox#SimpleResource"
+      ],
+      "subclasses": [],
+      "comment": "Points accumulated accross resources"
+    },
+    {
+      "name": "ExperiencePointsLeaderboard",
+      "uri": "http://www.hds.utc.fr/tgc/tbox#ExperiencePointsLeaderboard",
+      "prefixed": "tgc:ExperiencePointsLeaderboard",
+      "parents": [
+        "http://www.hds.utc.fr/tgc/tbox#Leaderboard",
+        "http://www.hds.utc.fr/tgc/tbox#GameElementResource",
+        "http://www.hds.utc.fr/mc2/tbox#SimpleResource"
+      ],
+      "subclasses": []
+    },
+    {
       "name": "GameElementResource",
       "uri": "http://www.hds.utc.fr/tgc/tbox#GameElementResource",
       "prefixed": "tgc:GameElementResource",
       "parents": [
-        "http://www.hds.utc.fr/mc2/tbox#SimpleResource"
+        "http://www.hds.utc.fr/mc2/tbox#SimpleResource",
+        "http://www.hds.utc.fr/mc2/tbox#Resource"
       ],
       "subclasses": [
         "http://www.hds.utc.fr/tgc/tbox#Points",
         "http://www.hds.utc.fr/tgc/tbox#Leaderboard",
-        "http://www.hds.utc.fr/tgc/tbox#Achievement",
         "http://www.hds.utc.fr/tgc/tbox#Badge",
+        "http://www.hds.utc.fr/tgc/tbox#BonusPoints",
         "http://www.hds.utc.fr/tgc/tbox#Challenge",
-        "http://www.hds.utc.fr/tgc/tbox#Hint",
+        "http://www.hds.utc.fr/tgc/tbox#ExperiencePoints",
+        "http://www.hds.utc.fr/tgc/tbox#ExperiencePointsLeaderboard",
         "http://www.hds.utc.fr/tgc/tbox#Level",
         "http://www.hds.utc.fr/tgc/tbox#ProgressBar",
-        "http://www.hds.utc.fr/tgc/tbox#Reward"
+        "http://www.hds.utc.fr/tgc/tbox#Reward",
+        "http://www.hds.utc.fr/tgc/tbox#Story",
+        "http://www.hds.utc.fr/tgc/tbox#Timer"
       ]
     },
     {
@@ -207,16 +209,8 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#GamifiedResource",
       "prefixed": "tgc:GamifiedResource",
       "parents": [
-        "http://www.hds.utc.fr/mc2/tbox#CompositeResource"
-      ],
-      "subclasses": []
-    },
-    {
-      "name": "Hint",
-      "uri": "http://www.hds.utc.fr/tgc/tbox#Hint",
-      "prefixed": "tgc:Hint",
-      "parents": [
-        "http://www.hds.utc.fr/tgc/tbox#GameElementResource"
+        "http://www.hds.utc.fr/mc2/tbox#CompositeResource",
+        "http://www.hds.utc.fr/mc2/tbox#Resource"
       ],
       "subclasses": []
     },
@@ -234,11 +228,12 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#Leaderboard",
       "prefixed": "tgc:Leaderboard",
       "parents": [
-        "http://www.hds.utc.fr/tgc/tbox#GameElementResource"
+        "http://www.hds.utc.fr/tgc/tbox#GameElementResource",
+        "http://www.hds.utc.fr/mc2/tbox#SimpleResource",
+        "http://www.hds.utc.fr/mc2/tbox#Resource"
       ],
       "subclasses": [
-        "http://www.hds.utc.fr/tgc/tbox#BonusPointsLeaderboard",
-        "http://www.hds.utc.fr/tgc/tbox#ScorePointsLeaderboard"
+        "http://www.hds.utc.fr/tgc/tbox#ExperiencePointsLeaderboard"
       ]
     },
     {
@@ -246,7 +241,8 @@
       "uri": "http://www.hds.utc.fr/tco/tbox#Learner",
       "prefixed": "tco:Learner",
       "parents": [
-        "http://www.hds.utc.fr/mc2/tbox#Person"
+        "http://www.hds.utc.fr/mc2/tbox#Person",
+        "http://www.hds.utc.fr/mc2/tbox#Agent"
       ],
       "subclasses": [],
       "comment": "A Learner can be a user if he has a user account"
@@ -276,7 +272,9 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#Level",
       "prefixed": "tgc:Level",
       "parents": [
-        "http://www.hds.utc.fr/tgc/tbox#GameElementResource"
+        "http://www.hds.utc.fr/tgc/tbox#GameElementResource",
+        "http://www.hds.utc.fr/mc2/tbox#SimpleResource",
+        "http://www.hds.utc.fr/mc2/tbox#Resource"
       ],
       "subclasses": []
     },
@@ -350,11 +348,13 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#Points",
       "prefixed": "tgc:Points",
       "parents": [
-        "http://www.hds.utc.fr/tgc/tbox#GameElementResource"
+        "http://www.hds.utc.fr/tgc/tbox#GameElementResource",
+        "http://www.hds.utc.fr/mc2/tbox#SimpleResource",
+        "http://www.hds.utc.fr/mc2/tbox#Resource"
       ],
       "subclasses": [
         "http://www.hds.utc.fr/tgc/tbox#BonusPoints",
-        "http://www.hds.utc.fr/tgc/tbox#ScorePoints"
+        "http://www.hds.utc.fr/tgc/tbox#ExperiencePoints"
       ]
     },
     {
@@ -371,17 +371,11 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#ProgressBar",
       "prefixed": "tgc:ProgressBar",
       "parents": [
-        "http://www.hds.utc.fr/tgc/tbox#GameElementResource"
+        "http://www.hds.utc.fr/tgc/tbox#GameElementResource",
+        "http://www.hds.utc.fr/mc2/tbox#SimpleResource",
+        "http://www.hds.utc.fr/mc2/tbox#Resource"
       ],
       "subclasses": []
-    },
-    {
-      "name": "ReferenceKey",
-      "uri": "http://www.hds.utc.fr/mc2sois/tbox#ReferenceKey",
-      "prefixed": "mc2sois:ReferenceKey",
-      "parents": [],
-      "subclasses": [],
-      "comment": "provide users access to the resource through a reference key.\nEach resource has reference key that is indexed by index key"
     },
     {
       "name": "Resource",
@@ -390,7 +384,19 @@
       "parents": [],
       "subclasses": [
         "http://www.hds.utc.fr/mc2/tbox#CompositeResource",
-        "http://www.hds.utc.fr/mc2/tbox#SimpleResource"
+        "http://www.hds.utc.fr/mc2/tbox#SimpleResource",
+        "http://www.hds.utc.fr/tgc/tbox#GameElementResource",
+        "http://www.hds.utc.fr/tgc/tbox#GamifiedResource",
+        "http://www.hds.utc.fr/tgc/tbox#Points",
+        "http://www.hds.utc.fr/tgc/tbox#Leaderboard",
+        "http://www.hds.utc.fr/mc2/tbox#Document",
+        "http://www.hds.utc.fr/tgc/tbox#Badge",
+        "http://www.hds.utc.fr/tgc/tbox#Challenge",
+        "http://www.hds.utc.fr/tgc/tbox#Level",
+        "http://www.hds.utc.fr/tgc/tbox#ProgressBar",
+        "http://www.hds.utc.fr/tgc/tbox#Reward",
+        "http://www.hds.utc.fr/tgc/tbox#Story",
+        "http://www.hds.utc.fr/tgc/tbox#Timer"
       ],
       "comment": "Resources can be simple resource or composite resource"
     },
@@ -399,25 +405,9 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#Reward",
       "prefixed": "tgc:Reward",
       "parents": [
-        "http://www.hds.utc.fr/tgc/tbox#GameElementResource"
-      ],
-      "subclasses": []
-    },
-    {
-      "name": "ScorePoints",
-      "uri": "http://www.hds.utc.fr/tgc/tbox#ScorePoints",
-      "prefixed": "tgc:ScorePoints",
-      "parents": [
-        "http://www.hds.utc.fr/tgc/tbox#Points"
-      ],
-      "subclasses": []
-    },
-    {
-      "name": "ScorePointsLeaderboard",
-      "uri": "http://www.hds.utc.fr/tgc/tbox#ScorePointsLeaderboard",
-      "prefixed": "tgc:ScorePointsLeaderboard",
-      "parents": [
-        "http://www.hds.utc.fr/tgc/tbox#Leaderboard"
+        "http://www.hds.utc.fr/tgc/tbox#GameElementResource",
+        "http://www.hds.utc.fr/mc2/tbox#SimpleResource",
+        "http://www.hds.utc.fr/mc2/tbox#Resource"
       ],
       "subclasses": []
     },
@@ -430,19 +420,63 @@
       ],
       "subclasses": [
         "http://www.hds.utc.fr/tgc/tbox#GameElementResource",
-        "http://www.hds.utc.fr/mc2/tbox#Document"
+        "http://www.hds.utc.fr/tgc/tbox#Points",
+        "http://www.hds.utc.fr/tgc/tbox#Leaderboard",
+        "http://www.hds.utc.fr/mc2/tbox#Document",
+        "http://www.hds.utc.fr/tgc/tbox#Badge",
+        "http://www.hds.utc.fr/tgc/tbox#BonusPoints",
+        "http://www.hds.utc.fr/tgc/tbox#Challenge",
+        "http://www.hds.utc.fr/tgc/tbox#ExperiencePoints",
+        "http://www.hds.utc.fr/tgc/tbox#ExperiencePointsLeaderboard",
+        "http://www.hds.utc.fr/tgc/tbox#Level",
+        "http://www.hds.utc.fr/tgc/tbox#ProgressBar",
+        "http://www.hds.utc.fr/tgc/tbox#Reward",
+        "http://www.hds.utc.fr/tgc/tbox#Story",
+        "http://www.hds.utc.fr/tgc/tbox#Timer"
       ],
       "comment": "A single resource like game element, document, video, etc."
+    },
+    {
+      "name": "SocialCommittment_Competency",
+      "uri": "http://www.hds.utc.fr/tgc/tbox#SocialCommittment_Competency",
+      "prefixed": "tgc:SocialCommittment_Competency",
+      "parents": [
+        "http://www.hds.utc.fr/tgc/tbox#Digital_Competency"
+      ],
+      "subclasses": []
+    },
+    {
+      "name": "Story",
+      "uri": "http://www.hds.utc.fr/tgc/tbox#Story",
+      "prefixed": "tgc:Story",
+      "parents": [
+        "http://www.hds.utc.fr/tgc/tbox#GameElementResource",
+        "http://www.hds.utc.fr/mc2/tbox#SimpleResource",
+        "http://www.hds.utc.fr/mc2/tbox#Resource"
+      ],
+      "subclasses": []
     },
     {
       "name": "Teacher",
       "uri": "http://www.hds.utc.fr/tco/tbox#Teacher",
       "prefixed": "tco:Teacher",
       "parents": [
-        "http://www.hds.utc.fr/mc2/tbox#Person"
+        "http://www.hds.utc.fr/mc2/tbox#Person",
+        "http://www.hds.utc.fr/mc2/tbox#Agent"
       ],
       "subclasses": [],
       "comment": "A Teacher can be a user if he has user account"
+    },
+    {
+      "name": "Timer",
+      "uri": "http://www.hds.utc.fr/tgc/tbox#Timer",
+      "prefixed": "tgc:Timer",
+      "parents": [
+        "http://www.hds.utc.fr/tgc/tbox#GameElementResource",
+        "http://www.hds.utc.fr/mc2/tbox#SimpleResource",
+        "http://www.hds.utc.fr/mc2/tbox#Resource"
+      ],
+      "subclasses": []
     },
     {
       "name": "TopicKnowledge",
@@ -461,13 +495,6 @@
       "subclasses": []
     },
     {
-      "name": "WorkingEnvironment",
-      "uri": "http://www.hds.utc.fr/tco/tbox#WorkingEnvironment",
-      "prefixed": "tco:WorkingEnvironment",
-      "parents": [],
-      "subclasses": []
-    },
-    {
       "name": "subjectArea",
       "uri": "http://www.hds.utc.fr/tgc/tbox#subjectArea",
       "prefixed": "tgc:subjectArea",
@@ -477,80 +504,54 @@
   ],
   "object_properties": [
     {
-      "name": "utilizes",
-      "uri": "http://www.hds.utc.fr/mc2sois/tbox#utilizes",
-      "prefixed": "mc2sois:utilizes",
-      "domain": [
-        "http://www.hds.utc.fr/mc2.1/tbox#Activity"
-      ],
-      "range": [
-        "http://www.hds.utc.fr/mc2sois/tbox#ReferenceKey"
-      ]
-    },
-    {
-      "name": "consists_of",
-      "uri": "http://www.hds.utc.fr/tco/tbox#consists_of",
-      "prefixed": "tco:consists_of",
-      "domain": [
-        "http://www.hds.utc.fr/tco/tbox#Course"
-      ],
-      "range": [
-        "http://www.hds.utc.fr/tco/tbox#Lesson"
-      ]
-    },
-    {
-      "name": "evolves_in",
-      "uri": "http://www.hds.utc.fr/tco/tbox#evolves_in",
-      "prefixed": "tco:evolves_in",
-      "domain": [
-        "http://www.hds.utc.fr/tco/tbox#EducationalInstitution"
-      ],
-      "range": [
-        "http://www.hds.utc.fr/tco/tbox#WorkingEnvironment"
-      ]
-    },
-    {
-      "name": "reuseResource",
-      "uri": "http://www.hds.utc.fr/tco/tbox#reuseResource",
-      "prefixed": "tco:reuseResource",
-      "domain": [
-        "http://www.hds.utc.fr/tco/tbox#Lesson"
-      ],
-      "range": [
-        "http://www.hds.utc.fr/mc2/tbox#Resource"
-      ]
-    },
-    {
-      "name": "works_in",
-      "uri": "http://www.hds.utc.fr/tco/tbox#works_in",
-      "prefixed": "tco:works_in",
-      "domain": [
-        "http://www.hds.utc.fr/tco/tbox#Teacher"
-      ],
-      "range": [
-        "http://www.hds.utc.fr/tco/tbox#EducationalInstitution"
-      ]
-    },
-    {
       "name": "CoversTopic",
       "uri": "http://www.hds.utc.fr/tgc/tbox#CoversTopic",
       "prefixed": "tgc:CoversTopic",
       "domain": [
-        "http://www.hds.utc.fr/tco/tbox#Lesson"
+        "http://www.hds.utc.fr/tco/tbox#Lesson",
+        "http://www.hds.utc.fr/tgc/tbox#EducationalTopic"
       ],
       "range": [
         "http://www.hds.utc.fr/tgc/tbox#EducationalTopic"
       ]
     },
     {
-      "name": "aboutEducationalTopic",
-      "uri": "http://www.hds.utc.fr/tgc/tbox#aboutEducationalTopic",
-      "prefixed": "tgc:aboutEducationalTopic",
+      "name": "offersCourse",
+      "uri": "http://www.hds.utc.fr/tgc/tbox#offersCourse",
+      "prefixed": "tgc:offersCourse",
       "domain": [
-        "http://www.hds.utc.fr/tgc/tbox#TopicKnowledge"
+        "http://www.hds.utc.fr/tco/tbox#Course",
+        "http://www.hds.utc.fr/tco/tbox#EducationalInstitution"
       ],
       "range": [
-        "http://www.hds.utc.fr/tgc/tbox#EducationalTopic"
+        "http://www.hds.utc.fr/tco/tbox#Course"
+      ]
+    },
+    {
+      "name": "teaches",
+      "uri": "http://www.hds.utc.fr/tco/tbox#teaches",
+      "prefixed": "tco:teaches",
+      "domain": [
+        "http://www.hds.utc.fr/mc2/tbox#Agent",
+        "http://www.hds.utc.fr/mc2/tbox#Person",
+        "http://www.hds.utc.fr/tco/tbox#Learner",
+        "http://www.hds.utc.fr/tco/tbox#Teacher"
+      ],
+      "range": [
+        "http://www.hds.utc.fr/tco/tbox#Course"
+      ],
+      "comment": "Links a teacher to the course they teach."
+    },
+    {
+      "name": "hasPlayerType",
+      "uri": "http://www.hds.utc.fr/tgc/tbox#hasPlayerType",
+      "prefixed": "tgc:hasPlayerType",
+      "domain": [
+        "http://www.hds.utc.fr/tco/tbox#Learner",
+        "http://www.hds.utc.fr/tco/tbox#Teacher"
+      ],
+      "range": [
+        "http://www.hds.utc.fr/tgc/tbox#PlayerType"
       ]
     },
     {
@@ -580,9 +581,12 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#containsGameElement",
       "prefixed": "tgc:containsGameElement",
       "domain": [
-        "http://www.hds.utc.fr/mc2/tbox#CompositeResource"
+        "http://www.hds.utc.fr/mc2/tbox#CompositeResource",
+        "http://www.hds.utc.fr/mc2/tbox#Resource"
       ],
       "range": [
+        "http://www.hds.utc.fr/mc2/tbox#Resource",
+        "http://www.hds.utc.fr/mc2/tbox#SimpleResource",
         "http://www.hds.utc.fr/tgc/tbox#GameElementResource"
       ]
     },
@@ -591,10 +595,14 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#designLesson",
       "prefixed": "tgc:designLesson",
       "domain": [
+        "http://www.hds.utc.fr/mc2/tbox#Agent",
+        "http://www.hds.utc.fr/mc2/tbox#Person",
+        "http://www.hds.utc.fr/tco/tbox#Learner",
         "http://www.hds.utc.fr/tco/tbox#Teacher"
       ],
       "range": [
-        "http://www.hds.utc.fr/tco/tbox#Lesson"
+        "http://www.hds.utc.fr/tco/tbox#Lesson",
+        "http://www.hds.utc.fr/tgc/tbox#EducationalTopic"
       ]
     },
     {
@@ -613,6 +621,9 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#hasClassroomObjective",
       "prefixed": "tgc:hasClassroomObjective",
       "domain": [
+        "http://www.hds.utc.fr/mc2/tbox#Agent",
+        "http://www.hds.utc.fr/mc2/tbox#Person",
+        "http://www.hds.utc.fr/tco/tbox#Learner",
         "http://www.hds.utc.fr/tco/tbox#Teacher"
       ],
       "range": [
@@ -624,6 +635,9 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#hasDigitalCompetency",
       "prefixed": "tgc:hasDigitalCompetency",
       "domain": [
+        "http://www.hds.utc.fr/mc2/tbox#Agent",
+        "http://www.hds.utc.fr/mc2/tbox#Person",
+        "http://www.hds.utc.fr/tco/tbox#Learner",
         "http://www.hds.utc.fr/tco/tbox#Teacher"
       ],
       "range": [
@@ -646,6 +660,9 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#hasExperience",
       "prefixed": "tgc:hasExperience",
       "domain": [
+        "http://www.hds.utc.fr/mc2/tbox#Agent",
+        "http://www.hds.utc.fr/mc2/tbox#Person",
+        "http://www.hds.utc.fr/tco/tbox#Learner",
         "http://www.hds.utc.fr/tco/tbox#Teacher"
       ],
       "range": [
@@ -657,9 +674,13 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#hasGamificationExperience",
       "prefixed": "tgc:hasGamificationExperience",
       "domain": [
+        "http://www.hds.utc.fr/mc2/tbox#Agent",
+        "http://www.hds.utc.fr/mc2/tbox#Person",
+        "http://www.hds.utc.fr/tco/tbox#Learner",
         "http://www.hds.utc.fr/tco/tbox#Teacher"
       ],
       "range": [
+        "http://www.hds.utc.fr/tgc/tbox#Experience",
         "http://www.hds.utc.fr/tgc/tbox#GamificationExperience"
       ]
     },
@@ -668,10 +689,18 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#hasInputPole",
       "prefixed": "tgc:hasInputPole",
       "domain": [
-        "http://www.hds.utc.fr/tco/tbox#Learner"
+        "http://www.hds.utc.fr/mc2/tbox#Agent",
+        "http://www.hds.utc.fr/mc2/tbox#Person",
+        "http://www.hds.utc.fr/tco/tbox#Learner",
+        "http://www.hds.utc.fr/tco/tbox#Teacher",
+        "http://www.hds.utc.fr/tgc/tbox#InputPole",
+        "http://www.hds.utc.fr/tgc/tbox#PerceptionPole",
+        "http://www.hds.utc.fr/tgc/tbox#ProcessingPole",
+        "http://www.hds.utc.fr/tgc/tbox#UnderstandingPole"
       ],
       "range": [
-        "http://www.hds.utc.fr/tgc/tbox#InputPole"
+        "http://www.hds.utc.fr/tgc/tbox#InputPole",
+        "http://www.hds.utc.fr/tgc/tbox#LearningStyle"
       ]
     },
     {
@@ -679,21 +708,17 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#hasLearningStyle",
       "prefixed": "tgc:hasLearningStyle",
       "domain": [
-        "http://www.hds.utc.fr/tco/tbox#Learner"
+        "http://www.hds.utc.fr/mc2/tbox#Agent",
+        "http://www.hds.utc.fr/mc2/tbox#Person",
+        "http://www.hds.utc.fr/tco/tbox#Learner",
+        "http://www.hds.utc.fr/tco/tbox#Teacher",
+        "http://www.hds.utc.fr/tgc/tbox#InputPole",
+        "http://www.hds.utc.fr/tgc/tbox#PerceptionPole",
+        "http://www.hds.utc.fr/tgc/tbox#ProcessingPole",
+        "http://www.hds.utc.fr/tgc/tbox#UnderstandingPole"
       ],
       "range": [
         "http://www.hds.utc.fr/tgc/tbox#LearningStyle"
-      ]
-    },
-    {
-      "name": "hasPedagogicalExperience",
-      "uri": "http://www.hds.utc.fr/tgc/tbox#hasPedagogicalExperience",
-      "prefixed": "tgc:hasPedagogicalExperience",
-      "domain": [
-        "http://www.hds.utc.fr/tco/tbox#Teacher"
-      ],
-      "range": [
-        "http://www.hds.utc.fr/tgc/tbox#PedagogicalExperience"
       ]
     },
     {
@@ -701,44 +726,18 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#hasPerceptionPole",
       "prefixed": "tgc:hasPerceptionPole",
       "domain": [
-        "http://www.hds.utc.fr/tco/tbox#Learner"
-      ],
-      "range": [
-        "http://www.hds.utc.fr/tgc/tbox#PerceptionPole"
-      ]
-    },
-    {
-      "name": "hasPlayerType",
-      "uri": "http://www.hds.utc.fr/tgc/tbox#hasPlayerType",
-      "prefixed": "tgc:hasPlayerType",
-      "domain": [
+        "http://www.hds.utc.fr/mc2/tbox#Agent",
+        "http://www.hds.utc.fr/mc2/tbox#Person",
         "http://www.hds.utc.fr/tco/tbox#Learner",
-        "http://www.hds.utc.fr/tco/tbox#Teacher"
+        "http://www.hds.utc.fr/tco/tbox#Teacher",
+        "http://www.hds.utc.fr/tgc/tbox#InputPole",
+        "http://www.hds.utc.fr/tgc/tbox#PerceptionPole",
+        "http://www.hds.utc.fr/tgc/tbox#ProcessingPole",
+        "http://www.hds.utc.fr/tgc/tbox#UnderstandingPole"
       ],
       "range": [
-        "http://www.hds.utc.fr/tgc/tbox#PlayerType"
-      ]
-    },
-    {
-      "name": "hasPreLesson",
-      "uri": "http://www.hds.utc.fr/tgc/tbox#hasPreLesson",
-      "prefixed": "tgc:hasPreLesson",
-      "domain": [
-        "http://www.hds.utc.fr/tco/tbox#Lesson"
-      ],
-      "range": [
-        "http://www.hds.utc.fr/tco/tbox#Lesson"
-      ]
-    },
-    {
-      "name": "hasPreResource",
-      "uri": "http://www.hds.utc.fr/tgc/tbox#hasPreResource",
-      "prefixed": "tgc:hasPreResource",
-      "domain": [
-        "http://www.hds.utc.fr/mc2/tbox#Resource"
-      ],
-      "range": [
-        "http://www.hds.utc.fr/mc2/tbox#Resource"
+        "http://www.hds.utc.fr/tgc/tbox#LearningStyle",
+        "http://www.hds.utc.fr/tgc/tbox#PerceptionPole"
       ]
     },
     {
@@ -746,9 +745,17 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#hasProcessingPole",
       "prefixed": "tgc:hasProcessingPole",
       "domain": [
-        "http://www.hds.utc.fr/tco/tbox#Learner"
+        "http://www.hds.utc.fr/mc2/tbox#Agent",
+        "http://www.hds.utc.fr/mc2/tbox#Person",
+        "http://www.hds.utc.fr/tco/tbox#Learner",
+        "http://www.hds.utc.fr/tco/tbox#Teacher",
+        "http://www.hds.utc.fr/tgc/tbox#InputPole",
+        "http://www.hds.utc.fr/tgc/tbox#PerceptionPole",
+        "http://www.hds.utc.fr/tgc/tbox#ProcessingPole",
+        "http://www.hds.utc.fr/tgc/tbox#UnderstandingPole"
       ],
       "range": [
+        "http://www.hds.utc.fr/tgc/tbox#LearningStyle",
         "http://www.hds.utc.fr/tgc/tbox#ProcessingPole"
       ]
     },
@@ -760,29 +767,8 @@
         "http://www.hds.utc.fr/tco/tbox#Course"
       ],
       "range": [
+        "http://www.hds.utc.fr/tco/tbox#Learner",
         "http://www.hds.utc.fr/tgc/tbox#Audience"
-      ]
-    },
-    {
-      "name": "hasTargetedTopicKnowledge",
-      "uri": "http://www.hds.utc.fr/tgc/tbox#hasTargetedTopicKnowledge",
-      "prefixed": "tgc:hasTargetedTopicKnowledge",
-      "domain": [
-        "http://www.hds.utc.fr/tgc/tbox#Audience"
-      ],
-      "range": [
-        "http://www.hds.utc.fr/tgc/tbox#TopicKnowledge"
-      ]
-    },
-    {
-      "name": "hasTopicKnowledge",
-      "uri": "http://www.hds.utc.fr/tgc/tbox#hasTopicKnowledge",
-      "prefixed": "tgc:hasTopicKnowledge",
-      "domain": [
-        "http://www.hds.utc.fr/mc2/tbox#Person"
-      ],
-      "range": [
-        "http://www.hds.utc.fr/tgc/tbox#TopicKnowledge"
       ]
     },
     {
@@ -790,44 +776,35 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#hasUnderstandingPole",
       "prefixed": "tgc:hasUnderstandingPole",
       "domain": [
-        "http://www.hds.utc.fr/tco/tbox#Learner"
+        "http://www.hds.utc.fr/mc2/tbox#Agent",
+        "http://www.hds.utc.fr/mc2/tbox#Person",
+        "http://www.hds.utc.fr/tco/tbox#Learner",
+        "http://www.hds.utc.fr/tco/tbox#Teacher",
+        "http://www.hds.utc.fr/tgc/tbox#InputPole",
+        "http://www.hds.utc.fr/tgc/tbox#PerceptionPole",
+        "http://www.hds.utc.fr/tgc/tbox#ProcessingPole",
+        "http://www.hds.utc.fr/tgc/tbox#UnderstandingPole"
       ],
       "range": [
+        "http://www.hds.utc.fr/tgc/tbox#LearningStyle",
         "http://www.hds.utc.fr/tgc/tbox#UnderstandingPole"
       ]
     },
     {
-      "name": "has_SubjectArea",
-      "uri": "http://www.hds.utc.fr/tgc/tbox#has_SubjectArea",
-      "prefixed": "tgc:has_SubjectArea",
+      "name": "recommendedResource",
+      "uri": "http://www.hds.utc.fr/tgc/tbox#recommendedResource",
+      "prefixed": "tgc:recommendedResource",
       "domain": [
-        "http://www.hds.utc.fr/tco/tbox#Course"
+        "http://www.hds.utc.fr/mc2/tbox#Agent",
+        "http://www.hds.utc.fr/mc2/tbox#Person",
+        "http://www.hds.utc.fr/tco/tbox#Learner",
+        "http://www.hds.utc.fr/tco/tbox#Teacher"
       ],
       "range": [
-        "http://www.hds.utc.fr/tgc/tbox#subjectArea"
-      ]
-    },
-    {
-      "name": "isComposedOf",
-      "uri": "http://www.hds.utc.fr/tgc/tbox#isComposedOf",
-      "prefixed": "tgc:isComposedOf",
-      "domain": [
-        "http://www.hds.utc.fr/tgc/tbox#Audience"
-      ],
-      "range": [
-        "http://www.hds.utc.fr/tco/tbox#Learner"
-      ],
-      "comment": "The audience of learners helps to get insights on the average topic knowledge, preferences, and player types"
-    },
-    {
-      "name": "offersCourse",
-      "uri": "http://www.hds.utc.fr/tgc/tbox#offersCourse",
-      "prefixed": "tgc:offersCourse",
-      "domain": [
-        "http://www.hds.utc.fr/tco/tbox#EducationalInstitution"
-      ],
-      "range": [
-        "http://www.hds.utc.fr/tco/tbox#Course"
+        "http://www.hds.utc.fr/mc2/tbox#CompositeResource",
+        "http://www.hds.utc.fr/mc2/tbox#Resource",
+        "http://www.hds.utc.fr/tgc/tbox#GameElementResource",
+        "http://www.hds.utc.fr/tgc/tbox#GamifiedResource"
       ]
     },
     {
@@ -838,7 +815,8 @@
         "http://www.hds.utc.fr/mc2/tbox#Resource"
       ],
       "range": [
-        "http://www.hds.utc.fr/tgc/tbox#BehaviouralObjective"
+        "http://www.hds.utc.fr/tgc/tbox#BehaviouralObjective",
+        "http://www.hds.utc.fr/tgc/tbox#Objective"
       ],
       "comment": "a behavioural objective can be relevant to a specific resource based on the associated game element(s)"
     },
@@ -847,9 +825,15 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#requiresLeaderboard",
       "prefixed": "tgc:requiresLeaderboard",
       "domain": [
+        "http://www.hds.utc.fr/mc2/tbox#Resource",
+        "http://www.hds.utc.fr/mc2/tbox#SimpleResource",
+        "http://www.hds.utc.fr/tgc/tbox#GameElementResource",
         "http://www.hds.utc.fr/tgc/tbox#Points"
       ],
       "range": [
+        "http://www.hds.utc.fr/mc2/tbox#Resource",
+        "http://www.hds.utc.fr/mc2/tbox#SimpleResource",
+        "http://www.hds.utc.fr/tgc/tbox#GameElementResource",
         "http://www.hds.utc.fr/tgc/tbox#Leaderboard"
       ],
       "comment": "points associated to a resource requires the apropriate leaderboard"
@@ -859,58 +843,27 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#specializedIn",
       "prefixed": "tgc:specializedIn",
       "domain": [
+        "http://www.hds.utc.fr/mc2/tbox#Agent",
+        "http://www.hds.utc.fr/mc2/tbox#Person",
+        "http://www.hds.utc.fr/tco/tbox#Learner",
         "http://www.hds.utc.fr/tco/tbox#Teacher"
       ],
       "range": [
         "http://www.hds.utc.fr/tgc/tbox#subjectArea"
       ]
-    },
-    {
-      "name": "used",
-      "uri": "http://www.w3.org/ns/prov#used",
-      "prefixed": "prov:used",
-      "domain": [
-        "http://www.hds.utc.fr/mc2.1/tbox#Activity"
-      ],
-      "range": [
-        "http://www.w3.org/ns/prov#Entity"
-      ]
     }
   ],
   "data_properties": [
-    {
-      "name": "First_Language",
-      "uri": "http://www.hds.utc.fr/tgc/tbox#First_Language",
-      "prefixed": "tgc:First_Language",
-      "domain": [
-        "http://www.hds.utc.fr/mc2/tbox#Person"
-      ],
-      "datatype": "string"
-    },
-    {
-      "name": "experienceLevel",
-      "uri": "http://www.hds.utc.fr/tgc/tbox#experienceLevel",
-      "prefixed": "tgc:experienceLevel",
-      "domain": [
-        "http://www.hds.utc.fr/tgc/tbox#Experience"
-      ],
-      "datatype": "int"
-    },
-    {
-      "name": "gender",
-      "uri": "http://www.hds.utc.fr/tgc/tbox#gender",
-      "prefixed": "tgc:gender",
-      "domain": [
-        "http://www.hds.utc.fr/mc2/tbox#Person"
-      ],
-      "datatype": "string"
-    },
     {
       "name": "hasPedagogicalPurpose",
       "uri": "http://www.hds.utc.fr/tgc/tbox#hasPedagogicalPurpose",
       "prefixed": "tgc:hasPedagogicalPurpose",
       "domain": [
+        "http://www.hds.utc.fr/mc2/tbox#CompositeResource",
         "http://www.hds.utc.fr/mc2/tbox#Document",
+        "http://www.hds.utc.fr/mc2/tbox#Resource",
+        "http://www.hds.utc.fr/mc2/tbox#SimpleResource",
+        "http://www.hds.utc.fr/tgc/tbox#GameElementResource",
         "http://www.hds.utc.fr/tgc/tbox#GamifiedResource"
       ],
       "datatype": "string"
@@ -920,7 +873,11 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#hasRequirementType",
       "prefixed": "tgc:hasRequirementType",
       "domain": [
+        "http://www.hds.utc.fr/mc2/tbox#CompositeResource",
         "http://www.hds.utc.fr/mc2/tbox#Document",
+        "http://www.hds.utc.fr/mc2/tbox#Resource",
+        "http://www.hds.utc.fr/mc2/tbox#SimpleResource",
+        "http://www.hds.utc.fr/tgc/tbox#GameElementResource",
         "http://www.hds.utc.fr/tgc/tbox#GamifiedResource"
       ],
       "datatype": "string"
@@ -930,6 +887,7 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#has_EducationalLevel",
       "prefixed": "tgc:has_EducationalLevel",
       "domain": [
+        "http://www.hds.utc.fr/mc2/tbox#Agent",
         "http://www.hds.utc.fr/mc2/tbox#Person"
       ],
       "datatype": "string"
@@ -939,6 +897,7 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#has_LearningPace",
       "prefixed": "tgc:has_LearningPace",
       "domain": [
+        "http://www.hds.utc.fr/tco/tbox#Course",
         "http://www.hds.utc.fr/tgc/tbox#OnlineCourse"
       ],
       "datatype": "int"
@@ -948,27 +907,19 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#has_Name",
       "prefixed": "tgc:has_Name",
       "domain": [
+        "http://www.hds.utc.fr/mc2/tbox#Agent",
+        "http://www.hds.utc.fr/mc2/tbox#Person",
+        "http://www.hds.utc.fr/tco/tbox#Learner",
         "http://www.hds.utc.fr/tco/tbox#Teacher"
       ],
       "datatype": "string"
-    },
-    {
-      "name": "has_PoleValue",
-      "uri": "http://www.hds.utc.fr/tgc/tbox#has_PoleValue",
-      "prefixed": "tgc:has_PoleValue",
-      "domain": [
-        "http://www.hds.utc.fr/tgc/tbox#InputPole",
-        "http://www.hds.utc.fr/tgc/tbox#PerceptionPole",
-        "http://www.hds.utc.fr/tgc/tbox#ProcessingPole",
-        "http://www.hds.utc.fr/tgc/tbox#UnderstandingPole"
-      ],
-      "datatype": "None"
     },
     {
       "name": "has_Rating",
       "uri": "http://www.hds.utc.fr/tgc/tbox#has_Rating",
       "prefixed": "tgc:has_Rating",
       "domain": [
+        "http://www.hds.utc.fr/tco/tbox#Course",
         "http://www.hds.utc.fr/tgc/tbox#OnlineCourse"
       ],
       "datatype": "int"
@@ -978,6 +929,7 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#has_TeachingLanguage",
       "prefixed": "tgc:has_TeachingLanguage",
       "domain": [
+        "http://www.hds.utc.fr/tco/tbox#Course",
         "http://www.hds.utc.fr/tgc/tbox#OnlineCourse"
       ],
       "datatype": "string"
@@ -987,6 +939,9 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#has_TeachingStyle",
       "prefixed": "tgc:has_TeachingStyle",
       "domain": [
+        "http://www.hds.utc.fr/mc2/tbox#Agent",
+        "http://www.hds.utc.fr/mc2/tbox#Person",
+        "http://www.hds.utc.fr/tco/tbox#Learner",
         "http://www.hds.utc.fr/tco/tbox#Teacher"
       ],
       "datatype": "string"
@@ -996,6 +951,8 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#has_URL",
       "prefixed": "tgc:has_URL",
       "domain": [
+        "http://www.hds.utc.fr/mc2/tbox#Resource",
+        "http://www.hds.utc.fr/mc2/tbox#SimpleResource",
         "http://www.hds.utc.fr/tgc/tbox#GameElementResource"
       ],
       "datatype": "string"
@@ -1005,6 +962,8 @@
       "uri": "http://www.hds.utc.fr/tgc/tbox#has_description",
       "prefixed": "tgc:has_description",
       "domain": [
+        "http://www.hds.utc.fr/mc2/tbox#Resource",
+        "http://www.hds.utc.fr/mc2/tbox#SimpleResource",
         "http://www.hds.utc.fr/tgc/tbox#GameElementResource"
       ],
       "datatype": "string"
@@ -1035,15 +994,6 @@
         "http://www.hds.utc.fr/tgc/tbox#TopicKnowledge"
       ],
       "datatype": "string"
-    },
-    {
-      "name": "second_Language",
-      "uri": "http://www.hds.utc.fr/tgc/tbox#second_Language",
-      "prefixed": "tgc:second_Language",
-      "domain": [
-        "http://www.hds.utc.fr/mc2/tbox#Person"
-      ],
-      "datatype": "string"
     }
   ],
   "individuals": [
@@ -1058,6 +1008,7 @@
       "name": "Active",
       "uri": "http://www.hds.utc.fr/tgc/tbox#Active",
       "types": [
+        "http://www.hds.utc.fr/tgc/tbox#LearningStyle",
         "http://www.hds.utc.fr/tgc/tbox#ProcessingPole"
       ]
     },
@@ -1086,21 +1037,24 @@
       "name": "Creator",
       "uri": "http://www.hds.utc.fr/tgc/tbox#Creator",
       "types": [
-        "http://www.hds.utc.fr/tgc/tbox#DigitalContent_Competency"
+        "http://www.hds.utc.fr/tgc/tbox#DigitalContent_Competency",
+        "http://www.hds.utc.fr/tgc/tbox#Digital_Competency"
       ]
     },
     {
       "name": "Curator",
       "uri": "http://www.hds.utc.fr/tgc/tbox#Curator",
       "types": [
-        "http://www.hds.utc.fr/tgc/tbox#DigitalContent_Competency"
+        "http://www.hds.utc.fr/tgc/tbox#DigitalContent_Competency",
+        "http://www.hds.utc.fr/tgc/tbox#Digital_Competency"
       ]
     },
     {
       "name": "Exploration",
       "uri": "http://www.hds.utc.fr/tgc/tbox#Exploration",
       "types": [
-        "http://www.hds.utc.fr/tgc/tbox#BehaviouralObjective"
+        "http://www.hds.utc.fr/tgc/tbox#BehaviouralObjective",
+        "http://www.hds.utc.fr/tgc/tbox#Objective"
       ]
     },
     {
@@ -1111,9 +1065,17 @@
       ]
     },
     {
+      "name": "GamificationDesign",
+      "uri": "http://www.hds.utc.fr/tgc/tbox#GamificationDesign",
+      "types": [
+        "http://www.hds.utc.fr/tgc/tbox#subjectArea"
+      ]
+    },
+    {
       "name": "Global",
       "uri": "http://www.hds.utc.fr/tgc/tbox#Global",
       "types": [
+        "http://www.hds.utc.fr/tgc/tbox#LearningStyle",
         "http://www.hds.utc.fr/tgc/tbox#UnderstandingPole"
       ]
     },
@@ -1121,13 +1083,22 @@
       "name": "Group_Learning",
       "uri": "http://www.hds.utc.fr/tgc/tbox#Group_Learning",
       "types": [
-        "http://www.hds.utc.fr/tgc/tbox#BehaviouralObjective"
+        "http://www.hds.utc.fr/tgc/tbox#BehaviouralObjective",
+        "http://www.hds.utc.fr/tgc/tbox#Objective"
+      ]
+    },
+    {
+      "name": "InteractiveLearningDesign",
+      "uri": "http://www.hds.utc.fr/tgc/tbox#InteractiveLearningDesign",
+      "types": [
+        "http://www.hds.utc.fr/tgc/tbox#subjectArea"
       ]
     },
     {
       "name": "Intuitive",
       "uri": "http://www.hds.utc.fr/tgc/tbox#Intuitive",
       "types": [
+        "http://www.hds.utc.fr/tgc/tbox#LearningStyle",
         "http://www.hds.utc.fr/tgc/tbox#PerceptionPole"
       ]
     },
@@ -1135,21 +1106,31 @@
       "name": "Motivation",
       "uri": "http://www.hds.utc.fr/tgc/tbox#Motivation",
       "types": [
-        "http://www.hds.utc.fr/tgc/tbox#BehaviouralObjective"
+        "http://www.hds.utc.fr/tgc/tbox#BehaviouralObjective",
+        "http://www.hds.utc.fr/tgc/tbox#Objective"
+      ]
+    },
+    {
+      "name": "ObjectOrientedProgramming",
+      "uri": "http://www.hds.utc.fr/tgc/tbox#ObjectOrientedProgramming",
+      "types": [
+        "http://www.hds.utc.fr/tgc/tbox#subjectArea"
       ]
     },
     {
       "name": "Participation",
       "uri": "http://www.hds.utc.fr/tgc/tbox#Participation",
       "types": [
-        "http://www.hds.utc.fr/tgc/tbox#BehaviouralObjective"
+        "http://www.hds.utc.fr/tgc/tbox#BehaviouralObjective",
+        "http://www.hds.utc.fr/tgc/tbox#Objective"
       ]
     },
     {
       "name": "Performance",
       "uri": "http://www.hds.utc.fr/tgc/tbox#Performance",
       "types": [
-        "http://www.hds.utc.fr/tgc/tbox#BehaviouralObjective"
+        "http://www.hds.utc.fr/tgc/tbox#BehaviouralObjective",
+        "http://www.hds.utc.fr/tgc/tbox#Objective"
       ]
     },
     {
@@ -1163,6 +1144,7 @@
       "name": "Reflective",
       "uri": "http://www.hds.utc.fr/tgc/tbox#Reflective",
       "types": [
+        "http://www.hds.utc.fr/tgc/tbox#LearningStyle",
         "http://www.hds.utc.fr/tgc/tbox#ProcessingPole"
       ]
     },
@@ -1170,14 +1152,32 @@
       "name": "Sensing",
       "uri": "http://www.hds.utc.fr/tgc/tbox#Sensing",
       "types": [
+        "http://www.hds.utc.fr/tgc/tbox#LearningStyle",
         "http://www.hds.utc.fr/tgc/tbox#PerceptionPole"
+      ]
+    },
+    {
+      "name": "Sensitive_Comittment",
+      "uri": "http://www.hds.utc.fr/tgc/tbox#Sensitive_Comittment",
+      "types": [
+        "http://www.hds.utc.fr/tgc/tbox#Digital_Competency",
+        "http://www.hds.utc.fr/tgc/tbox#SocialCommittment_Competency"
       ]
     },
     {
       "name": "Sequential",
       "uri": "http://www.hds.utc.fr/tgc/tbox#Sequential",
       "types": [
+        "http://www.hds.utc.fr/tgc/tbox#LearningStyle",
         "http://www.hds.utc.fr/tgc/tbox#UnderstandingPole"
+      ]
+    },
+    {
+      "name": "Sociable_Comittment",
+      "uri": "http://www.hds.utc.fr/tgc/tbox#Sociable_Comittment",
+      "types": [
+        "http://www.hds.utc.fr/tgc/tbox#Digital_Competency",
+        "http://www.hds.utc.fr/tgc/tbox#SocialCommittment_Competency"
       ]
     },
     {
@@ -1188,17 +1188,26 @@
       ]
     },
     {
+      "name": "SoftwareEngineering",
+      "uri": "http://www.hds.utc.fr/tgc/tbox#SoftwareEngineering",
+      "types": [
+        "http://www.hds.utc.fr/tgc/tbox#subjectArea"
+      ]
+    },
+    {
       "name": "Verbal",
       "uri": "http://www.hds.utc.fr/tgc/tbox#Verbal",
       "types": [
-        "http://www.hds.utc.fr/tgc/tbox#InputPole"
+        "http://www.hds.utc.fr/tgc/tbox#InputPole",
+        "http://www.hds.utc.fr/tgc/tbox#LearningStyle"
       ]
     },
     {
       "name": "Visual",
       "uri": "http://www.hds.utc.fr/tgc/tbox#Visual",
       "types": [
-        "http://www.hds.utc.fr/tgc/tbox#InputPole"
+        "http://www.hds.utc.fr/tgc/tbox#InputPole",
+        "http://www.hds.utc.fr/tgc/tbox#LearningStyle"
       ]
     }
   ]

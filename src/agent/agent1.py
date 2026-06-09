@@ -21,7 +21,7 @@ basé sur les namespaces produit quand même un JSON exploitable.
 import re
 import json
 from collections import defaultdict
-from owlready2 import get_ontology, ThingClass, And, Or, Restriction, sync_reasoner_hermit
+from owlready2 import get_ontology, ThingClass, And, Or, Restriction, sync_reasoner_pellet
 
 from ..config import GROQ_CURATION_MODEL
 from ..tools.sparql_tools import ONTOLOGY_PATH, INFERRED_PATH
@@ -45,13 +45,25 @@ def _get_onto():
 
 def run_reasoner():
     """
-    Lance le raisonneur HermiT UNE seule fois et sauvegarde l'ontologie enrichie
+    Lance le raisonneur Pellet UNE seule fois et sauvegarde l'ontologie enrichie
     (faits déduits) dans TGC_inferred.owl. Ensuite, l'Agent 2 interroge ce fichier
-    (via sparql_tools) sans relancer le raisonneur à chaque fois. Nécessite Java.
+    (via sparql_tools) sans relancer le raisonneur à chaque fois.
+
+    Pellet (et non HermiT) : les règles SWRL de recommandation entre enseignants
+    utilisent des built-in atoms (ex: swrlb:greaterThan pour « plus expert que »),
+    que HermiT ne sait pas traiter. Pellet les supporte et matérialise donc
+    potentialMentorOf / hasSimilarProfile / hasSimilarDomain.
+
+    ATTENTION Java : les jars Pellet/Jena embarqués par owlready2 >= 0.50 sont
+    compilés pour un JDK récent (Java 25). Avec un JRE plus ancien (ex: Java 8),
+    l'appel lève OwlReadyJavaError. Dans ce cas, l'ontologie de travail contient
+    déjà les relations SWRL matérialisées via Protégé/Drools : il suffit de
+    re-sauvegarder TGC_inferred.owl depuis ONTOLOGY_PATH (sans raisonneur), ou
+    de laisser le loader retomber sur ONTOLOGY_PATH si le fichier inféré est absent.
     """
     onto = _get_onto()
     with onto:
-        sync_reasoner_hermit(infer_property_values=True)
+        sync_reasoner_pellet(infer_property_values=True, infer_data_property_values=True)
     onto.save(file=str(INFERRED_PATH), format="rdfxml")
     print(f"Ontologie enrichie sauvegardée : {INFERRED_PATH}")
 
