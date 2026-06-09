@@ -16,6 +16,9 @@ rdflib==7.6.0
 groq==0.37.1
 langchain-nvidia-ai-endpoints==1.4.1
 
+# Interface web
+streamlit==1.58.0
+
 # Utilitaires
 python-dotenv==1.2.2
 pydantic==2.13.3
