@@ -188,6 +188,7 @@ def node_bridge(state: AgentState) -> AgentState:
 
 def node_generate_resource(state: AgentState) -> AgentState:
     """Agent 3 : génère la ressource gamifiée via son sous-graphe LangGraph."""
+    from .agent3 import build_agent3_graph
     agent3_graph = build_agent3_graph()
     result = agent3_graph.invoke(state)
     state["generated_resource"] = result.get("generated_resource", "")
