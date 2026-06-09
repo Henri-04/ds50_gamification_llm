@@ -26,7 +26,7 @@ TAXONOMY_PATH = ONTOLOGY_PATH.parents[1] / "taxonomy_for_agent_2.json"
 def node_classify_intent(state: AgentState) -> AgentState:
     """Détermine l'intention de la question et la stocke dans le state."""
     state["intent"] = detect_intent(state.get("user_input", ""))
-    print(f"Intention détectée : {state['intent']}")
+    print(f"[intent] → {state['intent']}")
     return state
 
 
@@ -38,7 +38,10 @@ def route_intent(state: AgentState) -> str:
 def node_recommend_people(state: AgentState) -> AgentState:
     """Recommande des enseignants (mentors / pairs) à partir de l'ontologie."""
     from .people import recommend_people  # déterministe, pas de dépendance LLM
-    return recommend_people(state)
+    print("[Personnes] Recommandation de mentors / pairs (déterministe)...")
+    state = recommend_people(state)
+    print("[Personnes] ✓ recommandation terminée")
+    return state
 
 
 # =============================================================================
@@ -82,6 +85,7 @@ def _compact_summary(taxonomy):
 
 def node_load_taxonomy(state: AgentState) -> AgentState:
     """Charge taxonomy_for_agent_2.json, ou lance Agent 1 pour le générer."""
+    print("[Agent 1] Chargement de la taxonomie de l'ontologie...")
     if TAXONOMY_PATH.exists():
         with open(TAXONOMY_PATH, encoding="utf-8") as f:
             taxonomy = json.load(f)
@@ -109,7 +113,11 @@ def node_load_taxonomy(state: AgentState) -> AgentState:
 def node_recommend(state: AgentState) -> AgentState:
     """Agent 2 : question NL → SPARQL → recommandation."""
     from .agent2 import recommend
-    return recommend(state)
+    print("[Agent 2] Génération de la requête SPARQL...")
+    state = recommend(state)
+    n = len(state.get("query_results") or [])
+    print(f"[Agent 2] {n} résultat(s) en {state.get('attempts', '?')} tentative(s)")
+    return state
 
 
 # =============================================================================
@@ -179,6 +187,8 @@ def node_bridge(state: AgentState) -> AgentState:
     # Complète les champs manquants avec le repli (robustesse Agent 3).
     for field in _BRIDGE_FIELDS:
         state[field] = bridge.get(field) or fallback[field]
+    print(f"[Bridge] élément de jeu = {state['recommended_game_element']} | "
+          f"objectif = {state['behavioural_objective']}")
     return state
 
 
@@ -188,6 +198,7 @@ def node_bridge(state: AgentState) -> AgentState:
 
 def node_generate_resource(state: AgentState) -> AgentState:
     """Agent 3 : génère la ressource gamifiée via son sous-graphe LangGraph."""
+    print("[Agent 3] Génération de la ressource gamifiée...")
     from .agent3 import build_agent3_graph
     agent3_graph = build_agent3_graph()
     result = agent3_graph.invoke(state)

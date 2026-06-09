@@ -39,7 +39,7 @@ selon la question, on recommande soit une **ressource** gamifiée, soit des
 
 ## Stack technique
 
-- **Interface** : ligne de commande (CLI / terminal)
+- **Interfaces** : application web **Streamlit** (`app.py`) ou ligne de commande (`src/main.py`)
 - **Orchestration** : LangGraph / LangChain
 - **LLM** : Groq (Agents 1, 2, Bridge) et NVIDIA (Agent 3) — modèles configurables
 - **Ontologie** : OWL/RDF interrogée par SPARQL via `rdflib`
@@ -49,7 +49,9 @@ selon la question, on recommande soit une **ressource** gamifiée, soit des
 
 ```
 ds50_gamification_llm/
+├── app.py                      # Interface web Streamlit
 ├── requirements.txt
+├── .env.example                # Modèle de configuration (clés API)
 ├── pytest.ini
 ├── taxonomy_for_agent_2.json   # Taxonomie produite par Agent 1 (cache)
 ├── ontologies/
@@ -58,7 +60,8 @@ ds50_gamification_llm/
 │   └── IMPORT_OWL_NEO4J.md         # Import optionnel vers Neo4j
 ├── src/
 │   ├── config.py               # Config centralisée (modèles LLM, défauts)
-│   ├── main.py                 # Point d'entrée CLI (principal)
+│   ├── main.py                 # Point d'entrée CLI interactif
+│   ├── pipeline.py             # Logique partagée CLI ↔ interface (sélection + run)
 │   ├── agent/
 │   │   ├── intent.py           # Détection d'intention (people / resource)
 │   │   ├── people.py           # Recommandation de personnes (mentors / pairs)
@@ -67,8 +70,7 @@ ds50_gamification_llm/
 │   │   ├── agent3.py           # Génération de ressource
 │   │   ├── nodes.py            # Nœuds LangGraph (intention, Bridge…)
 │   │   ├── graph.py            # Assemblage de la pipeline (run_pipeline)
-│   │   ├── state.py            # AgentState (TypedDict)
-│   │   └── test_pipeline.py    # Démo interactive en terminal
+│   │   └── state.py            # AgentState (TypedDict)
 │   ├── llm/
 │   │   ├── groq_client.py      # Client Groq (lazy)
 │   │   └── nvidia_client.py    # Client NVIDIA (lazy)
@@ -89,47 +91,56 @@ ds50_gamification_llm/
 git clone https://github.com/Henri-04/ds50_gamification_llm.git
 cd ds50_gamification_llm
 
-python -m venv venv
+python -m venv .venv
 # Windows :
-venv\Scripts\activate
+.venv\Scripts\activate
 # macOS/Linux :
-source venv/bin/activate
+source .venv/bin/activate
 
 pip install -r requirements.txt
 ```
 
 ### 3. Configuration (`.env` à la racine)
 
-```
-GROQ_API_KEY=gsk_...
-NVIDIA_API_KEY=nvapi-...        # créer sur https://build.nvidia.com
+Copier le modèle, puis remplir les deux clés :
+
+```bash
+cp .env.example .env
 ```
 
-Variables optionnelles (surcharge des défauts de `src/config.py`) :
-
 ```
-GROQ_MODEL=llama-3.3-70b-versatile
-NVIDIA_MODEL=openai/gpt-oss-120b
-DEFAULT_TEACHER=Sara
-DEFAULT_COURSE=ObjectOrientedProgramming
+GROQ_API_KEY=gsk_...      # https://console.groq.com/keys
+NVIDIA_API_KEY=nvapi-...  # https://build.nvidia.com
 ```
 
-> Les clés `NEO4J_*` ne sont pas requises (Neo4j n'est pas utilisé par le code).
+Ce sont les **seules** variables requises. Les modèles LLM et les valeurs par
+défaut (`DEFAULT_TEACHER`, `DEFAULT_COURSE`…) se règlent directement dans
+`src/config.py`, **pas** dans `.env`. Le tracing LangSmith (`LANGCHAIN_*`) est
+optionnel et désactivé par défaut.
 
 ## Lancement
 
+### Interface web (Streamlit) — recommandé
+
 ```bash
-# Recommander une RESSOURCE gamifiée
-python -m src.main "Comment gamifier ma leçon sur l'héritage ?"
+streamlit run app.py
+```
+Choisir un **enseignant → un cours → une leçon**, puis poser ses questions dans le chat.
+La ressource générée est sauvegardée dans `outputs_agent3/` et téléchargeable en `.md`.
 
-# Recommander des PERSONNES (mentors / collègues) — déterministe, sans clé API
-python -m src.main "Quel collègue plus expérimenté pourrait me mentorer ?"
+### Ligne de commande (interactif)
 
-# Recommandation de personnes en direct (sans LLM)
+```bash
+python -m src.main
+```
+Même parcours (enseignant → cours → leçon → question) dans le terminal. Les étapes
+des agents (`[Agent 1]`, `[Agent 2]`, `[Bridge]`…) s'affichent en temps réel dans la console.
+
+### Autres commandes utiles
+
+```bash
+# Recommandation de personnes en direct (déterministe, sans LLM)
 python -m src.agent.people Sara
-
-# Démo interactive en terminal (choix d'une leçon)
-python -m src.agent.test_pipeline
 
 # (Re)générer la taxonomie + lancer le raisonneur (règles SWRL) — à faire 1 fois
 python -m src.agent.agent1
