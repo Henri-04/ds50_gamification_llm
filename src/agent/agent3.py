@@ -106,6 +106,34 @@ def generate_resource(state: AgentState) -> AgentState:
 
 
 # ============================================================
+# Traçabilité (partagée backend .md <-> interface)
+# ============================================================
+
+def build_traceability(state: AgentState) -> str:
+    """Section « Traçabilité » en Markdown : comment la reco a été obtenue.
+
+    Source UNIQUE utilisée à la fois par le rapport .md (save_resource_to_file)
+    et par l'interface (expander « Détails du raisonnement »), afin que le détail
+    affiché soit strictement identique à la traçabilité des rapports backend.
+    """
+    sparql = state.get("sparql_query") or "(aucune)"
+    facts = state.get("ontology_facts") or "(aucun)"
+    blocks = [
+        "## Traçabilité",
+        f"**Question:** {state.get('user_input', '')}",
+        "**Requête SPARQL générée par l'Agent 2 (= ce qu'il a décidé de chercher):**",
+        f"```sparql\n{sparql}\n```",
+        f"**Données trouvées dans l'ontologie:** {state.get('query_results')}",
+        "**Faits riches récupérés (déterministe) :**",
+        f"```\n{facts}\n```",
+        f"**Recommandation Agent 2:** {state.get('recommendation', '')}",
+        f"**Décision du Bridge:** élément de jeu = {state.get('recommended_game_element')}, "
+        f"objectif = {state.get('behavioural_objective')}",
+    ]
+    return "\n\n".join(blocks)
+
+
+# ============================================================
 # Sauvegarde du résultat dans un fichier
 # ============================================================
 
@@ -129,19 +157,10 @@ def save_resource_to_file(state: AgentState, filename: Optional[str] = None) -> 
         f.write(f"**Date de génération:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
 
         # Traçabilité : comment la recommandation a été obtenue (le "comment", pas juste le "quoi").
+        # Même bloc que celui affiché dans l'interface (build_traceability).
         f.write("---\n\n")
-        f.write("## Traçabilité\n\n")
-        f.write(f"**Question:** {state.get('user_input', '')}\n\n")
-        f.write("**Requête SPARQL générée par l'Agent 2 (= ce qu'il a décidé de chercher):**\n\n")
-        f.write("```sparql\n" + (state.get("sparql_query") or "(aucune)") + "\n```\n\n")
-        f.write(f"**Données trouvées dans l'ontologie:** {state.get('query_results')}\n\n")
-        f.write("**Faits riches récupérés (déterministe) :**\n\n")
-        f.write("```\n" + (state.get("ontology_facts") or "(aucun)") + "\n```\n\n")
-        f.write(f"**Recommandation Agent 2:** {state.get('recommendation', '')}\n\n")
-        f.write(f"**Décision du Bridge:** élément de jeu = {state.get('recommended_game_element')}, "
-                f"objectif = {state.get('behavioural_objective')}\n\n")
-
-        f.write("---\n\n")
+        f.write(build_traceability(state))
+        f.write("\n\n---\n\n")
         f.write(state.get("generated_resource", ""))
 
     return filepath

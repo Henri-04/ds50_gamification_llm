@@ -22,7 +22,7 @@ if str(_ROOT) not in sys.path:
 
 try:
     from src.pipeline import list_teachers, courses_of, lessons_of, run
-    from src.agent.agent3 import save_resource_to_file
+    from src.agent.agent3 import save_resource_to_file, build_traceability
     _PIPELINE_OK = True
     _IMPORT_ERR = None
 except Exception as e:  # dépendances/LLM absents : l'app reste affichable
@@ -168,16 +168,10 @@ else:
     for i, msg in enumerate(st.session_state.messages):
         with st.chat_message(msg["role"]):
             st.markdown(msg["content"])
-            if msg.get("details"):
+            if msg.get("trace_md"):
                 with st.expander("🔎 Détails du raisonnement"):
-                    d = msg["details"]
-                    st.write(f"**Intention :** {d.get('intent')}")
-                    if d.get("game_element"):
-                        st.write(f"**Élément de jeu :** {d['game_element']}")
-                    if d.get("n_results") is not None:
-                        st.write(f"**Résultats SPARQL :** {d['n_results']}")
-                    if d.get("sparql"):
-                        st.code(d["sparql"], language="sparql")
+                    # Strictement la même traçabilité que dans le rapport .md backend.
+                    st.markdown(msg["trace_md"])
             if msg.get("resource_md"):
                 st.download_button(
                     "⬇ Télécharger la ressource (.md)",
@@ -204,24 +198,18 @@ else:
                     state, answer = {}, f"⚠ Erreur pendant la pipeline : `{e}`"
             st.markdown(answer)
 
-            # Construction du message à mémoriser (avec détails + ressource).
+            # Construction du message à mémoriser.
             msg = {"role": "assistant", "content": answer}
-            if state:
-                msg["details"] = {
-                    "intent": state.get("intent"),
-                    "game_element": state.get("recommended_game_element"),
-                    "n_results": len(state.get("query_results") or []),
-                    "sparql": (state.get("sparql_query") or "").strip(),
-                }
-                # Branche ressource : sauvegarde serveur + téléchargement.
-                if state.get("intent") != "people" and state.get("generated_resource"):
-                    try:
-                        path = save_resource_to_file(state)
-                        msg["resource_md"] = state["generated_resource"]
-                        msg["filename"] = Path(path).name
-                        st.caption(f"✓ Ressource sauvegardée : {path}")
-                    except Exception as e:
-                        st.caption(f"⚠ Sauvegarde impossible : {e}")
+            # Branche ressource : même traçabilité que le rapport + sauvegarde/téléchargement.
+            if state and state.get("intent") != "people" and state.get("generated_resource"):
+                msg["trace_md"] = build_traceability(state)
+                try:
+                    path = save_resource_to_file(state)
+                    msg["resource_md"] = state["generated_resource"]
+                    msg["filename"] = Path(path).name
+                    st.caption(f"✓ Ressource sauvegardée : {path}")
+                except Exception as e:
+                    st.caption(f"⚠ Sauvegarde impossible : {e}")
 
         st.session_state.messages.append(msg)
         st.rerun()
