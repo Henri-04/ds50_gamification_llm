@@ -14,11 +14,16 @@ Pipeline orchestré avec **LangGraph**, avec un **routage d'intention** en entr�
 selon la question, on recommande soit une **ressource** gamifiée, soit des
 **personnes** (mentors / collègues au profil proche).
 
-```
-                          ┌─ (personnes) ─> Recommandation de profs ─────────────> fin
-  Détection d'intention ──┤
-                          └─ (ressource) ─> Agent 1 ─> Agent 2 ─> Bridge ─> Agent 3 ─> fin
-                                            (ontologie)(SPARQL) (structure)(génération)
+```mermaid
+flowchart LR
+    Q["Question de l'enseignant"] --> I{"Détection<br/>d'intention"}
+    I -- personnes --> P["Recommandation de profs<br/>(mentors / pairs · SPARQL)"]
+    I -- ressource --> A1["Agent 1<br/>(ontologie)"]
+    A1 --> A2["Agent 2<br/>(SPARQL)"]
+    A2 --> BR["Bridge<br/>(structure)"]
+    BR --> A3["Agent 3<br/>(génération)"]
+    P --> FIN(["fin"])
+    A3 --> FIN
 ```
 
 | Étape | Rôle | Techno |
