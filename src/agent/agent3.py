@@ -8,6 +8,7 @@ l'Agent 2) : il met en forme et concrétise.
 """
 
 import os
+import re
 import time
 from datetime import datetime
 from textwrap import dedent
@@ -16,7 +17,7 @@ from typing import Optional
 from langgraph.graph import END, StateGraph
 
 from .state import AgentState
-from ..llm.nvidia_client import get_llm
+from ..llm.nvidia_client import get_llm, get_diagram_llm
 from ..tools.sparql_tools import active_ontology_path
 
 
@@ -103,7 +104,62 @@ def generate_resource(state: AgentState) -> AgentState:
                  "(l'Agent 2 n'a trouvé aucune donnée pour cette demande).\n\n") + texte
 
     state["generated_resource"] = texte
+    # Version VISUELLE de la même ressource (la version texte ci-dessus reste pour l'export).
+    state["resource_diagram"] = _generate_resource_diagram(texte)
     return state
+
+
+# ============================================================
+# Version visuelle (Mermaid) de la ressource gamifiée
+# ============================================================
+
+def _clean_mermaid(code: str) -> str:
+    """Nettoie la sortie LLM pour obtenir du code Mermaid pur (sans fences/prose)."""
+    code = (code or "").strip()
+    fenced = re.search(r"```(?:mermaid)?\s*\n(.*?)```", code, re.DOTALL)
+    if fenced:
+        code = fenced.group(1).strip()
+    # Démarre au premier mot-clé de diagramme si le LLM a ajouté du texte avant.
+    m = re.search(r"(flowchart\b|graph\b)", code)
+    if m:
+        code = code[m.start():].strip()
+    return code
+
+
+def _generate_resource_diagram(resource_text: str) -> str:
+    """Demande au LLM un diagramme Mermaid (flowchart) résumant la ressource.
+
+    Version VISUELLE, pour comprendre d'un coup d'œil le déroulé de l'activité.
+    Retourne le code Mermaid nettoyé, ou "" si la génération échoue (l'app
+    retombe alors sur la version texte sans planter)."""
+    prompt = dedent(f"""
+        Voici une ressource pédagogique gamifiée (en texte) :
+
+        \"\"\"
+        {resource_text}
+        \"\"\"
+
+        Produis un diagramme Mermaid qui la résume VISUELLEMENT pour que
+        l'enseignant comprenne le déroulé d'un coup d'œil : les étapes de
+        l'activité dans l'ordre, l'élément de jeu utilisé, le feedback donné à
+        l'apprenant, et le résultat final (badge / points obtenus).
+
+        Contraintes STRICTES :
+        - Réponds par le SEUL code Mermaid, rien d'autre, sans balises ```.
+        - Commence par "flowchart TD".
+        - Mets TOUS les libellés entre guillemets doubles : A["Étape 1 : ..."].
+        - Libellés courts, en français, sans caractères spéciaux ( ) [ ] dans le texte.
+    """)
+    print("Agent 3 : génération du diagramme Mermaid...")
+    try:
+        code = get_diagram_llm().invoke(prompt).content
+    except Exception as e:
+        print(f"Agent 3 : diagramme non généré ({e}) — version texte seule")
+        return ""
+    diagram = _clean_mermaid(code)
+    if not diagram:
+        print("Agent 3 : diagramme vide (modèle) — version texte seule")
+    return diagram
 
 
 # ============================================================

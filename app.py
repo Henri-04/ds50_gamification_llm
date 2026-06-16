@@ -74,7 +74,7 @@ def render_trace_md(text: str) -> None:
 st.set_page_config(
     page_title="GamiTeach",
     page_icon="📚",
-    layout="centered",
+    layout="centered",   # empilé (diagramme puis texte) : centré reste lisible
     initial_sidebar_state="collapsed",
 )
 
@@ -208,6 +208,13 @@ else:
     # Historique (avec bouton de téléchargement persistant pour les ressources)
     for i, msg in enumerate(st.session_state.messages):
         with st.chat_message(msg["role"]):
+            if msg.get("diagram"):
+                # Empilé : aperçu visuel en haut, version texte juste en dessous
+                # (ni colonnes déséquilibrées, ni onglet dépliable).
+                st.caption("🗺️ Aperçu visuel de l'activité")
+                render_trace_md("```mermaid\n" + msg["diagram"] + "\n```")
+                st.divider()
+                st.caption("📄 Version texte (identique à l'export)")
             st.markdown(msg["content"])
             if msg.get("trace_md"):
                 with st.expander("🔎 Détails du raisonnement"):
@@ -221,6 +228,8 @@ else:
                     mime="text/markdown",
                     key=f"dl_{i}",
                 )
+            if msg.get("saved_path"):
+                st.caption(f"✓ Ressource sauvegardée : {msg['saved_path']}")
 
     # Nouvelle question
     if prompt := st.chat_input("Votre question sur la gamification…"):
@@ -232,23 +241,25 @@ else:
             with st.spinner("Raisonnement en cours… (détails dans la console)"):
                 try:
                     state = run(prompt, teacher, course, lesson)
-                    answer = (state.get("final_answer")
-                              or state.get("generated_resource")
-                              or "(réponse vide)")
                 except Exception as e:
-                    state, answer = {}, f"⚠ Erreur pendant la pipeline : `{e}`"
-            st.markdown(answer)
+                    state = {"final_answer": f"⚠ Erreur pendant la pipeline : `{e}`"}
 
-            # Construction du message à mémoriser.
-            msg = {"role": "assistant", "content": answer}
-            # Branche ressource : même traçabilité que le rapport + sauvegarde/téléchargement.
-            if state and state.get("intent") != "people" and state.get("generated_resource"):
+            # Construction du message à mémoriser (le rendu se fait au rerun via l'historique).
+            msg = {
+                "role": "assistant",
+                "content": (state.get("final_answer")
+                            or state.get("generated_resource")
+                            or "(réponse vide)"),
+            }
+            # Branche ressource : version visuelle (Mermaid), traçabilité, export.
+            if state.get("intent") != "people" and state.get("generated_resource"):
+                msg["diagram"] = state.get("resource_diagram")
                 msg["trace_md"] = build_traceability(state)
                 try:
                     path = save_resource_to_file(state)
                     msg["resource_md"] = state["generated_resource"]
                     msg["filename"] = Path(path).name
-                    st.caption(f"✓ Ressource sauvegardée : {path}")
+                    msg["saved_path"] = path
                 except Exception as e:
                     st.caption(f"⚠ Sauvegarde impossible : {e}")
 

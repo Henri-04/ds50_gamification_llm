@@ -270,5 +270,6 @@ def node_generate_resource(state: AgentState) -> AgentState:
     agent3_graph = build_agent3_graph()
     result = agent3_graph.invoke(state)
     state["generated_resource"] = result.get("generated_resource", "")
+    state["resource_diagram"] = result.get("resource_diagram", "")   # version visuelle Mermaid
     state["final_answer"] = state["generated_resource"]
     return state

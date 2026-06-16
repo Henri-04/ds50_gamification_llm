@@ -46,7 +46,8 @@ class AgentState(TypedDict, total=False):
     bridge_attempts: Optional[int]  # nb de tentatives jusqu'à un JSON valide (traçabilité)
 
     # Agent 3 — ressource gamifiée générée
-    generated_resource: Optional[str]
+    generated_resource: Optional[str]       # version TEXTE (pour l'export .md)
+    resource_diagram: Optional[str]         # version VISUELLE : code Mermaid (flowchart)
 
     # Recommandation de personnes (mentors / pairs)
     people_recommendations: Optional[Dict[str, Any]]
