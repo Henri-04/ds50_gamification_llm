@@ -28,15 +28,17 @@ flowchart LR
 
 | Étape | Rôle | Techno |
 |-------|------|--------|
-| **Intention** | Classe la question (déterministe, mots-clés) : `people` (recommander des profs) ou `resource` (défaut). | — |
+| **Intention** | Classe la question via un **LLM** : `people` (recommander des profs) ou `resource` (défaut). Repli sur `resource` si l'API échoue. | Groq |
 | **Recommandation de personnes** | Propose des mentors potentiels et des pairs au profil similaire, à partir des relations **déjà inférées** dans l'ontologie (`potentialMentorOf`, `hasSimilarProfile`, `moreExpertThan`…). 100 % SPARQL, aucun LLM. | `rdflib` |
 | **Agent 1** | Explore l'ontologie OWL et produit une taxonomie épurée (`taxonomy_for_agent_2.json`) : extraction déterministe + 1 appel LLM de curation, avec repli sans LLM. | `owlready2`, Groq |
 | **Agent 2** | Traduit la question (langage naturel) en requête **SPARQL**, l'exécute sur l'ontologie et renvoie les données réelles. Boucle de retry bornée si la requête échoue. | `rdflib`, Groq |
 | **Bridge** | Structure la sortie d'Agent 2 en champs exploitables (profil apprenant, objectifs, élément de jeu…). Repli sur valeurs par défaut si le LLM renvoie un JSON invalide. | Groq |
-| **Agent 3** | Génère la ressource gamifiée finale (Markdown) prête à l'emploi. | NVIDIA |
+| **Agent 3** | Génère la ressource gamifiée finale en **Markdown** (version texte, exportable) **et** un schéma **Mermaid** de l'activité (version visuelle). | NVIDIA |
 
-> La branche « personnes » est **purement déterministe** (SPARQL sur les relations
-> inférées) : elle ne dépend d'aucune clé API ni d'aucun paquet LLM.
+> La **recommandation de personnes** elle-même est **purement déterministe** (SPARQL
+> sur les relations inférées). Seul le **routage d'intention** en amont passe par un
+> LLM (Groq) : atteindre cette branche via le pipeline requiert donc une clé Groq —
+> mais l'appel direct `python -m src.agent.people <Prof>` reste 100 % SPARQL, sans clé.
 
 > L'ontologie est interrogée **en mémoire via rdflib** — aucun serveur Neo4j n'est
 > nécessaire pour faire tourner l'application. Un guide d'import vers Neo4j existe à
@@ -59,10 +61,18 @@ ds50_gamification_llm/
 ├── .env.example                # Modèle de configuration (clés API)
 ├── pytest.ini
 ├── taxonomy_for_agent_2.json   # Taxonomie produite par Agent 1 (cache)
+├── EXPORT_PROJET_POUR_RAPPORT.md    # Export consolidé du projet (pour le rapport)
+├── .streamlit/
+│   └── config.toml             # Thème de l'interface Streamlit
 ├── ontologies/
 │   ├── TGC_working-2026-06-05.owl  # Ontologie enrichie (SWRL matérialisées) — utilisée par le pipeline
 │   ├── TGC_original.owl            # Version d'origine (sans relations entre profs)
 │   └── IMPORT_OWL_NEO4J.md         # Import optionnel vers Neo4j
+├── docs/                       # Notes techniques (ontologie & règles SWRL)
+│   ├── swrl_rules.md
+│   ├── 2026-06-05_swrl_update.md
+│   ├── added_teaches_relations.md
+│   └── test_swrL_rules_queries.md
 ├── src/
 │   ├── config.py               # Config centralisée (modèles LLM, défauts)
 │   ├── main.py                 # Point d'entrée CLI interactif
@@ -82,7 +92,7 @@ ds50_gamification_llm/
 │   │   └── nvidia_client.py    # Client NVIDIA (lazy)
 │   └── tools/
 │       └── sparql_tools.py     # Chargement ontologie + exécution SPARQL
-└── tests/                      # Tests pytest (sans clé API)
+└── tests/                      # Tests pytest (intent : clé Groq requise, sinon skip)
 ```
 
 ## Installation
@@ -178,9 +188,10 @@ pytest
 ```
 
 Les tests couvrent l'exécution SPARQL, l'extraction d'ontologie (Agent 1), la
-génération/retry SPARQL (Agent 2), le Bridge, la **détection d'intention** et la
-**recommandation de personnes** — **sans nécessiter de clé API** (les appels LLM
-sont mockés, et la branche « personnes » est 100 % SPARQL).
+génération/retry SPARQL (Agent 2), le Bridge et la **recommandation de personnes** —
+**sans clé API** (appels LLM mockés, branche « personnes » 100 % SPARQL). Les tests
+de **détection d'intention** (`test_intent.py`) appellent réellement Groq : ils sont
+**automatiquement ignorés** si `GROQ_API_KEY` est absente.
 
 ## Utiliser la pipeline depuis un autre module
 
