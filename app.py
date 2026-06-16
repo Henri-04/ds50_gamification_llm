@@ -10,6 +10,7 @@ mêmes sélections, même orchestration, mêmes résultats. Les logs détaillés
 agents s'affichent en temps réel dans la console (prints des nœuds).
 """
 
+import re
 import sys
 from pathlib import Path
 
@@ -28,6 +29,46 @@ try:
 except Exception as e:  # dépendances/LLM absents : l'app reste affichable
     _PIPELINE_OK = False
     _IMPORT_ERR = e
+
+
+# ── Rendu Markdown avec graphes Mermaid ───────────────────────────────────────
+# st.markdown() affiche les blocs ```mermaid``` comme du texte brut.
+# render_trace_md() découpe le texte sur ces blocs et rend chacun via
+# st.html(unsafe_allow_javascript=True) avec mermaid.js ESM depuis CDN.
+#
+# Pourquoi ESM + type="module" + await mermaid.run() :
+#   - st.html() rend INLINE (pas d'iframe) → le JS partage le DOM de la page.
+#   - startOnLoad ne fonctionne pas (DOMContentLoaded déjà passé au moment du rendu).
+#   - Un module ES isolé par bloc garantit que chaque graphe est rendu de façon
+#     autonome, sans interférence entre blocs.
+
+_MERMAID_ESM = "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs"
+_MERMAID_PATTERN = re.compile(r"```mermaid\n(.*?)\n```", re.DOTALL)
+
+
+def _mermaid_html(code: str, block_id: str) -> str:
+    return (
+        f'<div id="{block_id}"><pre class="mermaid" style="background:transparent">'
+        f"{code}</pre></div>"
+        f'<script type="module">'
+        f'import mermaid from "{_MERMAID_ESM}";'
+        f'await mermaid.run({{nodes:[document.getElementById("{block_id}").querySelector(".mermaid")]}});'
+        f"</script>"
+    )
+
+
+def render_trace_md(text: str) -> None:
+    """Affiche un bloc Markdown contenant éventuellement des graphes Mermaid.
+
+    Découpe sur les blocs ```mermaid```, utilise st.html() pour chacun
+    (avec unsafe_allow_javascript=True) et st.markdown() pour le reste."""
+    parts = _MERMAID_PATTERN.split(text)
+    for i, part in enumerate(parts):
+        if i % 2 == 1:                        # indices impairs = code mermaid capturé
+            st.html(_mermaid_html(part, f"mermaid-{i}"), unsafe_allow_javascript=True)
+        elif part.strip():
+            st.markdown(part)
+
 
 # ── Config page ───────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -171,7 +212,7 @@ else:
             if msg.get("trace_md"):
                 with st.expander("🔎 Détails du raisonnement"):
                     # Strictement la même traçabilité que dans le rapport .md backend.
-                    st.markdown(msg["trace_md"])
+                    render_trace_md(msg["trace_md"])
             if msg.get("resource_md"):
                 st.download_button(
                     "⬇ Télécharger la ressource (.md)",

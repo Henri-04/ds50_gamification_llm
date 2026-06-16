@@ -1210,5 +1210,809 @@
         "http://www.hds.utc.fr/tgc/tbox#LearningStyle"
       ]
     }
+  ],
+  "swrl_rules": [
+    {
+      "label": "designedWithObjective",
+      "comment": "If a gamified resource contains a game element, and that game element is relevant to a behavioural objective, then the gamified resource is also designed with that behavioural objective.",
+      "head_predicate": "designedWithObjective",
+      "head_args": [
+        "?r",
+        "?o"
+      ],
+      "domain": "GamifiedResource",
+      "range": "BehaviouralObjective",
+      "body_predicates": [
+        "containsGameElement(GamifiedResource, GameElementResource)",
+        "relevantToObjective(GameElementResource, BehaviouralObjective)"
+      ],
+      "body_predicate_names": [
+        "containsGameElement",
+        "relevantToObjective"
+      ],
+      "body_atoms": [
+        {
+          "kind": "class",
+          "var": "?r",
+          "class_iri": "http://www.hds.utc.fr/tgc/tbox#GamifiedResource"
+        },
+        {
+          "kind": "class",
+          "var": "?g",
+          "class_iri": "http://www.hds.utc.fr/tgc/tbox#GameElementResource"
+        },
+        {
+          "kind": "class",
+          "var": "?o",
+          "class_iri": "http://www.hds.utc.fr/tgc/tbox#BehaviouralObjective"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?r",
+          "object": "?g",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#containsGameElement",
+          "predicate_name": "containsGameElement"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?g",
+          "object": "?o",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#relevantToObjective",
+          "predicate_name": "relevantToObjective"
+        }
+      ]
+    },
+    {
+      "label": "hasEducationalTopic",
+      "comment": "If a gamified resource is designed with a behavioural objective, and that objective targets some topic knowledge, and that topic knowledge is about an educational topic, then the gamified resource has that educational topic.",
+      "head_predicate": "hasEducationalTopic",
+      "head_args": [
+        "?r",
+        "?et"
+      ],
+      "domain": "GamifiedResource",
+      "range": "EducationalTopic",
+      "body_predicates": [
+        "designedWithObjective(GamifiedResource, BehaviouralObjective)",
+        "hasTargetedTopicKnowledge(BehaviouralObjective, TopicKnowledge)",
+        "aboutEducationalTopic(TopicKnowledge, EducationalTopic)"
+      ],
+      "body_predicate_names": [
+        "designedWithObjective",
+        "hasTargetedTopicKnowledge",
+        "aboutEducationalTopic"
+      ],
+      "body_atoms": [
+        {
+          "kind": "class",
+          "var": "?r",
+          "class_iri": "http://www.hds.utc.fr/tgc/tbox#GamifiedResource"
+        },
+        {
+          "kind": "class",
+          "var": "?o",
+          "class_iri": "http://www.hds.utc.fr/tgc/tbox#BehaviouralObjective"
+        },
+        {
+          "kind": "class",
+          "var": "?tk",
+          "class_iri": "http://www.hds.utc.fr/tgc/tbox#TopicKnowledge"
+        },
+        {
+          "kind": "class",
+          "var": "?et",
+          "class_iri": "http://www.hds.utc.fr/tgc/tbox#EducationalTopic"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?r",
+          "object": "?o",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#designedWithObjective",
+          "predicate_name": "designedWithObjective"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?o",
+          "object": "?tk",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#hasTargetedTopicKnowledge",
+          "predicate_name": "hasTargetedTopicKnowledge"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?tk",
+          "object": "?et",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#aboutEducationalTopic",
+          "predicate_name": "aboutEducationalTopic"
+        }
+      ]
+    },
+    {
+      "label": "InferSimilarDomainBySubjectArea",
+      "comment": "This rule infers that two teachers have a similar domain when they are specialized in the same subject area.",
+      "head_predicate": "hasSimilarDomain",
+      "head_args": [
+        "?t1",
+        "?t2"
+      ],
+      "domain": "Teacher",
+      "range": "Teacher",
+      "body_predicates": [
+        "specializedIn(Teacher, subjectArea)",
+        "specializedIn(Teacher, subjectArea)"
+      ],
+      "body_predicate_names": [
+        "specializedIn",
+        "specializedIn"
+      ],
+      "body_atoms": [
+        {
+          "kind": "class",
+          "var": "?t1",
+          "class_iri": "http://www.hds.utc.fr/tco/tbox#Teacher"
+        },
+        {
+          "kind": "class",
+          "var": "?t2",
+          "class_iri": "http://www.hds.utc.fr/tco/tbox#Teacher"
+        },
+        {
+          "kind": "class",
+          "var": "?sa",
+          "class_iri": "http://www.hds.utc.fr/tgc/tbox#subjectArea"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?t1",
+          "object": "?sa",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#specializedIn",
+          "predicate_name": "specializedIn"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?t2",
+          "object": "?sa",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#specializedIn",
+          "predicate_name": "specializedIn"
+        },
+        {
+          "kind": "different",
+          "args": [
+            "?t1",
+            "?t2"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "InferSimilarProfileByPlayerTypeAndTopic",
+      "comment": "This rule infers a profile similarity between two teachers when they have the same player type and share either:  - a similar teaching topic.",
+      "head_predicate": "hasSimilarProfile",
+      "head_args": [
+        "?t1",
+        "?t2"
+      ],
+      "domain": "Teacher",
+      "range": "Teacher",
+      "body_predicates": [
+        "hasPlayerType(Teacher, PlayerType)",
+        "hasPlayerType(Teacher, PlayerType)",
+        "hasSimilarTeachingTopic(Teacher, Teacher)"
+      ],
+      "body_predicate_names": [
+        "hasPlayerType",
+        "hasPlayerType",
+        "hasSimilarTeachingTopic"
+      ],
+      "body_atoms": [
+        {
+          "kind": "class",
+          "var": "?t1",
+          "class_iri": "http://www.hds.utc.fr/tco/tbox#Teacher"
+        },
+        {
+          "kind": "class",
+          "var": "?t2",
+          "class_iri": "http://www.hds.utc.fr/tco/tbox#Teacher"
+        },
+        {
+          "kind": "class",
+          "var": "?pt",
+          "class_iri": "http://www.hds.utc.fr/tgc/tbox#PlayerType"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?t1",
+          "object": "?pt",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#hasPlayerType",
+          "predicate_name": "hasPlayerType"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?t2",
+          "object": "?pt",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#hasPlayerType",
+          "predicate_name": "hasPlayerType"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?t1",
+          "object": "?t2",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#hasSimilarTeachingTopic",
+          "predicate_name": "hasSimilarTeachingTopic"
+        }
+      ]
+    },
+    {
+      "label": "InferSimilarProfileByPlayerTypeAndDomain",
+      "comment": "This rule infers a profile similarity between two teachers when they have the same player type and share either:  - the same subject area.",
+      "head_predicate": "hasSimilarProfile",
+      "head_args": [
+        "?t1",
+        "?t2"
+      ],
+      "domain": "Teacher",
+      "range": "Teacher",
+      "body_predicates": [
+        "hasPlayerType(Teacher, PlayerType)",
+        "hasPlayerType(Teacher, PlayerType)",
+        "hasSimilarDomain(Teacher, Teacher)"
+      ],
+      "body_predicate_names": [
+        "hasPlayerType",
+        "hasPlayerType",
+        "hasSimilarDomain"
+      ],
+      "body_atoms": [
+        {
+          "kind": "class",
+          "var": "?t1",
+          "class_iri": "http://www.hds.utc.fr/tco/tbox#Teacher"
+        },
+        {
+          "kind": "class",
+          "var": "?t2",
+          "class_iri": "http://www.hds.utc.fr/tco/tbox#Teacher"
+        },
+        {
+          "kind": "class",
+          "var": "?pt",
+          "class_iri": "http://www.hds.utc.fr/tgc/tbox#PlayerType"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?t1",
+          "object": "?pt",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#hasPlayerType",
+          "predicate_name": "hasPlayerType"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?t2",
+          "object": "?pt",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#hasPlayerType",
+          "predicate_name": "hasPlayerType"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?t1",
+          "object": "?t2",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#hasSimilarDomain",
+          "predicate_name": "hasSimilarDomain"
+        }
+      ]
+    },
+    {
+      "label": "InferPotentialMentorBySimilarTeachingTopic",
+      "comment": "This rule proposes teacher `?t1` as a potential mentor of teacher `?t2` when:  - `?t1` is more expert than `?t2`; - `?t1` has a sufficient gamification experience level; - both teachers share the same collaborative space; - both teachers have a similar teaching topic.",
+      "head_predicate": "potentialMentorOf",
+      "head_args": [
+        "?t1",
+        "?t2"
+      ],
+      "domain": "Teacher",
+      "range": "Teacher",
+      "body_predicates": [
+        "hasGamificationExperience(Teacher, GamificationExperience)",
+        "moreExpertThan(Teacher, Teacher)",
+        "sharesSpaceWith(Teacher, Teacher)",
+        "hasSimilarTeachingTopic(Teacher, Teacher)"
+      ],
+      "body_predicate_names": [
+        "hasGamificationExperience",
+        "moreExpertThan",
+        "sharesSpaceWith",
+        "hasSimilarTeachingTopic"
+      ],
+      "body_atoms": [
+        {
+          "kind": "class",
+          "var": "?t1",
+          "class_iri": "http://www.hds.utc.fr/tco/tbox#Teacher"
+        },
+        {
+          "kind": "class",
+          "var": "?t2",
+          "class_iri": "http://www.hds.utc.fr/tco/tbox#Teacher"
+        },
+        {
+          "kind": "class",
+          "var": "?geExp1",
+          "class_iri": "http://www.hds.utc.fr/tgc/tbox#GamificationExperience"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?t1",
+          "object": "?geExp1",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#hasGamificationExperience",
+          "predicate_name": "hasGamificationExperience"
+        },
+        {
+          "kind": "data_property",
+          "subject": "?geExp1",
+          "value": "?level1",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#experienceLevel",
+          "predicate_name": "experienceLevel"
+        },
+        {
+          "kind": "builtin",
+          "builtin": "greaterThan",
+          "args": [
+            "?level1",
+            "2"
+          ]
+        },
+        {
+          "kind": "object_property",
+          "subject": "?t1",
+          "object": "?t2",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#moreExpertThan",
+          "predicate_name": "moreExpertThan"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?t1",
+          "object": "?t2",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#sharesSpaceWith",
+          "predicate_name": "sharesSpaceWith"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?t1",
+          "object": "?t2",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#hasSimilarTeachingTopic",
+          "predicate_name": "hasSimilarTeachingTopic"
+        }
+      ]
+    },
+    {
+      "label": "InferPotentialMentorBySimilarDomain",
+      "comment": "This rule proposes teacher `?t1` as a potential mentor of teacher `?t2` when:  - `?t1` is more expert than `?t2`; - `?t1` has a sufficient gamification experience level; - both teachers share the same collaborative space; - both teachers have a similar domain.",
+      "head_predicate": "potentialMentorOf",
+      "head_args": [
+        "?t1",
+        "?t2"
+      ],
+      "domain": "Teacher",
+      "range": "Teacher",
+      "body_predicates": [
+        "hasGamificationExperience(Teacher, GamificationExperience)",
+        "moreExpertThan(Teacher, Teacher)",
+        "sharesSpaceWith(Teacher, Teacher)",
+        "hasSimilarDomain(Teacher, Teacher)"
+      ],
+      "body_predicate_names": [
+        "hasGamificationExperience",
+        "moreExpertThan",
+        "sharesSpaceWith",
+        "hasSimilarDomain"
+      ],
+      "body_atoms": [
+        {
+          "kind": "class",
+          "var": "?t1",
+          "class_iri": "http://www.hds.utc.fr/tco/tbox#Teacher"
+        },
+        {
+          "kind": "class",
+          "var": "?t2",
+          "class_iri": "http://www.hds.utc.fr/tco/tbox#Teacher"
+        },
+        {
+          "kind": "class",
+          "var": "?geExp1",
+          "class_iri": "http://www.hds.utc.fr/tgc/tbox#GamificationExperience"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?t1",
+          "object": "?geExp1",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#hasGamificationExperience",
+          "predicate_name": "hasGamificationExperience"
+        },
+        {
+          "kind": "data_property",
+          "subject": "?geExp1",
+          "value": "?level1",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#experienceLevel",
+          "predicate_name": "experienceLevel"
+        },
+        {
+          "kind": "builtin",
+          "builtin": "greaterThan",
+          "args": [
+            "?level1",
+            "2"
+          ]
+        },
+        {
+          "kind": "object_property",
+          "subject": "?t1",
+          "object": "?t2",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#moreExpertThan",
+          "predicate_name": "moreExpertThan"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?t1",
+          "object": "?t2",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#sharesSpaceWith",
+          "predicate_name": "sharesSpaceWith"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?t1",
+          "object": "?t2",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#hasSimilarDomain",
+          "predicate_name": "hasSimilarDomain"
+        }
+      ]
+    },
+    {
+      "label": "InferMoreExpertTeacher",
+      "comment": "This rule infers that a teacher is more expert than another teacher when their gamification experience level is higher.",
+      "head_predicate": "moreExpertThan",
+      "head_args": [
+        "?t1",
+        "?t2"
+      ],
+      "domain": "Teacher",
+      "range": "Teacher",
+      "body_predicates": [
+        "hasGamificationExperience(Teacher, GamificationExperience)",
+        "hasGamificationExperience(Teacher, GamificationExperience)"
+      ],
+      "body_predicate_names": [
+        "hasGamificationExperience",
+        "hasGamificationExperience"
+      ],
+      "body_atoms": [
+        {
+          "kind": "class",
+          "var": "?t1",
+          "class_iri": "http://www.hds.utc.fr/tco/tbox#Teacher"
+        },
+        {
+          "kind": "class",
+          "var": "?t2",
+          "class_iri": "http://www.hds.utc.fr/tco/tbox#Teacher"
+        },
+        {
+          "kind": "class",
+          "var": "?geExp1",
+          "class_iri": "http://www.hds.utc.fr/tgc/tbox#GamificationExperience"
+        },
+        {
+          "kind": "class",
+          "var": "?geExp2",
+          "class_iri": "http://www.hds.utc.fr/tgc/tbox#GamificationExperience"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?t1",
+          "object": "?geExp1",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#hasGamificationExperience",
+          "predicate_name": "hasGamificationExperience"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?t2",
+          "object": "?geExp2",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#hasGamificationExperience",
+          "predicate_name": "hasGamificationExperience"
+        },
+        {
+          "kind": "data_property",
+          "subject": "?geExp1",
+          "value": "?level1",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#experienceLevel",
+          "predicate_name": "experienceLevel"
+        },
+        {
+          "kind": "data_property",
+          "subject": "?geExp2",
+          "value": "?level2",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#experienceLevel",
+          "predicate_name": "experienceLevel"
+        },
+        {
+          "kind": "builtin",
+          "builtin": "greaterThan",
+          "args": [
+            "?level1",
+            "?level2"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "InferSimilarTeachingTopicByEducationalTopic",
+      "comment": "This rule infers that two teachers have a similar teaching topic when they teach courses associated with the same educational topic.",
+      "head_predicate": "hasSimilarTeachingTopic",
+      "head_args": [
+        "?t1",
+        "?t2"
+      ],
+      "domain": "Teacher",
+      "range": "Teacher",
+      "body_predicates": [
+        "teaches(Teacher, Course)",
+        "teaches(Teacher, Course)",
+        "hasEducationalTopic(Course, EducationalTopic)",
+        "hasEducationalTopic(Course, EducationalTopic)"
+      ],
+      "body_predicate_names": [
+        "teaches",
+        "teaches",
+        "hasEducationalTopic",
+        "hasEducationalTopic"
+      ],
+      "body_atoms": [
+        {
+          "kind": "class",
+          "var": "?t1",
+          "class_iri": "http://www.hds.utc.fr/tco/tbox#Teacher"
+        },
+        {
+          "kind": "class",
+          "var": "?t2",
+          "class_iri": "http://www.hds.utc.fr/tco/tbox#Teacher"
+        },
+        {
+          "kind": "class",
+          "var": "?c1",
+          "class_iri": "http://www.hds.utc.fr/tco/tbox#Course"
+        },
+        {
+          "kind": "class",
+          "var": "?c2",
+          "class_iri": "http://www.hds.utc.fr/tco/tbox#Course"
+        },
+        {
+          "kind": "class",
+          "var": "?et",
+          "class_iri": "http://www.hds.utc.fr/tgc/tbox#EducationalTopic"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?t1",
+          "object": "?c1",
+          "predicate_iri": "http://www.hds.utc.fr/tco/tbox#teaches",
+          "predicate_name": "teaches"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?t2",
+          "object": "?c2",
+          "predicate_iri": "http://www.hds.utc.fr/tco/tbox#teaches",
+          "predicate_name": "teaches"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?c1",
+          "object": "?et",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#hasEducationalTopic",
+          "predicate_name": "hasEducationalTopic"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?c2",
+          "object": "?et",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#hasEducationalTopic",
+          "predicate_name": "hasEducationalTopic"
+        },
+        {
+          "kind": "different",
+          "args": [
+            "?t1",
+            "?t2"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "RecommendResourceByTeacherObjective",
+      "comment": "This rule recommends a gamified resource when the resource is designed with the same behavioural objective as the classroom objective associated with the course taught by the teacher.",
+      "head_predicate": "recommendedResource",
+      "head_args": [
+        "?t",
+        "?r"
+      ],
+      "domain": "Teacher",
+      "range": "GamifiedResource",
+      "body_predicates": [
+        "teaches(Teacher, Course)",
+        "concernsObjective(ClassroomObjective, BehaviouralObjective)",
+        "concernsACourse(ClassroomObjective, Course)",
+        "designedWithObjective(GamifiedResource, BehaviouralObjective)"
+      ],
+      "body_predicate_names": [
+        "teaches",
+        "concernsObjective",
+        "concernsACourse",
+        "designedWithObjective"
+      ],
+      "body_atoms": [
+        {
+          "kind": "class",
+          "var": "?t",
+          "class_iri": "http://www.hds.utc.fr/tco/tbox#Teacher"
+        },
+        {
+          "kind": "class",
+          "var": "?c",
+          "class_iri": "http://www.hds.utc.fr/tco/tbox#Course"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?t",
+          "object": "?c",
+          "predicate_iri": "http://www.hds.utc.fr/tco/tbox#teaches",
+          "predicate_name": "teaches"
+        },
+        {
+          "kind": "class",
+          "var": "?co",
+          "class_iri": "http://www.hds.utc.fr/tgc/tbox#ClassroomObjective"
+        },
+        {
+          "kind": "class",
+          "var": "?bo",
+          "class_iri": "http://www.hds.utc.fr/tgc/tbox#BehaviouralObjective"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?co",
+          "object": "?bo",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#concernsObjective",
+          "predicate_name": "concernsObjective"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?co",
+          "object": "?c",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#concernsACourse",
+          "predicate_name": "concernsACourse"
+        },
+        {
+          "kind": "class",
+          "var": "?r",
+          "class_iri": "http://www.hds.utc.fr/tgc/tbox#GamifiedResource"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?r",
+          "object": "?bo",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#designedWithObjective",
+          "predicate_name": "designedWithObjective"
+        }
+      ]
+    },
+    {
+      "label": "RecommendResourceForExperiencedTeacher",
+      "comment": "This rule recommends a gamified resource to a teacher only if:  - the resource is designed with the behavioural objective targeted by the course/classroom objective; - the teacher has a sufficient gamification experience level.",
+      "head_predicate": "recommendedResource",
+      "head_args": [
+        "?t",
+        "?r"
+      ],
+      "domain": "Teacher",
+      "range": "GamifiedResource",
+      "body_predicates": [
+        "teaches(Teacher, Course)",
+        "concernsObjective(ClassroomObjective, BehaviouralObjective)",
+        "concernsACourse(ClassroomObjective, Course)",
+        "designedWithObjective(GamifiedResource, BehaviouralObjective)",
+        "hasGamificationExperience(Teacher, GamificationExperience)"
+      ],
+      "body_predicate_names": [
+        "teaches",
+        "concernsObjective",
+        "concernsACourse",
+        "designedWithObjective",
+        "hasGamificationExperience"
+      ],
+      "body_atoms": [
+        {
+          "kind": "class",
+          "var": "?t",
+          "class_iri": "http://www.hds.utc.fr/tco/tbox#Teacher"
+        },
+        {
+          "kind": "class",
+          "var": "?c",
+          "class_iri": "http://www.hds.utc.fr/tco/tbox#Course"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?t",
+          "object": "?c",
+          "predicate_iri": "http://www.hds.utc.fr/tco/tbox#teaches",
+          "predicate_name": "teaches"
+        },
+        {
+          "kind": "class",
+          "var": "?co",
+          "class_iri": "http://www.hds.utc.fr/tgc/tbox#ClassroomObjective"
+        },
+        {
+          "kind": "class",
+          "var": "?bo",
+          "class_iri": "http://www.hds.utc.fr/tgc/tbox#BehaviouralObjective"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?co",
+          "object": "?bo",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#concernsObjective",
+          "predicate_name": "concernsObjective"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?co",
+          "object": "?c",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#concernsACourse",
+          "predicate_name": "concernsACourse"
+        },
+        {
+          "kind": "class",
+          "var": "?r",
+          "class_iri": "http://www.hds.utc.fr/tgc/tbox#GamifiedResource"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?r",
+          "object": "?bo",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#designedWithObjective",
+          "predicate_name": "designedWithObjective"
+        },
+        {
+          "kind": "class",
+          "var": "?geExp",
+          "class_iri": "http://www.hds.utc.fr/tgc/tbox#GamificationExperience"
+        },
+        {
+          "kind": "object_property",
+          "subject": "?t",
+          "object": "?geExp",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#hasGamificationExperience",
+          "predicate_name": "hasGamificationExperience"
+        },
+        {
+          "kind": "data_property",
+          "subject": "?geExp",
+          "value": "?level",
+          "predicate_iri": "http://www.hds.utc.fr/tgc/tbox#experienceLevel",
+          "predicate_name": "experienceLevel"
+        },
+        {
+          "kind": "builtin",
+          "builtin": "greaterThan",
+          "args": [
+            "?level",
+            "2"
+          ]
+        }
+      ]
+    }
   ]
 }

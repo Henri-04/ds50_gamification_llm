@@ -36,16 +36,38 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 """
 
+# Atomes SWRL "builtin" traduisibles en operateur de comparaison SPARQL.
+# Partage entre agent1 (extract_rules, pour filtrer les builtins supportes) et
+# agent2 (verify_rule_premises, pour construire le FILTER correspondant).
+SWRL_BUILTIN_OPS = {
+    "greaterThan": ">",
+    "greaterThanOrEqual": ">=",
+    "lessThan": "<",
+    "lessThanOrEqual": "<=",
+    "equal": "=",
+    "notEqual": "!=",
+}
+
 # --- Chargement singleton ---------------------------------------------------
 _graph: Graph | None = None
+
+
+def active_ontology_path() -> Path:
+    """Chemin de l'ontologie effectivement chargee par get_graph().
+
+    Si le raisonneur a tourne (Agent 1), l'ontologie enrichie (INFERRED_PATH)
+    est utilisee en priorite ; sinon l'ontologie de travail (ONTOLOGY_PATH).
+    Utilise pour la tracabilite (Agent 3 / interface) afin d'indiquer sur
+    quelle ontologie l'Agent 2 a effectivement travaille.
+    """
+    return INFERRED_PATH if INFERRED_PATH.exists() else ONTOLOGY_PATH
 
 
 def get_graph() -> Graph:
     """Retourne le graphe RDF, en le chargeant a la premiere demande."""
     global _graph
     if _graph is None:
-        # Si le raisonneur a tourne (Agent 1), on utilise l'ontologie enrichie.
-        chemin = INFERRED_PATH if INFERRED_PATH.exists() else ONTOLOGY_PATH
+        chemin = active_ontology_path()
         if not chemin.exists():
             raise FileNotFoundError(f"Ontologie introuvable : {chemin}")
         g = Graph()
@@ -86,6 +108,20 @@ def run_sparql(query: str) -> list[dict]:
             record[str(var)] = _shorten(value) if value is not None else None
         rows.append(record)
     return rows
+
+
+def run_sparql_ask(query: str) -> bool:
+    """
+    Execute une requete ASK et retourne un booleen.
+
+    Utilise pour verifier si les premisses (corps) d'une regle SWRL sont
+    satisfaites pour des individus precis (cf. verify_rule_premises, agent2.py).
+    """
+    g = get_graph()
+    full_query = query if _has_prefixes(query) else PREFIXES + "\n" + query
+    prepared = prepareQuery(full_query)
+    result = g.query(prepared)
+    return bool(result.askAnswer)
 
 
 def _shorten(value) -> str:

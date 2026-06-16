@@ -80,6 +80,20 @@ def _compact_summary(taxonomy):
     if individus:
         lignes.append("VOCABULAIRE : " + ", ".join(_nom_court(i["uri"], prefixes) for i in individus))
 
+    # Proprietes deduites par le raisonneur SWRL (deja materialisees dans
+    # l'ontologie de travail) : Agent 2 peut les interroger directement,
+    # comme n'importe quelle autre propriete.
+    swrl_rules = taxonomy.get("swrl_rules", [])
+    if swrl_rules:
+        seen = {}
+        for r in swrl_rules:
+            seen.setdefault(r["head_predicate"], r)
+        lignes.append("RELATIONS DEDUITES PAR LE RAISONNEUR (SWRL, deja materialisees) :")
+        for pred, r in seen.items():
+            portee = r["range"] or "?"
+            commentaire = (r.get("comment") or "").split(".")[0]
+            lignes.append(f"  tgc:{pred} : {r['domain']} -> {portee} -- {commentaire}")
+
     return "\n".join(lignes)
 
 
@@ -103,6 +117,10 @@ def node_load_taxonomy(state: AgentState) -> AgentState:
             json.dump(taxonomy, f, indent=2, ensure_ascii=False)
 
     state["ontology_summary"] = _compact_summary(taxonomy)
+    # Definitions des regles SWRL : transmises telles quelles, pour qu'Agent 2
+    # puisse citer les regles dont les conclusions sont effectivement utilisees
+    # (cf. _cited_swrl_rules dans agent2.py).
+    state["swrl_rules"] = taxonomy.get("swrl_rules", [])
     return state
 
 
@@ -229,6 +247,7 @@ def node_bridge(state: AgentState) -> AgentState:
 
     for field in _BRIDGE_FIELDS:
         state[field] = bridge.get(field)
+    state["bridge_attempts"] = tentative
     state["status"] = "ok"
     print(f"[Bridge] élément de jeu = {state['recommended_game_element']} | "
           f"objectif = {state['behavioural_objective']}")

@@ -24,7 +24,7 @@ from collections import defaultdict
 from owlready2 import get_ontology, ThingClass, And, Or, Restriction, sync_reasoner_pellet
 
 from ..config import GROQ_CURATION_MODEL
-from ..tools.sparql_tools import ONTOLOGY_PATH, INFERRED_PATH
+from ..tools.sparql_tools import ONTOLOGY_PATH, INFERRED_PATH, SWRL_BUILTIN_OPS
 
 # Le JSON de taxonomie est écrit à la racine du projet (../../ depuis l'ontologie).
 OUTPUT_PATH = ONTOLOGY_PATH.parents[1] / "taxonomy_for_agent_2.json"
@@ -138,6 +138,106 @@ def first_comment(entity):
     return str(comments[0]).strip() if comments else None
 
 
+def extract_rules(onto) -> list:
+    """Extrait les regles SWRL de l'ontologie (lecture seule, 0 token).
+
+    Pour chaque regle DL-safe (corps -> tete), on renvoie :
+      - label / comment : tels que portes par la regle (rdfs:label, rdfs:comment) ;
+        si le label est juste un numero (regles non nommees), on retombe sur le
+        nom du predicat de tete ;
+      - head_predicate / head_args : predicat et variables de la tete
+        (ex: "recommendedResource", ["?t", "?r"]) ;
+      - domain / range : classes des arguments de la tete, retrouvees via les
+        ClassAtom du corps portant sur les memes variables ;
+      - body_predicates : forme lisible des atomes de propriete du corps
+        (ex: "containsGameElement(GamifiedResource, GameElementResource)") ;
+      - body_predicate_names : memes atomes, juste les noms de predicats (pour
+        savoir si Agent 2 a deja interroge toutes les premisses de la regle) ;
+      - body_atoms : forme structuree (IRIs + variables) du corps, utilisee par
+        verify_rule_premises (agent2.py) pour verifier par requete SPARQL si les
+        premisses de la regle sont satisfaites pour des individus precis.
+
+    Ces regles ne sont PAS executees ici (voir run_reasoner) : on lit juste
+    leur definition pour que les agents en aval sachent qu'elles existent.
+    """
+    rules = []
+    for r in onto.rules():
+        head_atoms = list(r.head)
+        if not head_atoms:
+            continue
+        head = head_atoms[0]
+        head_pred = head.property_predicate.name
+        head_args = [str(a) for a in head.arguments]
+
+        arg_classes = {}
+        body_preds_fmt = []
+        body_pred_names = []
+        body_atoms = []
+        for atom in r.body:
+            kind = type(atom).__name__
+            if kind == "ClassAtom":
+                var = str(atom.arguments[0])
+                arg_classes[var] = atom.class_predicate.name
+                body_atoms.append({
+                    "kind": "class",
+                    "var": var,
+                    "class_iri": atom.class_predicate.iri,
+                })
+            elif kind == "IndividualPropertyAtom":
+                a, b = (str(x) for x in atom.arguments)
+                name = atom.property_predicate.name
+                body_pred_names.append(name)
+                body_preds_fmt.append(f"{name}({arg_classes.get(a, a)}, {arg_classes.get(b, b)})")
+                body_atoms.append({
+                    "kind": "object_property",
+                    "subject": a,
+                    "object": b,
+                    "predicate_iri": atom.property_predicate.iri,
+                    "predicate_name": name,
+                })
+            elif kind == "DatavaluedPropertyAtom":
+                a, b = (str(x) for x in atom.arguments)
+                body_atoms.append({
+                    "kind": "data_property",
+                    "subject": a,
+                    "value": b,
+                    "predicate_iri": atom.property_predicate.iri,
+                    "predicate_name": atom.property_predicate.name,
+                })
+            elif kind == "BuiltinAtom":
+                if atom.builtin in SWRL_BUILTIN_OPS:
+                    body_atoms.append({
+                        "kind": "builtin",
+                        "builtin": atom.builtin,
+                        "args": [str(x) for x in atom.arguments],
+                    })
+            elif kind == "DifferentIndividualsAtom":
+                body_atoms.append({
+                    "kind": "different",
+                    "args": [str(x) for x in atom.arguments],
+                })
+
+        domain = arg_classes.get(head_args[0], "?")
+        range_ = arg_classes.get(head_args[1], "?") if len(head_args) > 1 else None
+
+        label = r.label[0] if r.label else None
+        if not label or str(label).isdigit():
+            label = head_pred
+
+        rules.append({
+            "label": str(label),
+            "comment": r.comment[0] if r.comment else None,
+            "head_predicate": head_pred,
+            "head_args": head_args,
+            "domain": domain,
+            "range": range_,
+            "body_predicates": body_preds_fmt,
+            "body_predicate_names": body_pred_names,
+            "body_atoms": body_atoms,
+        })
+    return rules
+
+
 # ==========================================================================
 # PHASE 1 — EXTRACTION DÉTERMINISTE (0 token)
 # ==========================================================================
@@ -211,6 +311,7 @@ def extract_structure() -> dict:
         "object_properties": object_properties,
         "data_properties": data_properties,
         "individuals_by_class": dict(individuals_by_class),
+        "swrl_rules": extract_rules(onto),
     }
 
 
@@ -383,6 +484,10 @@ def apply_filter(structure: dict, keep: dict) -> dict:
         "object_properties": [clean(p) for p in kept_ops],
         "data_properties": [clean(p) for p in kept_dps],
         "individuals": final_individuals,
+        # Regles SWRL : passees telles quelles (liste fixe et courte, pas de
+        # curation LLM necessaire) pour qu'Agent 2 sache quelles proprietes
+        # sont deduites par le raisonneur (recommendedResource, ...).
+        "swrl_rules": structure.get("swrl_rules", []),
     }
 
 
@@ -395,7 +500,8 @@ if __name__ == "__main__":
     print(f"  {len(structure['classes'])} classes, "
           f"{len(structure['object_properties'])} object props, "
           f"{len(structure['data_properties'])} data props, "
-          f"{sum(len(v) for v in structure['individuals_by_class'].values())} individus")
+          f"{sum(len(v) for v in structure['individuals_by_class'].values())} individus, "
+          f"{len(structure['swrl_rules'])} regles SWRL")
 
     print("Phase 2 — curation LLM (noms seuls)...")
     filter_input = build_filter_input(structure)
@@ -420,7 +526,8 @@ if __name__ == "__main__":
           f"{len(result['classes'])} classes, "
           f"{len(result['object_properties'])} object props, "
           f"{len(result['data_properties'])} data props, "
-          f"{len(result['individuals'])} individus de vocabulaire")
+          f"{len(result['individuals'])} individus de vocabulaire, "
+          f"{len(result['swrl_rules'])} regles SWRL")
 
     print("\nPhase 4 — raisonneur (règles SWRL)...")
     try:
