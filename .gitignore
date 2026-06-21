@@ -22,6 +22,7 @@ build/
 *.swo
 *~
 .DS_Store
+.streamlit
 
 # Ontologie enrichie par le raisonneur (générée par Agent 1)
 ontologies/TGC_inferred.owl

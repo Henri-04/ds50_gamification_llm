@@ -43,10 +43,7 @@ These relations were added coherently with the information already present in th
 * the classroom objectives already associated with the teacher or course when available.
 
 The detailed list of added `TCO:teaches` relations and their justifications is documented in:
-
-```text
-added_teaches_relations.md
-```
+[03_added_teaches_relations.md](03_added_teaches_relations.md).
 
 ## 2. Added object properties
 
@@ -116,10 +113,7 @@ The inferred relations were tested using SPARQL queries for each inferred proper
 * `TGC:hasSimilarProfile`
 
 The SPARQL queries used for validation are documented in:
-
-```text
-test_swrL_rules_queries.md
-```
+[04_swrl_rules_validation_queries.md](04_swrl_rules_validation_queries.md).
 
 ## 5. Notes and limitations
 
@@ -132,11 +126,9 @@ test_swrL_rules_queries.md
 
 This update is accompanied by the following documentation files:
 
-```text
-added_teaches_relations.md
-swrl_rules.md
-test_swrL_rules_queries.md
-```
+- [01_swrl_rules_proposal.md](01_swrl_rules_proposal.md)
+- [03_added_teaches_relations.md](03_added_teaches_relations.md)
+- [04_swrl_rules_validation_queries.md](04_swrl_rules_validation_queries.md)
 
 ## 7. Commit summary
 

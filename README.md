@@ -1,5 +1,9 @@
 # Projet DS50 : IA Générative et Gamification
 
+> Pour le détail de l'architecture (rôle de chaque agent et du Bridge), la
+> justification des choix de conception, et deux scénarios de test pas à pas, voir
+> [docs/guide_utilisateur.md](docs/guide_utilisateur.md).
+
 ## Description
 
 Système d'IA générative qui recommande des stratégies de **gamification pédagogique**
@@ -32,7 +36,7 @@ flowchart LR
 | **Recommandation de personnes** | Propose des mentors potentiels et des pairs au profil similaire, à partir des relations **déjà inférées** dans l'ontologie (`potentialMentorOf`, `hasSimilarProfile`, `moreExpertThan`…). 100 % SPARQL, aucun LLM. | `rdflib` |
 | **Agent 1** | Explore l'ontologie OWL et produit une taxonomie épurée (`taxonomy_for_agent_2.json`) : extraction déterministe + 1 appel LLM de curation, avec repli sans LLM. | `owlready2`, Groq |
 | **Agent 2** | Traduit la question (langage naturel) en requête **SPARQL**, l'exécute sur l'ontologie et renvoie les données réelles. Boucle de retry bornée si la requête échoue. | `rdflib`, Groq |
-| **Bridge** | Structure la sortie d'Agent 2 en champs exploitables (profil apprenant, objectifs, élément de jeu…). Repli sur valeurs par défaut si le LLM renvoie un JSON invalide. | Groq |
+| **Bridge** | Structure la sortie d'Agent 2 en champs exploitables (profil apprenant, objectifs, élément de jeu…). Échoue explicitement (aucune valeur fabriquée) si le LLM est injoignable ou renvoie un JSON invalide/incomplet après une nouvelle tentative. | Groq |
 | **Agent 3** | Génère la ressource gamifiée finale en **Markdown** (version texte, exportable) **et** un schéma **Mermaid** de l'activité (version visuelle). | NVIDIA |
 
 > La **recommandation de personnes** elle-même est **purement déterministe** (SPARQL
@@ -40,9 +44,7 @@ flowchart LR
 > LLM (Groq) : atteindre cette branche via le pipeline requiert donc une clé Groq —
 > mais l'appel direct `python -m src.agent.people <Prof>` reste 100 % SPARQL, sans clé.
 
-> L'ontologie est interrogée **en mémoire via rdflib** — aucun serveur Neo4j n'est
-> nécessaire pour faire tourner l'application. Un guide d'import vers Neo4j existe à
-> titre optionnel/exploratoire : [ontologies/IMPORT_OWL_NEO4J.md](ontologies/IMPORT_OWL_NEO4J.md).
+> L'ontologie est interrogée **en mémoire via rdflib**
 
 ## Stack technique
 
@@ -61,18 +63,17 @@ ds50_gamification_llm/
 ├── .env.example                # Modèle de configuration (clés API)
 ├── pytest.ini
 ├── taxonomy_for_agent_2.json   # Taxonomie produite par Agent 1 (cache)
-├── EXPORT_PROJET_POUR_RAPPORT.md    # Export consolidé du projet (pour le rapport)
 ├── .streamlit/
 │   └── config.toml             # Thème de l'interface Streamlit
 ├── ontologies/
 │   ├── TGC_working-2026-06-05.owl  # Ontologie enrichie (SWRL matérialisées) — utilisée par le pipeline
-│   ├── TGC_original.owl            # Version d'origine (sans relations entre profs)
-│   └── IMPORT_OWL_NEO4J.md         # Import optionnel vers Neo4j
-├── docs/                       # Notes techniques (ontologie & règles SWRL)
-│   ├── swrl_rules.md
-│   ├── 2026-06-05_swrl_update.md
-│   ├── added_teaches_relations.md
-│   └── test_swrL_rules_queries.md
+│   └── TGC_original.owl            # Version d'origine (sans relations entre profs)
+├── docs/                       # Guide utilisateur + notes techniques (ontologie & règles SWRL)
+│   ├── guide_utilisateur.md                       # Architecture détaillée, scénarios de test, reprise du projet
+│   ├── 01_swrl_rules_proposal.md                  # Propositions de règles SWRL (conception)
+│   ├── 02_swrl_rules_implementation_2026-06-05.md # Règles effectivement implémentées + validation
+│   ├── 03_added_teaches_relations.md              # Justification des relations enseignant↔cours ajoutées
+│   └── 04_swrl_rules_validation_queries.md        # Requêtes SPARQL de validation des règles
 ├── src/
 │   ├── config.py               # Config centralisée (modèles LLM, défauts)
 │   ├── main.py                 # Point d'entrée CLI interactif
