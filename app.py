@@ -10,6 +10,7 @@ mêmes sélections, même orchestration, mêmes résultats. Les logs détaillés
 agents s'affichent en temps réel dans la console (prints des nœuds).
 """
 
+import itertools
 import re
 import sys
 from pathlib import Path
@@ -45,6 +46,13 @@ except Exception as e:  # dépendances/LLM absents : l'app reste affichable
 _MERMAID_ESM = "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs"
 _MERMAID_PATTERN = re.compile(r"```mermaid\n(.*?)\n```", re.DOTALL)
 
+# Compteur global (pas local à un seul appel de render_trace_md) : un même message
+# affiche plusieurs graphes Mermaid via PLUSIEURS appels à render_trace_md (aperçu
+# visuel, puis traçabilité). Un id basé sur l'index local au texte découpé peut donc
+# se répéter entre deux appels ; document.getElementById() renvoie alors le premier
+# élément du DOM portant cet id (déjà converti en SVG), jamais le bon nœud.
+_mermaid_id_counter = itertools.count()
+
 
 def _mermaid_html(code: str, block_id: str) -> str:
     return (
@@ -65,7 +73,8 @@ def render_trace_md(text: str) -> None:
     parts = _MERMAID_PATTERN.split(text)
     for i, part in enumerate(parts):
         if i % 2 == 1:                        # indices impairs = code mermaid capturé
-            st.html(_mermaid_html(part, f"mermaid-{i}"), unsafe_allow_javascript=True)
+            block_id = f"mermaid-{next(_mermaid_id_counter)}"
+            st.html(_mermaid_html(part, block_id), unsafe_allow_javascript=True)
         elif part.strip():
             st.markdown(part)
 
